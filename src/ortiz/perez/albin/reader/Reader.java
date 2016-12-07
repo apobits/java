@@ -13,10 +13,11 @@ public class Reader {
 
 	public void read() {
 		Scanner scanner = new Scanner(System.in);
-		while (scanner.hasNext()) {
 			System.out.println(scanner.nextLine());
+			System.out.println(scanner.hasNext());
+			System.out.println(scanner.hasNext());
+
 			scanner.close();
-		}
 		
 
 	}
