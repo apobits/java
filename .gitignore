@@ -1,5 +1,6 @@
 *.class
-
+#Eclipse project classpath file
+*.classpath
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
