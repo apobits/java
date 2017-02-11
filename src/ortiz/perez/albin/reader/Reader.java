@@ -12,6 +12,7 @@ import java.util.Scanner;
 public class Reader {
 
 	public void read() {
+		System.out.println("gittttt");
 		Scanner scanner = new Scanner(System.in);
 			System.out.println(scanner.nextLine());
 			System.out.println(scanner.hasNext());
