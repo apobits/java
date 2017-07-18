@@ -8,7 +8,7 @@ package ortiz.perez.albin.statics;
  *
  */
 // Working with static or global variables
-public class StaticExample {
+public class StaticExample2 {
 
 	// static variable to be initialize when class is loaded by the static
 	// method
@@ -23,17 +23,9 @@ public class StaticExample {
 	}
 
 	public static void main(String[] args) {
-		System.out.print(StaticExample.name);
+		System.out.print(StaticExample2.name);
 		System.out.print(" ");
-		System.out.println(StaticExample.lastName);
-		
-		StaticExample e1 = new StaticExample();
-		
-		StaticExample e2 = new StaticExample();
-		
-		e1.lastName = "Ortiz";
-		
-		System.out.println(e2.lastName);
+		System.out.println(StaticExample2.lastName);
 
 	}
 
