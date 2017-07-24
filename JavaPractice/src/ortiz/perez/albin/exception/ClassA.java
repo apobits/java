@@ -8,9 +8,19 @@ package ortiz.perez.albin.exception;
  *
  */
 public class ClassA {
-	
-	public void divByZero(){
-		int x = 2/0;
+
+	public static void divByZero() {
+
+		int x = 2 / 0;
+	}
+
+	public static void main(String args[]) {
+		here:
+		try {
+			ClassA.divByZero();
+		} catch (Exception e) {
+			 break here;
+		}
 	}
 
 }
