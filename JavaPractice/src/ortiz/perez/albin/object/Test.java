@@ -17,6 +17,12 @@ public class Test {
 		String s = new String("Hello");
 		Integer i = new Integer(1);
 		A a = new A();
+		try {
+			Thread.sleep(10000);;
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		System.out.println("s object " + s);
 		System.out.println("i object " + i);
 		System.out.println("a object " + a);
