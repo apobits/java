@@ -8,30 +8,25 @@
  */
 public class Test {
 
-    public int close10(int a, int b) {
+	public boolean stringE(String str) {
+		int count = 0;
+		char x[] = str.toCharArray();
+		for (int i = 0; i < str.length(); i++) {
+			if (x[i] == 'e')
+				count++;
+			if (count > 3)
+				return false;
+		}
 
-	int x = Math.abs(10 - a);
+		return count == 0 ? false : true;
 
-	int y = Math.abs(10 - b);
+	}
 
-	int z = 0;
-
-	if (x > y)
-	    z = b;
-	else if (x < y)
-	    z = a;
-
-	return z;
-
-    }
-
-    /**
-     * @param args
-     */
-    public static void main(String[] args) {
-
-	System.out.println(new Test().close10(13, 7));
-
-    }
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		System.out.println(new Test().stringE("Heelele"));
+	}
 
 }
