@@ -9,30 +9,26 @@ package ortiz.perez.albin.lambda_expressions;
  */
 public class ConstructorReferenceGeneric<T> {
 
-	int number = 0;
+    T number;
 
-	static interface Constructor<T> {
-		ConstructorReferenceGeneric<T> generate(T i);
-	}
+    static interface Constructor<T> {
+	ConstructorReferenceGeneric<T> generate(T i);
+    }
 
-	public <T>ConstructorReferenceGeneric(T t) {
+    public ConstructorReferenceGeneric(T t) {
+	this.number = t;
+    }
 
-	}
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
 
-	public ConstructorReferenceGeneric(int i) {
-		this.number = i;
-	}
+	Constructor<Integer> c = ConstructorReferenceGeneric<Integer>::new;
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
+	ConstructorReferenceGeneric<Integer> cc = c.generate(1);
+	System.out.println(cc.number);
 
-		Constructor c = ConstructorReferenceGeneric::new;
-
-		ConstructorReferenceGeneric cc = c.generate(1);
-		System.out.println(cc.number);
-
-	}
+    }
 
 }
