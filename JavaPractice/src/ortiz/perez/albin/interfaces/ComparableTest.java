@@ -1,7 +1,7 @@
 /**
  * 
  */
-package ortiz.pere.albin.interfaces;
+package ortiz.perez.albin.interfaces;
 
 /**
  * @author aposo
