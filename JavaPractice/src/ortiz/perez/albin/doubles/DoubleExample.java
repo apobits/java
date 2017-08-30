@@ -23,7 +23,11 @@ public class DoubleExample {
 		System.out.println("a hashcode = " + a.hashCode());
 		System.out.println("b hashcode = " + b.hashCode());
 		System.out.println("c hashcode = " + c.hashCode());
-
+		
+		System.out.println(Double.parseDouble("1"));
+		
+		System.out.println(Double.toHexString(a));
+		
 	}
 
 }
