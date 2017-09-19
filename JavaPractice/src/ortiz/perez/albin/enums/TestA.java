@@ -37,6 +37,8 @@ public class TestA {
 		System.out.println(A.C);
 
 		System.out.println("Printing values in a for each style loop");
+		
+		System.out.println(a.getLowerCase());
 		for (A x : A.values())
 			System.out.print(x);
 

@@ -8,15 +8,16 @@
  */
 public class CodingBat {
 
-	static boolean countXX(String str) {
-		int index = str.indexOf("x");
-
-		return (str.length() - 1 != index) && (str.charAt(index + 1) == 'x') ? true : false;
+    public static String stringBits(String str) {
+	StringBuilder sb = new StringBuilder();
+	for (int i = 0; i < str.length(); i+=2) {
+		sb.append(str.charAt(i));
 	}
+	return sb.toString();
+    }
 
-	public static void main(String[] args) {
-		String x = "HixxElxxyxxxnxx";
-		System.out.println(countXX(x));
-	}
+    public static void main(String args[]) {
+	System.out.println(stringBits("Heeololeo"));
+    }
 
 }
