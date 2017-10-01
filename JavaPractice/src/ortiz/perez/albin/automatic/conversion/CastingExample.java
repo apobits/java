@@ -17,7 +17,7 @@ public class CastingExample {
 
 		System.out.println(b);
 		
-		float c = 10.3f;
+		float c = 10.9f;
 		
 		//truncation
 		short d = (short) c;

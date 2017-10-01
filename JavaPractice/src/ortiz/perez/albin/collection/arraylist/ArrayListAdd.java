@@ -34,6 +34,10 @@ public class ArrayListAdd {
 
 		// adds a collection starting from the specified position
 		numbers.addAll(0, numbers2);
+		System.out.println(numbers);
+
+		// sets the element at the specified index, the old element is deleted
+		numbers.set(0, 1);
 
 		System.out.println(numbers);
 

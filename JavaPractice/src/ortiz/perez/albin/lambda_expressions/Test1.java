@@ -42,7 +42,7 @@ public class Test1 {
 
 	BiPredicate<String, String> r = (x, y) -> x.equals(y);// when there is more than one parameter they must be enclosed with parenthesis
 
-	BiPredicate<String, String> s = (String x, String y) -> x.equals(y);// if you declare the type of one parameter the others parameters type must be declared to
+	BiPredicate<String, String> s = (String x, String y) -> x.equals(y);// if you declare the type of one parameter the others parameters type must be declared too
 
 	System.out.println(p.test(new String("Hi")));
 

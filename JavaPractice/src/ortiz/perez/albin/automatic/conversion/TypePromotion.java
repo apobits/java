@@ -14,7 +14,9 @@ public class TypePromotion {
 		byte a = 3;
 
 		// automatic type promotion to int
-		int b = 3 * 10;
+		byte b = 3 * 10;
+
+		System.out.println(a * b);
 
 		System.out.println(b);
 
@@ -22,6 +24,11 @@ public class TypePromotion {
 		a = (byte) (a * 10);
 
 		System.out.println(a);
+
+		float x = 12.3f;
+
+		float y = 123f;
+
 
 	}
 

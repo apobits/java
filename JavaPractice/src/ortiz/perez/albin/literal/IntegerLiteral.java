@@ -16,7 +16,7 @@ public class IntegerLiteral {
 		System.out.println(dOne + " " + dTwo + " " + dThree);
 
 		// Octal(base 8) literal value
-		int oX = 0421;
+		int oX = 07421;
 		System.out.println(oX);
 
 		// int oY = 0821; out of range error
