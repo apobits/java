@@ -11,6 +11,10 @@ import java.util.function.Consumer;
  */
 public class MethodReferenceTest {
 
+    public MethodReferenceTest() {
+
+    }
+
     public static void execute(Consumer<String> t, String word) {
 	t.accept(word);
     }

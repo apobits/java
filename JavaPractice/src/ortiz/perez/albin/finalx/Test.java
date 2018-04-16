@@ -9,17 +9,17 @@ package ortiz.perez.albin.finalx;
  */
 public class Test {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		// A a = new A();
-		// a.doSomething();
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+	// TODO Auto-generated method stub
+	FinalClass a = new FinalClass();
+	a.doSomething();
 
-		C c = new C();
-		System.out.println(c.hi);
-		new B().doSomething("hisi");
-	}
+	C c = new C();
+	System.out.println(c.hi);
+	new B().doSomething("hisi");
+    }
 
 }

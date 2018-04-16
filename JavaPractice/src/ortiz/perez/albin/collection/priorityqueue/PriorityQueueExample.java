@@ -16,6 +16,7 @@ public class PriorityQueueExample {
 		priorityQueue.add(1);
 		priorityQueue.add(2);
 		priorityQueue.add(3);
+		priorityQueue.add(1);
 
 		System.out.println(priorityQueue.peek());
 

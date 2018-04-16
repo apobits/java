@@ -23,8 +23,15 @@ public class SpliteratorExample {
 		numbers.add(7);
 		numbers.add(8);
 
-		Spliterator<Integer> spr = numbers.spliterator();
+		Spliterator<Integer> spr = numbers.spliterator();// gives facilities to
+															// iterate over
+															// arrays,
+															// Collection, IO
+															// channel,
+															// generator
+															// function
 		int temp = 0;
+		System.out.println(spr.estimateSize());
 		spr.forEachRemaining(n -> {
 			System.out.print(n + " " + temp);
 		});

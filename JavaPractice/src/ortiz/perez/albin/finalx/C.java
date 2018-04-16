@@ -9,11 +9,11 @@ package ortiz.perez.albin.finalx;
  */
 public class C extends B {
 
-	public String hi = "lol";
+    public String hi = "lol";
 
-	// cannot override superclass final method
-//	 public void doSomething(){
-//	
-//	 }
+    // cannot override superclass final method
+//    public void doSomething(String msg) {
+//
+//    }
 
 }

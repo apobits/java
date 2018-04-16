@@ -11,19 +11,25 @@ import java.util.HashSet;
  */
 public class HashSetExample {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		HashSet<String> hashSet = new HashSet<>();
+	HashSet<Integer> hashSet = new HashSet<>();
 
-		hashSet.add("abcde");
-		hashSet.add("babcd");
-		hashSet.add("cabde");
-		hashSet.add("d");
-		hashSet.add("e");
-		hashSet.add("f");
+	hashSet.add(2);
+	hashSet.add(1);
+	hashSet.add(3);
+	hashSet.add(4);
+	hashSet.add(6);
+	hashSet.add(5);
+	hashSet.add(7);
+	hashSet.add(8);
+	hashSet.add(9);
+	hashSet.add(10);
+	hashSet.add(11);
+	hashSet.add(12);
 
-		System.out.println(hashSet);
+	System.out.println(hashSet);
 
-	}
+    }
 
 }

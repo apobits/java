@@ -1,69 +1,31 @@
-import java.io.FileNotFoundException;
-
 /**
+ * Class description
  * 
- */
-
-/**
- * @author aposo
- *
+ * @author
+ * @version
+ * @since
  */
 public class Test {
-	static class Node {
-		public Node() {
-		}
 
-		public Node(Node next, Node prev, int data) {
-			this.data = data;
-			this.next = next;
-			this.prev = prev;
-		}
+    static class Person {
+	boolean flag = false;
+    }
 
-		int data;
-		Node next;
-		Node prev;
-	}
+    public static void changeObjectInfo(Person person) {
+	person.flag = false;
+    }
 
-	static Node SortedInsert(Node head, int data) {
-		if (head == null) {
-			Node node = new Node();
-			node.data = data;
-			return node;
-		}
+    public static void main(String[] args) {
+	// Calendar c = new GregorianCalendar();
+	// c.set(Calendar.DAY_OF_YEAR, 256);
+	// c.set(Calendar.YEAR, 1918);
+	// System.out.println(c.getTime());
 
-		Node temp = head;
-		Node insert = new Node();
-		insert.data = data;
+	Person p = new Person();
+	p.flag = true;
+	changeObjectInfo(p);
 
-		if (temp.data <= data) {
-			while (temp.next != null && temp.next.data <= data) {
-				temp = temp.next;
-			}
-			Node right = temp.next;
-			temp.next = insert;
-			temp.next.next = right;
-			temp.next.prev = temp;
-			if (temp.next.next != null)
-				temp.next.next.prev = temp.next;
-		} else {
-			insert.next = temp;
-			temp.prev = insert;
-			return insert;
-		}
-
-		return head;
-	}
-
-	public static void main(String[] args) throws FileNotFoundException {
-		Node node = SortedInsert(null, 1);
-		node = SortedInsert(node, 4);
-		node = SortedInsert(node, 2);
-		node = SortedInsert(node, 3);
-		node = SortedInsert(node, 7);
-		node = SortedInsert(node, 6);
-		node = SortedInsert(node, 9);
-		node = SortedInsert(node, 10);
-
-	}
+	System.out.println(p.flag);
+    }
 
 }

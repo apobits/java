@@ -16,6 +16,7 @@ public class TreeSetExample {
 		treeSet.add(7);
 		treeSet.add(6);
 		treeSet.add(8);
+		treeSet.add(8);
 
 		System.out.println(treeSet);
 	}

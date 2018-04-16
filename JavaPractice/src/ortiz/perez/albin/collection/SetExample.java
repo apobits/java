@@ -21,7 +21,6 @@ public class SetExample {
 		s1.add(a);
 		s1.add(b);
 		s1.add(c);
-
 		System.out.println(s1);
 
 	}

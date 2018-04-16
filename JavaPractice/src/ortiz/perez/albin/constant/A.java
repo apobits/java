@@ -7,7 +7,7 @@ package ortiz.perez.albin.constant;
  * @author Administrador
  *
  */
-public class A {
+public final class A {
 
 	public static final String NAME = "name";
 
