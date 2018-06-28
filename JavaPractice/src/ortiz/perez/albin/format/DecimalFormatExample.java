@@ -19,7 +19,15 @@ public class DecimalFormatExample {
 
 	// Formatting a float value with 2 decimals to the right
 	DecimalFormat f = new DecimalFormat("####.##");
-	System.out.println(f.format(123456.789f));
+	String temp = f.format(8.516f);
+	int length = 0;
+	int index = temp.indexOf(",");
+	if (index == -1) {
+	    length = temp.length() + 2;
+	} else {
+	    length = index + 2;
+	    temp.replaceAll(",", "");
+	}
+	System.out.println(temp);
     }
-
 }
