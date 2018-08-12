@@ -27,7 +27,6 @@ public class RestWSConsumer {
 	// Using urlconnection
 	try {
 	    URLConnection urlConn = new URL(args[0]).openConnection();
-
 	    String x = null;
 	    BufferedReader br = new BufferedReader(new InputStreamReader(urlConn.getInputStream()));
 	    while ((x = br.readLine()) != null) {
