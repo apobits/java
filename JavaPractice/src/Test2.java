@@ -14,7 +14,7 @@ public class Test2 {
     public static void main(String[] args) {
 	String s = "Capitán";
 
-	System.out.println((int)'á');
+	System.out.println((int)'A');
     }
 
 }
