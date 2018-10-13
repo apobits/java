@@ -8,11 +8,13 @@
  */
 public class Test2 {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		System.out.println((byte)256);
-	}
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+	String s = "Capitán";
+
+	System.out.println((int)'A');
+    }
 
 }
