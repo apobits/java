@@ -11,6 +11,15 @@ public class IntegerLiteral {
 
 	public static void main(String[] args) {
 
+		// byte number one in a byte representation
+		byte dOne1 = 0b0001;
+
+		// byte number one in an octal representation
+		byte oOne1 = 01;
+
+		// byte number one in a hexadecimal representation
+		byte hOne1 = 0x1;
+
 		// Decimal(base 10) literal value
 		int dOne = 1, dTwo = 2, dThree = 3;
 		System.out.println(dOne + " " + dTwo + " " + dThree);
@@ -40,6 +49,10 @@ public class IntegerLiteral {
 		// integer literals using binary and underscores
 		int x = 0b1101_0101_0001_1010;
 		System.out.println(x);
+
+		// byte literal assign to a byte variable
+		byte y = 0b0001;
+		System.out.println(y);
 
 	}
 
