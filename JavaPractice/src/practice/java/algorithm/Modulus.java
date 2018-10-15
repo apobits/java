@@ -10,7 +10,8 @@ package practice.java.algorithm;
 public class Modulus {
 
 	public int getModulus(int dividend, int divisor) {
-		if()
+
+		return 0;
 	}
 
 	public static void main(String[] args) {

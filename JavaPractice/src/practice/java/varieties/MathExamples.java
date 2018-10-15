@@ -13,7 +13,7 @@ public class MathExamples {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		
+
 		System.out.println(~-16);
 
 		int a = 5;
@@ -33,8 +33,10 @@ public class MathExamples {
 		System.out.println("modulus of 21/5 is " + 21 % 5);
 
 		System.out.println("modulus of 21.5/10 is " + 21.5 % 10);
-		
-		System.out.println(100000000);
+
+		int b = 1 + 7 - 3 + 2;
+
+		System.out.println(b);
 	}
 
 }
