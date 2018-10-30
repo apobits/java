@@ -22,7 +22,6 @@ public class ArrayListAdd {
 		ArrayList<Integer> numbers2 = new ArrayList<>();
 		numbers2.add(5);
 		numbers2.add(6);
-
 		// adds an element to the next available position
 		numbers.add(1);
 
