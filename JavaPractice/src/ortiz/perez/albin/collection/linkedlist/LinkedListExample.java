@@ -11,10 +11,23 @@ import java.util.LinkedList;
  */
 public class LinkedListExample {
 
+	public static void stack() {
+		LinkedList<Character> vowels = new LinkedList<>();
+		vowels.add('e');
+		vowels.add('i');
+		vowels.push('a');
+		vowels.offer('o');
+		vowels.offerLast('u');
+		vowels.offerFirst('X');
+
+	}
+
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
+
+		stack();
 
 		LinkedList<String> letters = new LinkedList<>();
 
@@ -57,8 +70,8 @@ public class LinkedListExample {
 
 		// LinkedList<String> letters1 = new LinkedList<>(letters);
 		// System.out.println(letters1);
-		
-		for(String x:letters){
+
+		for (String x : letters) {
 			System.out.print(x);
 		}
 
