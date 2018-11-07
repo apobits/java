@@ -3,6 +3,7 @@
  */
 package practice.java.collection;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.TreeSet;
@@ -23,6 +24,15 @@ public class CollectionExample {
 
 		// Using conversion constructor
 		LinkedList<String> ll = new LinkedList<>(collection);
+		ArrayList<String> al = new ArrayList<>(collection);
+		TreeSet<String> ts = new TreeSet<>(collection);
+
+		// Using bulk operations
+		ll.addAll(al);
+		ts.addAll(al);
+		al.containsAll(ll);
+		ts.removeAll(ll);
+		ll.replaceAll(t -> new String("replaced"));
 
 	}
 

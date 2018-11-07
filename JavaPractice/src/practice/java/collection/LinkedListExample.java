@@ -22,7 +22,6 @@ public class LinkedListExample {
 		ll.push(3);
 		ll.add(null);
 		ll.add(null);
-		
 		System.out.println(ll.pop());
 	}
 
