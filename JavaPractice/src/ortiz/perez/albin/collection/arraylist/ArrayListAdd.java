@@ -4,6 +4,7 @@
 package ortiz.perez.albin.collection.arraylist;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * @author Administrador
@@ -37,6 +38,8 @@ public class ArrayListAdd {
 
 		// sets the element at the specified index, the old element is deleted
 		numbers.set(0, 1);
+		
+		Collections.shuffle(numbers);
 
 		System.out.println(numbers);
 

@@ -19,6 +19,7 @@ public class CamelCasePractice {
 		String[] words = camelCaseWord.split("[A-Z]");
 
 		System.out.println(words.length);
+
 	}
 
 }
