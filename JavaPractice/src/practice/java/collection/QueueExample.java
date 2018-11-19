@@ -4,6 +4,7 @@
 package practice.java.collection;
 
 import java.util.LinkedList;
+import java.util.PriorityQueue;
 
 /**
  * @author apobits@gmail.com
@@ -15,6 +16,10 @@ public class QueueExample {
 
 		// LinkedList implements Deque interface
 		LinkedList<Integer> linkedListQueue = new LinkedList<>();
+
+		linkedListQueue.add(1);
+		linkedListQueue.add(2);
+		linkedListQueue.add(3);
 
 		// adds the element to the end of the list
 		linkedListQueue.add(5);
@@ -34,11 +39,22 @@ public class QueueExample {
 		// returns and removes the head(first) element
 		linkedListQueue.poll();
 
+		linkedListQueue.forEach(t -> System.out.println(t));
+
+	}
+
+	public static void priorityQueue() {
+		// queue that orders the elements based on the natural order of the elements or
+		// the comparator used at creation time
+		PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
+
+		PriorityQueue<Integer> priorityQueue2 = new PriorityQueue<>((t, u) -> t - u);
+
+		// the methods offered are the same defined in the queue interface
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		linkedList();
 	}
 
 }

@@ -31,27 +31,30 @@ public class Test {
 				}
 			}
 		}
-		places.sort((s, t) -> s.getVisits() - t.getVisits());
-		System.out.println(places.getLast().getLocation() + " " + places.getLast().getVisits());
+		places.sort(null);
+		for (Place p : places) {
+			System.out.println(p.getLocation() + " " + p.getVisits() + " " + p.getVisitDate());
+		}
 	}
 }
 
 class Place implements Comparable<Place> {
 	private String location;
 	private Date visitDate;
-	private int visits;
-
-	public int getVisits() {
-		return visits;
-	}
-
-	public void setVisits(int visits) {
-		this.visits = visits;
-	}
+	private Integer visits;
 
 	public Place(String location) {
 		this.location = location;
 		visitDate = new Date();
+		visits = Integer.valueOf(1);
+	}
+
+	public Integer getVisits() {
+		return visits;
+	}
+
+	public void setVisits(Integer visits) {
+		this.visits = visits;
 	}
 
 	@Override
@@ -79,6 +82,6 @@ class Place implements Comparable<Place> {
 	@Override
 	public int compareTo(Place o) {
 		// TODO Auto-generated method stub
-		return location.compareTo(o.location);
+		return o.visits.compareTo(this.visits);
 	}
 }
