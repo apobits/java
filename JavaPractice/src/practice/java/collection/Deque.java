@@ -3,6 +3,7 @@
  */
 package practice.java.collection;
 
+import java.util.ArrayDeque;
 import java.util.LinkedList;
 
 /**
@@ -70,6 +71,14 @@ public class Deque {
 		// returns the last element from the list
 		// returns null if the list is empty
 		linkedList.peekLast();
+	}
+
+	public void arrayDeque() {
+		// Other implementation of the Deque interface
+		// This implementation is faster than LinkedList when used as a Queue
+		// This implementation is faster than Stack when used as a Stack
+		ArrayDeque<Integer> arrayDeque = new ArrayDeque<>();
+
 	}
 
 	/**
