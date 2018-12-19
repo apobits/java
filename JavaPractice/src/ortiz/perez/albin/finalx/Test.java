@@ -18,7 +18,9 @@ public class Test {
 	a.doSomething();
 
 	C c = new C();
+	//revise if the value of hi in C class hides the value of hi in class B
 	System.out.println(c.hi);
+	
 	new B().doSomething("hisi");
     }
 
