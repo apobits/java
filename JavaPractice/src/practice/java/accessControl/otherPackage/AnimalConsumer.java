@@ -21,6 +21,9 @@ public class AnimalConsumer {
 
 		// Cannot access private member from a different class in a different package
 		// animal.vision ="Ultra";
+		
+		//Cannot access protected member from a different class in a different package
+		//animal.canFly;
 
 		System.out.println(animal.name);
 	}

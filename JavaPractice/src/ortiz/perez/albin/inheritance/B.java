@@ -14,6 +14,10 @@ public class B extends A {
 	super(0, "b", 'c');
 	System.out.println("B class constructor called");
     }
+    
+    public B(B b) {
+    	super(b);
+    }
 
     public B(int a, String b, char c) {
 	super(a, b, c);

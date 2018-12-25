@@ -12,6 +12,10 @@ public class Animal {
 	public String name;
 
 	private String vision;
+	
+	protected boolean canFly;
+	
+	int visionRange;
 
 	/**
 	 * @param args
