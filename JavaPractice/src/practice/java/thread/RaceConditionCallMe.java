@@ -21,4 +21,12 @@ public class RaceConditionCallMe {
 		System.out.println();
 	}
 
+	synchronized public void printOtherMessage(String message) {
+		System.out.println(message);
+	}
+
+	public void printAnyMessage(String message) {
+		System.out.println(message);
+	}
+
 }

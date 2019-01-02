@@ -19,6 +19,8 @@ public class RaceConditionStarter {
 		RaceConditionCallee callee2 = new RaceConditionCallee(callMe, "Callee2");
 		RaceConditionCallee callee3 = new RaceConditionCallee(callMe, "Callee3");
 
+		callMe.printAnyMessage("Hello");
+		callMe.printOtherMessage("Hi");
 		callee1.thread.join();
 		callee2.thread.join();
 		callee3.thread.join();
