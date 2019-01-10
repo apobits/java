@@ -3,6 +3,7 @@
  */
 package ortiz.perez.albin.generics;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -12,26 +13,30 @@ import java.util.List;
  */
 public class LowerBoundedWildcardExample {
 
-    public static void doSomething(List<? super Integer> list) {
+	public static void doSomething(List<? super B> list) {
 
-    }
+	}
 
-    public static void doSomethingElse(List<Integer> list) {
+	public static void doSomethingElse(List<Integer> list) {
 
-    }
+	}
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 
-	List<Object> list = Arrays.asList(new Object());
+		List<A> list = Arrays.asList(new A());
 
-	doSomething(list);
+		List<Integer> numberList = new ArrayList<>();
 
-	// The method doSomethingElse(List<Integer>) in the type
-	// LowerBoundedWildcardExample is not applicable for the arguments
-	// (List<Object>)
+		doSomething(list);
 
-	// doSomethingElse(list);
+		doSomethingElse(numberList);
 
-    }
+		// The method doSomethingElse(List<Integer>) in the type
+		// LowerBoundedWildcardExample is not applicable for the arguments
+		// (List<Object>)
+
+		// doSomethingElse(list);
+
+	}
 
 }
