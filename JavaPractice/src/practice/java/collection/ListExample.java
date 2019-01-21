@@ -4,6 +4,7 @@
 package practice.java.collection;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
@@ -20,22 +21,55 @@ public class ListExample {
 		list.add(1);
 		list.add(3);
 		list.add(2);
+		list.add(4);
+
+		// adds the element at the specified index shifting up the existent values
+		list.add(0, 2);
+
+		// adds the specified collection starting from the specified index shifting up
+		// the existent values
+		list.addAll(2, Arrays.asList(4, 5, 6));
+
+		// gets the element at the specified index
+		System.out.println("Element at index 0: " + list.get(0));
 
 		// removes the first occurrence of the specified element
 		// return true if the element was in the list
-		list.remove(Integer.valueOf(2));
+		list.remove(Integer.valueOf(4));
 
-		// returns the element that was removed by its position and shifts the elements
+		// returns the element that was removed at the specified position and shifts the
+		// elements
 		// one position to
 		// the left
 		list.remove(3);
-		
-		//returns the index of the specified object if it exits or -1 if it doesn't
-		list.indexOf(2);
+
+		// returns the index of the specified object if it exits or -1 if it doesn't
+		System.out.println("index of element 2: " + list.indexOf(2));
+
+		// returns the last index of the specified element
+		list.add(2);
+		System.out.println("last index of element 2: " + list.lastIndexOf(2));
+
+		// replaces every element in the list with the result of applying the unary
+		// operator to that element
+		list.replaceAll(t -> t + 1);
+
+		// replaces the element at the specified index with the specified element
+		list.set(0, 1);
+
+		// printing list
+		System.out.println("Printing list ");
+		System.out.println(list);
+
+		// sorts the elements in the list using the specified comparator
+		System.out.println("Printing list in descending order");
+		list.sort((t, r) -> r - t);
+		System.out.println(list);
+
 	}
-	
+
 	public static void linkedList() {
-		//better performance under some circumstances
+		// better performance under some circumstances
 		List<Integer> linkedList = new LinkedList<>();
 		linkedList.add(1);
 	}
@@ -50,7 +84,6 @@ public class ListExample {
 		ListIterator<Integer> lit = list.listIterator();
 		// Adds the element before the position that would be return by nextIndex
 		lit.add(0);
-
 		while (lit.hasNext()) {
 			System.out.println(lit.next());
 		}
@@ -71,13 +104,18 @@ public class ListExample {
 		List<Integer> subList = list.subList(1, list.size());
 		subList.add(4);
 
-		list.add(5);
+		// when modifying(structural) the actual list, actions in the sublist may throw
+		// a concurrent
+		// modification exception
+		list.add(1, 5);
+
 		subList.forEach(t -> System.out.println(t));
+
 		list.forEach(t -> System.out.println(t));
 	}
 
 	public static void main(String[] args) {
-		sublist();
+		listIterator();
 
 	}
 
