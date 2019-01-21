@@ -3,12 +3,15 @@
  */
 package practice.java.enumeration;
 
+import ortiz.perez.albin.enums.A;
+
 /**
  * @author aposo
  *
  */
 public class EnumExample {
 
+	// all enumerations automatically inherit Enum
 	enum Vowels {
 		A("a"), E("e"), I("i"), O("o"), U("u");
 
@@ -42,6 +45,9 @@ public class EnumExample {
 
 		// comparing ordinal values
 		System.out.println(a.compareTo(Vowels.A));
+
+		// Obtains a constant from the string parameter
+		System.out.println(A.valueOf("A"));
 	}
 
 }

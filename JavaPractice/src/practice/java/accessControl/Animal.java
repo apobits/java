@@ -12,10 +12,18 @@ public class Animal {
 	public String name;
 
 	private String vision;
-	
+
 	protected boolean canFly;
-	
+
 	int visionRange;
+
+	public void fly() {
+		System.out.println("Can not fly");
+	}
+
+	protected void run() {
+		System.out.println("Running");
+	}
 
 	/**
 	 * @param args

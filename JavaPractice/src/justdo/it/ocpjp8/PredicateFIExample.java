@@ -15,33 +15,35 @@ import java.util.function.Predicate;
  */
 public class PredicateFIExample {
 
-    public static void filter(List<Person> persons, Predicate<Person> p) {
-	Iterator<Person> i = persons.iterator();
-	while (i.hasNext()) {
-	    if (p.test(i.next())) {
-		i.remove();
-	    }
+	public static void filter(List<Person> persons, Predicate<Person> p) {
+		Iterator<Person> i = persons.iterator();
+		while (i.hasNext()) {
+			if (p.test(i.next())) {
+				i.remove();
+			}
+		}
 	}
-    }
 
-    public static void main(String[] args) {
-	List<Person> persons = new ArrayList<>();
-	persons.add(new Person("Albin", "Perez", 1));
-	persons.add(new Person("Danna", "Perez", 2));
-	persons.add(new Person("Marcela", "Castro", 3));
-	List<Person> p = Arrays.asList(new Person("Albin", "Perez", 1));
-	// Calling filter method passing an anonymous class implementation of predicate
-	// interface
-	filter(persons, new Predicate<Person>() {
+	public static void main(String[] args) {
+		List<Person> persons = new ArrayList<>();
+		persons.add(new Person("Albin", "Perez", 1));
+		persons.add(new Person("Danna", "Perez", 2));
+		persons.add(new Person("Marcela", "Castro", 3));
+		List<Person> p = Arrays.asList(new Person("Albin", "Perez", 1));
+		// Calling filter method passing an anonymous class implementation of predicate
+		// interface
+		filter(persons, new Predicate<Person>() {
 
-	    @Override
-	    public boolean test(Person t) {
-		return t.getId() == 1;
-	    }
-	});
+			@Override
+			public boolean test(Person t) {
+				return t.getId() == 1;
+			}
+		});
 
-	persons.forEach(x -> System.out.println(x));
+		filter(persons, t -> t instanceof Person);
 
-    }
+		persons.forEach(x -> System.out.println(x));
+
+	}
 
 }

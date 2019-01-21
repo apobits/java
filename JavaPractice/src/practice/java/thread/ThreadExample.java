@@ -35,8 +35,10 @@ public class ThreadExample {
 	public static void main(String[] args) throws InterruptedException {
 		Thread threadOne = new Thread(new ThreadOne(), "ThreadOne");
 		ThreadTwo threadTwo = new ThreadTwo();
+		Thread threadTree = new Thread();
+		threadTree.start();
 		threadOne.start();
-		threadTwo.start();
+		threadTwo.run();
 		threadOne.join();
 		threadTwo.join();
 		System.out.println(threadOne.isAlive());

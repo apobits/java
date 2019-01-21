@@ -20,7 +20,7 @@ public class ProcessExample {
 	 * @throws InterruptedException
 	 */
 	public static void main(String[] args) throws IOException, InterruptedException {
-		ProcessBuilder pb = new ProcessBuilder("C:/Program Files/Notepad++/notepad++.exe");
+		ProcessBuilder pb = new ProcessBuilder("C:\\Program Files (x86)\\Notepad++/notepad++.exe");
 		// ProcessBuilder pb = new ProcessBuilder("C:/Program
 		// Files/Git/git-cmd.exe");
 

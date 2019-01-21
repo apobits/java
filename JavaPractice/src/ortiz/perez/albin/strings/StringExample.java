@@ -15,6 +15,10 @@ public class StringExample {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		
+		String sql = "SELECT * FROM users WHERE name = 'a';DROP TABLE users;SELECT * from users where name = 'a' ";
+			
+		System.out.println(sql.replace("'", "''"));
 
 		char[] a = { 104, 105 };
 		String s = new String(a);// String created from an array of chars

@@ -11,6 +11,12 @@ import practice.java.accessControl.Animal;
  */
 public class Dog extends Animal {
 
+	@Override
+	protected void run() {
+		// TODO Auto-generated method stub
+		super.run();
+	}
+
 	/**
 	 * @param args
 	 */
@@ -30,6 +36,9 @@ public class Dog extends Animal {
 
 		// Accessing protected member from a subclass in a different package
 		System.out.println(dog.canFly);
+
+		// Accessing protected member from a subclass in a different package
+		dog.run();
 
 	}
 

@@ -3,6 +3,7 @@
  */
 package practice.java.varieties;
 
+import java.beans.Transient;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -21,16 +22,19 @@ public class TransientExample implements Serializable {
 
 	int a;
 
+	transient private Person p;
+
 	transient int b;
 
 	public TransientExample(int a, int b) {
 		this.a = a;
 		this.b = b;
+		setP(new Person("Albin", "Perez"));
 	}
 
 	@Override
 	public String toString() {
-		return "a = " + a + " b = " + b;
+		return "a = " + a + " b = " + b + " " + p;
 	}
 
 	/**
@@ -42,9 +46,9 @@ public class TransientExample implements Serializable {
 		TransientExample c = new TransientExample(1, 2);
 
 		try (ObjectOutputStream oos = new ObjectOutputStream(
-				new FileOutputStream("C:\\Users\\aposo\\Desktop\\test\\serialized.java"));
+				new FileOutputStream("C:\\Users\\Administrador\\Desktop\\test\\serialized.java"));
 				ObjectInputStream ois = new ObjectInputStream(
-						new FileInputStream("C:\\Users\\aposo\\Desktop\\test\\serialized.java"))) {
+						new FileInputStream("C:\\Users\\Administrador\\Desktop\\test\\serialized.java"))) {
 			System.out.println("before serialization " + c);
 
 			oos.writeObject(c);
@@ -55,6 +59,14 @@ public class TransientExample implements Serializable {
 
 		}
 
+	}
+
+	public Person getP() {
+		return p;
+	}
+
+	public void setP(Person p) {
+		this.p = p;
 	}
 
 }
