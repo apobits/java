@@ -48,6 +48,15 @@ public class EnumExample {
 
 		// Obtains a constant from the string parameter
 		System.out.println(A.valueOf("A"));
+
+		// Obtains a constant form a type and a string parameter
+		System.out.println(Enum.valueOf(Vowels.class, "A"));
+
+		// getting the declared class of an enumeration
+		System.out.println(a.getDeclaringClass());
+
+		// gets the name of this enum constant
+		System.out.println(a.name());
 	}
 
 }

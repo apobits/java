@@ -27,7 +27,7 @@ public class LambdaExample {
 		// Assign example
 		Consumer<String> consumer = t -> {
 			i = 1;
-			// j=i; //it must be final or effectively final
+//			 j=i; //it must be final or effectively final
 			System.out.println(t);
 		};
 		consumer.accept("Hello");
