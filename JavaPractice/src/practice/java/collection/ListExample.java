@@ -18,6 +18,8 @@ public class ListExample {
 	public static void arrayList() {
 		// Usually the better performance implementation
 		List<Integer> list = new ArrayList<>();
+
+		// adds the element to the end of the list
 		list.add(1);
 		list.add(3);
 		list.add(2);
@@ -84,9 +86,22 @@ public class ListExample {
 		ListIterator<Integer> lit = list.listIterator();
 		// Adds the element before the position that would be return by nextIndex
 		lit.add(0);
+		System.out.println("Printing list: " + list);
+		System.out.print("Printing elements from beginning to the end:");
+		lit.previous();
 		while (lit.hasNext()) {
-			System.out.println(lit.next());
+			System.out.print(lit.next() + " ");
 		}
+		System.out.println();
+		System.out.print("Printing elements from the end to the beginnig: ");
+		while (lit.hasPrevious()) {
+			System.out.print(lit.previous() + " ");
+		}
+
+		// if the list is modified after an iterator was created and that iterator is
+		// used a concurrent modification exception is thrown
+//		list.add(7);
+
 		// overrides the element that was returned after the call to next or previous
 		lit.set(4);
 		// removes the element that was returned after the call to next or previous
@@ -116,6 +131,9 @@ public class ListExample {
 
 	public static void main(String[] args) {
 		listIterator();
+//		sublist();
+//		arrayList();
+//		listIterator();
 
 	}
 

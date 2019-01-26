@@ -5,7 +5,9 @@ package practice.java.collection;
 
 import java.util.Comparator;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedHashSet;
+import java.util.NavigableSet;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -40,8 +42,8 @@ public class SetExample {
 
 		// black red tree implementation, sorted according to the natural order of the
 		// elements
-		// implements the sortedSet interface
-		SortedSet<Integer> set = new TreeSet<>();
+		// implements the sortedSet, navigableSet interface
+		TreeSet<Integer> set = new TreeSet<>();
 
 		// order set that orders the elements according to the specified comparator
 		SortedSet<Integer> set1 = new ConcurrentSkipListSet<Integer>((t, r) -> t - r);
@@ -84,12 +86,80 @@ public class SetExample {
 
 		// calling add on a subset with an element that does not exist in the set throws
 		// illegal argument exception
-		// subSet.add(5);
+		// subSet.add(3);
 
 		// removing an element from the subset also remove that element from the set
-		subSet.remove(1);
+		subSet.remove(2);
 
 		System.out.println("set: " + set1);
+
+		//
+		set.add(1);
+		set.add(2);
+		set.add(3);
+		set.add(5);
+
+		// navigable set methods
+		// gets the smallest element greater than or equals to the specified element
+		System.out.println(set.ceiling(4));
+
+		// get a descending iterator
+		Iterator<Integer> it = set.descendingIterator();
+		while (it.hasNext()) {
+			System.out.print(it.next());
+		}
+
+		// gets a descending set, this set is backed by the set
+		NavigableSet<Integer> descendingSet = set.descendingSet();
+		System.out.println("Descending set: " + descendingSet);
+
+		// gets the largest element lesser than or equals to the specified element
+		System.out.println(set.floor(4));
+
+		// returns the elements from the beginning of the set to the specified element
+		// inclusive
+		System.out.println(set.headSet(3, true));
+		// returns the elements from the beginning of the set to the specified element
+		// exclusive
+		System.out.println(set.headSet(3));
+
+		// returns the elements from the specified element to the end of the set
+		System.out.println(set.tailSet(3));
+		// returns the same elements as tailSet without the flag
+		System.out.println(set.tailSet(3, true));
+
+		// returns the least element strictly greater than the specified element
+		System.out.println(set.higher(3));
+
+		// returns the greatest element strictly lesser than the specified element
+		System.out.println(set.lower(3));
+
+		// returns and removes the first element in the set
+		System.out.println(set.pollFirst());
+
+		// returns and removes the last element in the set
+		System.out.println(set.pollLast());
+
+		// returns a subset of the set whose elements starts from element inclusive to
+		// element exclusive
+		System.out.println(set.subSet(2, 5));
+
+		// returns a subset of the set whose elements starts from element
+		// inclusive/exclusive to element inclusive/exclusive
+		NavigableSet<Integer> ss = set.subSet(2, true, 5, true);
+
+		set.add(6);
+
+		ss.forEach(t -> System.out.println(t));
+
+		Iterator<Integer> it1 = set.iterator();
+		set.add(7);
+
+		// if set is modified after an iterator was created and that iterator is used a
+		// concurrent modification exception is thrown
+		while (it1.hasNext()) {
+			System.out.print(it1.next());
+		}
 
 	}
 

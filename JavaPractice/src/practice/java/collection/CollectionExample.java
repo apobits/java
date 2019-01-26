@@ -4,7 +4,9 @@
 package practice.java.collection;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Spliterator;
@@ -17,10 +19,27 @@ import java.util.stream.Stream;
  */
 public class CollectionExample {
 
-	public static void main(String[] args) {
+	public static void collectionEquality() {
+		Collection<Integer> c1 = Arrays.asList(1);
+		Collection<Integer> c2 = new ArrayList<Integer>();
+		c2.add(1);
+		Collection<Integer> c3 = new TreeSet<Integer>();
+		c3.add(1);
+		Collection<Integer> c4 = new TreeSet<Integer>();
+		c4.add(1);
+		Collection<Integer> c5 = new HashSet<Integer>();
+		c5.add(1);
+
+		System.out.println("Collection c1 is equal to c2: " + c1.equals(c2));
+		System.out.println("Collection c2 is equal to c3: " + c2.equals(c3));
+		System.out.println("Collection c3 is equal to c4: " + c3.equals(c4));
+		System.out.println("Collection c4 is equal to c5: " + c4.equals(c5));
+	}
+
+	public static void collection() {
 
 		// Collection is the parent interface
-		// TreeSet is an implementation of a sub interface Set
+		// TreeSet is an implementation of the sub interface Set
 		Collection<String> collection = new TreeSet<>();
 		collection.add("Hello");
 		collection.add("there");
@@ -97,7 +116,10 @@ public class CollectionExample {
 
 		// clear the collection, after this method returns the collection will be empty
 		collection.clear();
+	}
 
+	public static void main(String[] args) {
+		collectionEquality();
 	}
 
 }
