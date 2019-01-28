@@ -17,13 +17,22 @@ public class ListExample {
 
 	public static void arrayList() {
 		// Usually the better performance implementation
-		List<Integer> list = new ArrayList<>();
+		// Default capacity is 10, when maximum capacity is reached the new array is
+		// created with a capacity of (oldcapacity + (oldcapacity)/2)
+		ArrayList<Integer> list = new ArrayList<>();
 
 		// adds the element to the end of the list
 		list.add(1);
 		list.add(3);
 		list.add(2);
 		list.add(4);
+		list.add(5);
+		list.add(6);
+		list.add(7);
+		list.add(8);
+		list.add(9);
+		list.add(10);
+		list.add(11);
 
 		// adds the element at the specified index shifting up the existent values
 		list.add(0, 2);
@@ -130,9 +139,9 @@ public class ListExample {
 	}
 
 	public static void main(String[] args) {
-		listIterator();
+//		listIterator();
 //		sublist();
-//		arrayList();
+		arrayList();
 //		listIterator();
 
 	}
