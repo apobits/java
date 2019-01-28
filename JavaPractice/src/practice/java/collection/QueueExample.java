@@ -27,17 +27,21 @@ public class QueueExample {
 		// adds the element to the tail(end) of the list
 		linkedListQueue.offer(4);
 
-		// returns the head(first) element but does not remove it
-		linkedListQueue.peek();
+		System.out.println("queue: " + linkedListQueue);
 
 		// returns the head(first) element but does not remove it
-		linkedListQueue.element();
+		System.out.println("peek: " + linkedListQueue.peek());
+
+		// returns the head(first) element but does not remove it
+		System.out.println("element: " + linkedListQueue.element());
 
 		// returns and removes the head(first) element
 		linkedListQueue.remove();
+		System.out.println("after remove: " + linkedListQueue);
 
 		// returns and removes the head(first) element
 		linkedListQueue.poll();
+		System.out.println("after poll: " + linkedListQueue);
 
 		linkedListQueue.forEach(t -> System.out.println(t));
 

@@ -4,6 +4,7 @@
 package practice.java.collection;
 
 import java.util.ArrayDeque;
+import java.util.Iterator;
 import java.util.LinkedList;
 
 /**
@@ -12,7 +13,7 @@ import java.util.LinkedList;
  */
 public class Deque {
 
-	public void linkedList() {
+	public static void linkedList() {
 		// LinkedList implements the Deque interface
 		LinkedList<Integer> linkedList = new LinkedList<>();
 
@@ -71,6 +72,23 @@ public class Deque {
 		// returns the last element from the list
 		// returns null if the list is empty
 		linkedList.peekLast();
+
+		// returns and removes the first element of the deque
+		// throws no such element exception if the list is empty
+		linkedList.pop();
+
+		// inserts the specified element to the beginning of the deque
+		// this method is similar to addFirst
+		linkedList.push(7);
+
+		// returns a descending iterator, the deque elements in reverse sequential order
+		Iterator<Integer> it = linkedList.descendingIterator();
+
+		// removes first occurrence from the deque from head to tail
+		linkedList.removeFirstOccurrence(3);
+
+		// removes last ocurrence from the deque from head to tail
+		linkedList.removeLastOccurrence(4);
 	}
 
 	public void arrayDeque() {
@@ -85,8 +103,7 @@ public class Deque {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		linkedList();
 	}
 
 }
