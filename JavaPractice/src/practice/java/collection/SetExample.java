@@ -24,6 +24,9 @@ public class SetExample {
 	public static void hashSet() {
 
 		// best performance implementation but does not guarantee the order of elements
+		// default capacity is 16, default load factor is 0.75
+		// the hash table is expanded when the number of elements is greater than
+		// (capacity*loadFactor)
 		Set<Integer> set = new HashSet<>();
 		set.add(3);
 		set.add(2);
