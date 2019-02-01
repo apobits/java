@@ -5,9 +5,11 @@ package practice.java.collection;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.Spliterator;
 
 /**
  * @author apobits@gmail.com
@@ -107,6 +109,10 @@ public class ListExample {
 			System.out.print(lit.previous() + " ");
 		}
 
+		// performs the consumer action for each remaining element
+		// forward iteration
+		lit.forEachRemaining(t -> System.out.println(t));
+
 		// if the list is modified after an iterator was created and that iterator is
 		// used a concurrent modification exception is thrown
 //		list.add(7);
@@ -138,12 +144,41 @@ public class ListExample {
 		list.forEach(t -> System.out.println(t));
 	}
 
+	public static void iterator() {
+		ArrayList<Integer> list = new ArrayList<>();
+		Iterator<Integer> it = list.iterator();
+		while (it.hasNext()) {
+			System.out.print(it.next());
+		}
+	}
+
+	public static void spliterator() {
+		ArrayList<Integer> list = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9));
+		Spliterator<Integer> spliterator = list.spliterator();
+		System.out.print("Elements in spliterator: ");
+		// iterates over the list through a spliterator
+		spliterator.forEachRemaining(t -> System.out.print(t + " "));
+		System.out.println();
+		System.out.println("Elements in spliterator1 two: ");
+		Spliterator<Integer> spliterator1 = spliterator.trySplit();
+		if (spliterator1 != null) {
+			spliterator1.forEachRemaining(t -> System.out.print(t + " "));
+		}
+
+		// iterates over the list through a spliterator
+		spliterator.tryAdvance(t -> System.out.print(t + " "));
+
+		// return an estimate of the number of elements that the spliterator would
+		// iterate if a call to forEachRemaining
+		System.out.println(spliterator.estimateSize());
+	}
+
 	public static void main(String[] args) {
 //		listIterator();
 //		sublist();
-		arrayList();
+//		arrayList();
 //		listIterator();
-
+		spliterator();
 	}
 
 }

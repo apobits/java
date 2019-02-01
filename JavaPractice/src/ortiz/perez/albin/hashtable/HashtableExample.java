@@ -15,8 +15,8 @@ public class HashtableExample {
     public static void main(String[] args) {
 
 	// hashtable stores the value at the index specified by the hashed
-	// key(it hashes the key)
-	// value
+	// key(it hashes the key) value
+	// default capacity is 11 and default load factor is 0.75
 	Hashtable<Integer, String> letters = new Hashtable<>();
 	letters.put(1, "A");
 	letters.put(3, "C");

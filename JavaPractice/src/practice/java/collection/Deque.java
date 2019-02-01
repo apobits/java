@@ -91,11 +91,38 @@ public class Deque {
 		linkedList.removeLastOccurrence(4);
 	}
 
-	public void arrayDeque() {
+	public static void arrayDeque() {
 		// Other implementation of the Deque interface
 		// This implementation is faster than LinkedList when used as a Queue
 		// This implementation is faster than Stack when used as a Stack
+
+		// empty constructor
 		ArrayDeque<Integer> arrayDeque = new ArrayDeque<>();
+
+		// constructor with initial capacity
+		// if the initial capacity is lower than the default capacity(16), the capacity
+		// is calculated obtaining the best power of two
+		// if the initial capacity is greater than the default capacity that value is
+		// used
+		ArrayDeque<Integer> arrayDeque1 = new ArrayDeque<>(2);
+
+		// constructor with collection parameter
+		ArrayDeque<Integer> arrayDeque2 = new ArrayDeque<>(arrayDeque);
+
+		arrayDeque1.push(1);
+		arrayDeque1.push(2);
+		arrayDeque1.push(3);
+		arrayDeque1.push(4);
+		arrayDeque1.push(5);
+		arrayDeque1.push(6);
+		arrayDeque1.push(7);
+		arrayDeque1.push(8);
+		arrayDeque1.push(9);
+		arrayDeque1.push(10);
+		arrayDeque1.push(11);
+		arrayDeque1.push(12);
+
+		System.out.println(arrayDeque1.pop());
 
 	}
 
@@ -103,7 +130,8 @@ public class Deque {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		linkedList();
+//		linkedList();
+		arrayDeque();
 	}
 
 }
