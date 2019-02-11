@@ -12,9 +12,8 @@ public class StackTraceExample {
 	public static void main(String[] args) {
 
 		try {
-			throw new Exception("Testing stack trace");
+			StackTraceFirstException.throwException();
 		} catch (Exception e) {
-			System.out.println(e);
 			for (StackTraceElement x : e.getStackTrace()) {
 				System.out.println(x);
 			}
