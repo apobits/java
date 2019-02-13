@@ -3,51 +3,61 @@
  */
 package justdo.it.ocpjp8;
 
+import java.io.Serializable;
+
 /**
  * @author apobits@gmail.com
  *
  */
-public class Person {
+public class Person implements Serializable, Cloneable {
 
-    private String name;
+	private static final long serialVersionUID = 1L;
 
-    private String lastName;
+	private String name;
 
-    private int id;
+	private String lastName;
 
-    public Person(String name, String lastName, int id) {
-	this.name = name;
-	this.lastName = lastName;
-	this.id = id;
-    }
+	private int id;
 
-    public String getName() {
-	return name;
-    }
+	public Person(String name, String lastName, int id) {
+		this.name = name;
+		this.lastName = lastName;
+		this.id = id;
+	}
 
-    public void setName(String name) {
-	this.name = name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public String getLastName() {
-	return lastName;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public void setLastName(String lastName) {
-	this.lastName = lastName;
-    }
+	public String getLastName() {
+		return lastName;
+	}
 
-    public int getId() {
-	return id;
-    }
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
 
-    public void setId(int id) {
-	this.id = id;
-    }
+	public int getId() {
+		return id;
+	}
 
-    @Override
-    public String toString() {
-	// TODO Auto-generated method stub
-	return name + " " + lastName + " ";
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		// TODO Auto-generated method stub
+		return super.clone();
+	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return name + " " + lastName + " ";
+	}
 }

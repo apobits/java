@@ -31,6 +31,10 @@ public class VarArgExample {
 	public static void main(String args[]) {
 		print("World");
 		// print();//ambiguous method
+
+		// passing an array of strings to the var args parameter
+		print(new String[] { "Hello", "there" });
+
 	}
 
 }
