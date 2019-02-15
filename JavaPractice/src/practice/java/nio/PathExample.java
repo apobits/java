@@ -15,11 +15,25 @@ import java.nio.file.Paths;
  */
 public class PathExample {
 
+	public static void relativize() {
+		Path path = Paths.get("C:\\Users\\Administrador\\Desktop\\newTest.java");
+		Path path1 = Paths.get("C:\\Users\\Administrador\\Desktop\\marc");
+
+		Path path3 = path.relativize(path1);
+
+		System.out.println(path.resolve(path3));
+
+	}
+
 	/**
 	 * @param args
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException {
+
+		relativize();
+
+		System.exit(1);
 
 		// creates a path using the utility class Paths
 		Path path = Paths.get("C:\\Users\\Administrador\\Desktop\\test\\serialized.java");
