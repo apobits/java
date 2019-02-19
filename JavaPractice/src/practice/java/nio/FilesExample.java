@@ -5,9 +5,11 @@ package practice.java.nio;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.nio.file.DirectoryStream;
 import java.nio.file.FileStore;
 import java.nio.file.Files;
 import java.nio.file.LinkOption;
@@ -65,11 +67,124 @@ public class FilesExample {
 		}
 	}
 
-	/**
-	 * @param args
-	 * @throws IOException
-	 */
+	public static void tempFile() {
+		Path path = Paths.get("C:\\Users\\Administrador\\Desktop\\");
+		try {
+			path = Files.createTempFile(path, "prefix", "sufix");
+		} catch (IOException e) {
+			System.out.println(e);
+		}
+
+		try (BufferedWriter br = Files.newBufferedWriter(path, StandardOpenOption.WRITE)) {
+			br.write("Hellooooooooooooooooooooooooooo");
+		} catch (IOException e) {
+			System.out.println(e);
+		}
+	}
+
+	public static void createDirectory() {
+		try {
+			Files.createDirectories(Paths.get("C:\\Users\\Administrador\\Desktop\\test\\test\\test"));
+		} catch (IOException e) {
+			System.out.println(e);
+		}
+	}
+
+	public static void createTempDirectory() {
+		try {
+			Files.createTempDirectory(Paths.get("C:\\Users\\Administrador\\Desktop\\test\\"), "temp");
+		} catch (IOException e) {
+			System.out.println(e);
+		}
+	}
+
+	public static void listDirectoryContents() {
+
+		try (DirectoryStream<Path> paths = Files
+				.newDirectoryStream(Paths.get("C:\\Users\\Administrador\\Desktop\\test"))) {
+			for (Path path : paths) {
+				System.out.println(path);
+			}
+
+		} catch (IOException e) {
+			System.out.println(e);
+		}
+
+	}
+
+	public static void listDirectoryContents(String glob) {
+
+		try (DirectoryStream<Path> paths = Files
+				.newDirectoryStream(Paths.get("C:\\Users\\Administrador\\Desktop\\test"), glob)) {
+			for (Path path : paths) {
+				System.out.println(path);
+			}
+
+		} catch (IOException e) {
+			System.out.println(e);
+		}
+
+	}
+
+	public static void directoryStreamFilter() {
+		DirectoryStream.Filter<Path> filter = (t) -> Files.isDirectory(t);
+
+		try (DirectoryStream<Path> paths = Files
+				.newDirectoryStream(Paths.get("C:\\Users\\Administrador\\Desktop\\test"), filter)) {
+			for (Path path : paths) {
+				System.out.println(path);
+			}
+
+		} catch (IOException e) {
+			System.out.println(e);
+		}
+
+	}
+
+	public static void createSymbolicLink() {
+		Path target = Paths.get("C:\\Users\\Administrador\\Desktop\\test");
+		Path symbolicLink = Paths.get("C:\\Users\\Administrador\\Desktop\\pointToTest");
+		Path result = null;
+		try {
+			result = Files.createSymbolicLink(symbolicLink, target);
+			System.out.println(result + " is symbolicLink " + Files.isSymbolicLink(result));
+			System.out.println("Resolve " + symbolicLink + " " + Files.readSymbolicLink(result));
+		} catch (IOException e) {
+			System.out.println(e);
+		}
+	}
+
+	public static void createHardLink() {
+		Path target = Paths.get("C:\\Users\\Administrador\\Desktop\\test");
+		Path symbolicLink = Paths.get("C:\\Users\\Administrador\\Desktop\\pointToTest");
+		Path result = null;
+		try {
+			result = Files.createLink(symbolicLink, target);
+		} catch (IOException e) {
+			System.out.println(e);
+		}
+		System.out.println(result);
+	}
+
 	public static void main(String[] args) throws IOException {
+
+		// createHardLink();
+
+		createSymbolicLink();
+
+		System.exit(1);
+
+		directoryStreamFilter();
+
+		listDirectoryContents("*.java");
+
+		listDirectoryContents();
+
+		createTempDirectory();
+
+		createDirectory();
+
+		tempFile();
 
 		readWithBuffer();
 
@@ -130,6 +245,17 @@ public class FilesExample {
 
 		// appending a list of strings
 		Files.write(file, Arrays.asList("\rHi", "there"), StandardOpenOption.APPEND);
+
+		// getting the content type of a file, this method is not infallible
+		System.out.println(Files.probeContentType(path));
+
+		File file1 = new File("C:\\Users\\Administrador\\Desktop\\test\\serialized.java");
+		
+		// from io file to nio path
+		Path file1Path = file1.toPath();
+
+		// from nio path to io file
+		File file2 = file1Path.toFile();
 
 	}
 

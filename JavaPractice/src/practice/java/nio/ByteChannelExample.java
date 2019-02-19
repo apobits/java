@@ -35,6 +35,7 @@ public class ByteChannelExample {
 				sb.append((char) bb.get());
 			}
 			System.out.println(sb);
+			sbc.truncate(0);
 			sbc.write(ByteBuffer.wrap("\rModified by Apo".getBytes()));
 		} catch (IOException e) {
 			System.out.println(e);

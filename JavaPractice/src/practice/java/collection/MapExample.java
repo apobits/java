@@ -4,9 +4,15 @@
 package practice.java.collection;
 
 import java.util.Collection;
+import java.util.EnumMap;
 import java.util.HashMap;
+import java.util.IdentityHashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
+
+import practice.java.collection.SetExample.Vowel;
 
 /**
  * @author apobits@gmail.com
@@ -132,7 +138,138 @@ public class MapExample {
 
 	}
 
+	public static void treeMap() {
+		// TreeMap extends AbstractMap and implements NavigableMap
+		// Elements are sorted in ascending key order
+
+		// Empty constructor
+		TreeMap<Integer, String> persons = new TreeMap<>();
+
+		// Constructor with comparator parameter
+		TreeMap<Integer, String> treeMap1 = new TreeMap<>((t, u) -> t - u);
+
+		// Constructor with SortedMap parameter
+		Map<Integer, String> treeMap2 = new TreeMap<>(treeMap1);
+
+		// Constructor with Map parameter
+		TreeMap<Integer, String> treeMap3 = new TreeMap<>(treeMap2);
+
+		persons.put(1, "Albin");
+		persons.put(3, "Marcela");
+		persons.put(2, "Danna");
+		persons.forEach((t, u) -> System.out.println("Name: " + u + "\rID: " + t + "\n"));
+
+	}
+
+	public static void linkedHashMap() {
+		// LinkedHashMap created with defaults
+		// insertion order map
+		// default capacity 16
+		// default load factor 0.75
+		LinkedHashMap<Integer, String> insertionOrderMap = new LinkedHashMap<>();
+
+		// LinkedHashMap created with defaults
+		// access order map
+		// default capacity 16
+		// default load factor 0.75
+		LinkedHashMap<Integer, String> accessOrderMap = new LinkedHashMap<>(16, 0.75f, true);
+
+		// LinkedHashMap constructed with initial capacity of 20
+		// load factor 0.75
+		LinkedHashMap<Integer, String> hashMap1 = new LinkedHashMap<>(20);
+
+		// LinkedHashMap created with the mappings in the map argument
+		// load factor 0.75
+		// enough capacity to hold the mappings from the map parameter
+		LinkedHashMap<Integer, String> hashMap2 = new LinkedHashMap<>(insertionOrderMap);
+
+		// LinkedHashMap created with the specified capacity and load factor
+		LinkedHashMap<Integer, String> hashMap3 = new LinkedHashMap<>(30, 0.80f);
+
+		// LinkedHashMap created with the specified capacity, load factor and access
+		// order
+		LinkedHashMap<Integer, String> hashMap4 = new LinkedHashMap<>(30, .80f, true);
+
+		insertionOrderMap.put(2, "Danna");
+		insertionOrderMap.put(3, "Marcela");
+		insertionOrderMap.put(1, "Albin");
+
+		insertionOrderMap.forEach((t, u) -> System.out.println("Name: " + u + "\nId: " + t + "\n"));
+
+		accessOrderMap.putAll(insertionOrderMap);
+
+		accessOrderMap.get(1);
+
+		accessOrderMap.forEach((t, u) -> System.out.println("Name: " + u + "\nId: " + t + "\n"));
+
+	}
+
+	public static void identityHashMap() {
+		// default expected maximum size 21
+		// uses references for equality
+		// this map is not for general use according to the specification
+		// extends AbstractMap and implements Map
+		IdentityHashMap<Integer, String> identityHashMap = new IdentityHashMap<>();
+
+		identityHashMap.put(1, "Albin");
+		identityHashMap.put(3, "Marcela");
+		identityHashMap.put(2, "Danna");
+		identityHashMap.put(4, "Albin");
+		identityHashMap.put(5, "Marcela");
+		identityHashMap.put(6, "Danna");
+		identityHashMap.put(7, "Albin");
+		identityHashMap.put(8, "Marcela");
+		identityHashMap.put(9, "Danna");
+		identityHashMap.put(10, "Albin");
+		identityHashMap.put(11, "Marcela");
+		identityHashMap.put(12, "Danna");
+		identityHashMap.put(13, "Albin");
+		identityHashMap.put(14, "Marcela");
+		identityHashMap.put(15, "Danna");
+		identityHashMap.put(16, "Albin");
+		identityHashMap.put(17, "Marcela");
+		identityHashMap.put(18, "Danna");
+		identityHashMap.put(19, "Albin");
+		identityHashMap.put(20, "Marcela");
+		identityHashMap.put(21, "Danna");
+		identityHashMap.put(22, "Albin");
+		identityHashMap.put(23, "Marcela");
+		identityHashMap.put(24, "Danna");
+
+		identityHashMap.forEach((t, u) -> System.out.println("Name: " + u + "\nId: " + t + "\n"));
+
+	}
+
+	public static void enumMap() {
+		// extends AbstractMap and implements Map
+		// map that supports keys of type enumeration
+
+		// Empty EnumMap that supports keys of the specified enumeration type
+		EnumMap<Vowel, String> enumMap = new EnumMap<>(Vowel.class);
+
+		// EnumMap with the same key type as the specified EnumMap argument, and with
+		// the mapping of the specified argument if any
+		Map<Vowel, String> enumMap1 = new EnumMap<>(enumMap);
+		enumMap1.put(Vowel.E, "E vowel");
+
+		// EnumMap with the same key type as one of the elements in the map and the same
+		// mappings
+		// if the specified map contains no elements then an IllegalArgumentException is
+		// thrown
+		EnumMap<Vowel, String> enumMap2 = new EnumMap<>(enumMap1);
+
+		enumMap.put(Vowel.A, "A value");
+		System.out.println(enumMap);
+
+		System.out.println(enumMap2);
+	}
+
 	public static void main(String[] args) {
+		enumMap();
+		System.exit(1);
+		identityHashMap();
+		linkedHashMap();
+		treeMap();
 		hashMap();
 	}
 
