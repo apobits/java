@@ -3,8 +3,8 @@
  */
 package practice.java.nio;
 
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author apobits@gmail.com
@@ -12,13 +12,27 @@ import java.nio.file.Paths;
  */
 public class DailyPracticeExample {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		Path path = Paths.get("C:\\Users\\Administrador\\Desktop\\test\\serialized.java");
-		System.out.println(path.getRoot());
+	private static List<Integer> numbers;
 
+	public DailyPracticeExample() {
+		load();
+	}
+
+	private synchronized void load() {
+		if (numbers == null) {
+			numbers = new ArrayList<>();
+		}
+	}
+
+	public static void main(String[] args) {
+
+		Thread thread = new Thread(() -> {
+			new DailyPracticeExample();
+		});
+
+		thread.start();
+		while (true)
+			System.out.println(DailyPracticeExample.numbers);
 	}
 
 }
