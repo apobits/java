@@ -22,6 +22,8 @@ public class AnimalConsumer {
 		// Cannot access private member outside the owner class
 		// animal.vision="Ultra";
 
+		System.out.println(animal.canFly);
+
 		System.out.println(animal.name);
 
 	}
