@@ -12,17 +12,17 @@ import java.util.Timer;
  */
 public class Example {
 
-    public static void main(String[] args) throws InterruptedException {
-	Calendar c = Calendar.getInstance();
-	c.add(Calendar.MINUTE, 1);
+	public static void main(String[] args) throws InterruptedException {
+		Calendar c = Calendar.getInstance();
+		c.add(Calendar.MINUTE, 1);
 
-	Timer t = new Timer(true);// Timer class controls the execution
-	TimerTaskImp tt = new TimerTaskImp();// TimerTask class implements logic
-					     // to be executed
+		Timer t = new Timer(true);// Timer class controls the execution
+		TimerTaskImp tt = new TimerTaskImp();// TimerTask class implements logic
+		// to be executed
 
-	t.schedule(tt, c.getTime());
-	
-	Thread.sleep(65000);
-    }
+		t.schedule(tt, c.getTime());
+
+		Thread.sleep(65000);
+	}
 
 }

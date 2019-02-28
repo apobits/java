@@ -3,8 +3,14 @@
  */
 package practice.java.nio;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URI;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 
 /**
  * @author apobits@gmail.com
@@ -12,27 +18,17 @@ import java.util.List;
  */
 public class DailyPracticeExample {
 
-	private static List<Integer> numbers;
+	public static void main(String[] args) throws Exception {
+		Path path = Paths.get(new URI("C:\\Users\\Administrador\\Desktop\\test\\serialized.java"));
 
-	public DailyPracticeExample() {
-		load();
-	}
-
-	private synchronized void load() {
-		if (numbers == null) {
-			numbers = new ArrayList<>();
+		try (InputStream is = Files.newInputStream(path, StandardOpenOption.APPEND, StandardOpenOption.READ);
+				InputStreamReader isr = new InputStreamReader(is);
+				BufferedReader br = new BufferedReader(isr)) {
+			String line;
+			while ((line = br.readLine()) != null) {
+				System.out.println(line);
+			}
 		}
-	}
-
-	public static void main(String[] args) {
-
-		Thread thread = new Thread(() -> {
-			new DailyPracticeExample();
-		});
-
-		thread.start();
-		while (true)
-			System.out.println(DailyPracticeExample.numbers);
 	}
 
 }
