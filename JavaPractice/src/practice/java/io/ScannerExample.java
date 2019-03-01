@@ -4,8 +4,10 @@
 package practice.java.io;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.Scanner;
 
 /**
@@ -14,18 +16,63 @@ import java.util.Scanner;
  */
 public class ScannerExample {
 
-	public static void main(String[] args) {
-
-		try (Scanner scanner = new Scanner(System.in); BufferedWriter br = new BufferedWriter(new FileWriter("C:\\Users\\Administrador\\Desktop\\test\\serialized.java"))) {
+	public static void fromInputStream() {
+		try (Scanner scanner = new Scanner(System.in);
+				FileWriter fw = new FileWriter("C:\\Users\\Administrador\\Desktop\\test\\serialized.java");
+				BufferedWriter br = new BufferedWriter(fw)) {
 			String line;
 			while (!(line = scanner.nextLine()).equalsIgnoreCase("Exit")) {
 				br.write(line);
 			}
-			br.close();
 		} catch (IOException e) {
 			System.out.println(e);
 		}
+	}
 
+	public static void fromPath() {
+		try (Scanner scanner = new Scanner(Paths.get("C:\\Users\\Administrador\\Desktop\\test\\serialized.java"))) {
+			while (scanner.hasNextLine()) {
+				System.out.println(scanner.nextLine());
+			}
+		} catch (IOException e) {
+			System.out.println(e);
+		}
+	}
+
+	public static void fromFile() {
+		try (Scanner scanner = new Scanner(new File("C:\\Users\\Administrador\\Desktop\\test\\serialized.java"))) {
+			while (scanner.hasNextLine()) {
+				System.out.println(scanner.nextLine());
+			}
+		} catch (IOException e) {
+			System.out.println(e);
+		}
+	}
+
+	public static void fromString() {
+		try (Scanner scanner = new Scanner("Hello there ...")) {
+			while (scanner.hasNextLine()) {
+				System.out.println(scanner.nextLine());
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		fromString();
+
+		try (Scanner scanner = new Scanner(System.in)) {
+
+			scanner.hasNext();
+			scanner.hasNextLine();
+			scanner.hasNextInt();
+
+			scanner.next();
+			scanner.nextLine();
+			scanner.nextInt();
+
+			scanner.findInLine("Hello");
+			scanner.next();
+		}
 	}
 
 }
