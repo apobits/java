@@ -5,17 +5,17 @@ import java.io.FileInputStream;
 
 public class DataInputStreamExample {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 
-	try (FileInputStream fis = new FileInputStream("C:\\Users\\Administrador\\Desktop\\test.txt"); DataInputStream dis = new DataInputStream(fis)) {
-	    int index = -1;
-	    while ((index = dis.read()) != -1) {
-		System.out.print((char) index);
-	    }
-	} catch (Exception e) {
-	    e.printStackTrace();
+		try (FileInputStream fis = new FileInputStream("C:\\Users\\Administrador\\Desktop\\test.txt");
+				DataInputStream dis = new DataInputStream(fis)) {
+			System.out.println(dis.readChar());
+			System.out.println(dis.readBoolean());
+			System.out.println(dis.readInt());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
-
-    }
 
 }

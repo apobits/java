@@ -3,6 +3,7 @@
  */
 package practice.java.io;
 
+import java.io.FileNotFoundException;
 import java.io.PrintStream;
 
 /**
@@ -11,11 +12,15 @@ import java.io.PrintStream;
  */
 public class PrintStreamExample {
 
-    public static void main(String[] args) {
-	
-	PrintStream ps = new PrintStream(System.out);
-	ps.printf("Hello %s", "Albin");
+	public static void main(String[] args) throws FileNotFoundException {
 
-    }
+		PrintStream ps = System.out;
+		ps.printf("Hello %s", "Albin");
+
+		try (PrintStream ps1 = new PrintStream("Valid file")) {
+			ps1.println(" Hello you ");
+		}
+
+	}
 
 }
