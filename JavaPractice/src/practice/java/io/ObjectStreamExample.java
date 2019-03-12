@@ -29,7 +29,7 @@ public class ObjectStreamExample {
 
 		Person person = null, person1 = null;
 		try {
-			person = new Person("Albin", "Perez", 1);
+			person = new Person("Albin", "Perez", 1, 37);
 			person1 = (Person) person.clone();
 		} catch (CloneNotSupportedException e) {
 			System.out.println();

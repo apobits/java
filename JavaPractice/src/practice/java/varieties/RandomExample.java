@@ -44,6 +44,9 @@ public class RandomExample {
 		IntStream intStream = random2.ints();
 		LongStream longStream = random3.longs();
 
+		// gets a random number between 0(inclusive) and the specified
+		// parameter(exclusive)
+		System.out.println(random.nextInt(5));
 	}
 
 }

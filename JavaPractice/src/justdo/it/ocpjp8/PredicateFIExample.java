@@ -26,10 +26,10 @@ public class PredicateFIExample {
 
 	public static void main(String[] args) {
 		List<Person> persons = new ArrayList<>();
-		persons.add(new Person("Albin", "Perez", 1));
-		persons.add(new Person("Danna", "Perez", 2));
-		persons.add(new Person("Marcela", "Castro", 3));
-		List<Person> p = Arrays.asList(new Person("Albin", "Perez", 1));
+		persons.add(new Person("Albin", "Perez", 1, 37));
+		persons.add(new Person("Danna", "Perez", 2, 14));
+		persons.add(new Person("Marcela", "Castro", 3, 38));
+		List<Person> p = Arrays.asList(new Person("Albin", "Perez", 1, 37));
 		// Calling filter method passing an anonymous class implementation of predicate
 		// interface
 		filter(persons, new Predicate<Person>() {
