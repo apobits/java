@@ -250,7 +250,7 @@ public class FilesExample {
 		System.out.println(Files.probeContentType(path));
 
 		File file1 = new File("C:\\Users\\Administrador\\Desktop\\test\\serialized.java");
-		
+
 		// from io file to nio path
 		Path file1Path = file1.toPath();
 

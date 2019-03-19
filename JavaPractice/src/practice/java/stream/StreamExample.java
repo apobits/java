@@ -7,7 +7,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.stream.DoubleStream;
 import java.util.stream.Stream;
 import java.util.stream.Stream.Builder;
 
@@ -106,12 +108,49 @@ public class StreamExample {
 		integers.parallelStream().forEach(t -> System.out.print(t + " "));
 	}
 
+	public static void average() {
+		System.out.println(DoubleStream.of(30.0, 20.0).average().getAsDouble());
+	}
+
+	public static void peek() {
+		// integers.stream().peek(action);
+
+	}
+
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		parallelStream();
+
+		System.out.println(Arrays.asList("a", "b").stream().collect(Collectors.joining()));
+		System.out.println(Arrays.asList("a", "b").stream().collect(Collectors.joining("-")));
+		System.out.println(Arrays.asList("a", "b").stream().collect(Collectors.joining("-", "_", "!")));
+
+		// short circuiting terminal operation
+		Optional<Integer> findFirst = integers.stream().findFirst();
+
+		// short circuiting terminal operation
+		boolean allMatch = integers.stream().allMatch(t -> t > 10);
+
+		// short circuiting terminal operation
+		boolean anyMatch = integers.stream().anyMatch(t -> t < 10);
+
+		integers.stream().close();
+
+		// terminal operation
+		long count = integers.stream().count();
+
+		// Stateful intermediate operation
+		Stream<Integer> distinct = integers.stream().distinct();
+
+		boolean equals = integers.stream().equals(integers.stream());
+
+		// intermediate operation
+		Stream<Integer> filter = integers.stream().filter(t -> t > 20);
+
 		System.exit(1);
+		average();
+		parallelStream();
 		collect();
 		modifyingSource();
 		streamBuilder();
@@ -119,6 +158,7 @@ public class StreamExample {
 		flatMap();
 		reduce();
 		max();
+
 	}
 
 }

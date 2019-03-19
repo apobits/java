@@ -11,25 +11,36 @@ import java.io.Serializable;
  */
 public class Phone implements Serializable {
 
-    private int number;
+	private static final long serialVersionUID = 1L;
 
-    private int indicative;
+	private int number;
 
-    public int getNumber() {
-        return number;
-    }
+	private int indicative;
 
-    public void setNumber(int number) {
-        this.number = number;
-    }
+	public Phone(int number, int indicative) {
+		this.number = number;
+		this.indicative = indicative;
+	}
 
-    public int getIndicative() {
-        return indicative;
-    }
+	public int getNumber() {
+		return number;
+	}
 
-    public void setIndicative(int indicative) {
-        this.indicative = indicative;
-    }
+	public void setNumber(int number) {
+		this.number = number;
+	}
 
+	public int getIndicative() {
+		return indicative;
+	}
+
+	public void setIndicative(int indicative) {
+		this.indicative = indicative;
+	}
+
+	@Override
+	public String toString() {
+		return indicative + "" + number;
+	}
 
 }

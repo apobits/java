@@ -11,20 +11,20 @@ import java.io.Console;
  */
 public class ConsoleExample {
 
-    /**
-     * @param args
-     */
-    public static void main(String[] args) {
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
 
-	Console console = System.console();
-	if (console == null) {
-	    System.out.println("No console available");
-	    return;
+		Console console = System.console();
+		if (console == null) {
+			System.out.println("No console available");
+			return;
+		}
+		System.out.println("Type in your name");
+		String msg = console.readLine();
+		console.printf("Hello %s", msg);
+
 	}
-	System.out.println("Type in your name");
-	String msg = console.readLine();
-	console.printf("Hello %s", msg);
-
-    }
 
 }
