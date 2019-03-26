@@ -209,7 +209,7 @@ public class FilesExample {
 		System.out.println("File " + path + " is executable " + Files.isExecutable(path));
 
 		// copying a file replacing it if it exists already
-		Files.copy(path, path1, StandardCopyOption.REPLACE_EXISTING, LinkOption.NOFOLLOW_LINKS);
+		Files.copy(path, path1, StandardCopyOption.REPLACE_EXISTING);
 
 		// copying a file replacing it if it exists already and no following symbolic
 		// links
