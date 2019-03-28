@@ -7,7 +7,7 @@ package practice.java.interfaces;
  * @author aposo
  *
  */
-public interface ParentInterface {
+public abstract interface ParentInterface {
 
 	default void methodOne() {
 		System.out.println("In methodOne of ParentInterface");
