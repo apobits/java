@@ -47,11 +47,15 @@ public class BufferExample {
 	public static void byteBuffer1() {
 
 		try (FileChannel fc = (FileChannel) Files.newByteChannel(
-				Paths.get("C:\\\\Users\\\\Administrador\\\\Desktop\\\\test.txt"), StandardOpenOption.READ)) {
+				Paths.get("C:\\\\Users\\\\Administrador\\\\Desktop\\\\test.txt"), StandardOpenOption.READ,
+				StandardOpenOption.WRITE)) {
+
 			MappedByteBuffer mbb = fc.map(MapMode.READ_ONLY, 0, fc.size());
+
 			while (mbb.hasRemaining()) {
-				System.out.print((char)mbb.get());
+				System.out.print((char) mbb.get());
 			}
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
