@@ -11,13 +11,13 @@ import java.beans.XMLEncoder;
  */
 public class EncoderExample {
 
-    /**
-     * @param args
-     */
-    public static void main(String[] args) {
-	XMLEncoder encoder = new XMLEncoder(System.out);
-	encoder.writeObject(new Person("Albin", "Perez"));
-	encoder.close();
-    }
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		XMLEncoder encoder = new XMLEncoder(System.out);
+		encoder.writeObject(new Person("Albin", "Perez"));
+		encoder.close();
+	}
 
 }
