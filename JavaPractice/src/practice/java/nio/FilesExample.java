@@ -11,6 +11,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.file.DirectoryStream;
 import java.nio.file.FileStore;
+import java.nio.file.FileVisitOption;
 import java.nio.file.Files;
 import java.nio.file.LinkOption;
 import java.nio.file.Path;
@@ -19,6 +20,7 @@ import java.nio.file.StandardCopyOption;
 import java.nio.file.StandardOpenOption;
 import java.nio.file.attribute.FileTime;
 import java.util.Arrays;
+import java.util.stream.Stream;
 
 /**
  * @author apobits@gmail.com
@@ -166,13 +168,26 @@ public class FilesExample {
 		System.out.println(result);
 	}
 
+	public static void walk() {
+		try {
+			Stream<Path> paths = Files.walk(Paths.get("C:\\Users\\aposo\\Desktop\\parent"), 2,
+					FileVisitOption.FOLLOW_LINKS);
+			paths.forEach(t -> System.out.println(t.getFileName()));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 	public static void main(String[] args) throws IOException {
+
+		walk();
+
+		System.exit(1);
 
 		// createHardLink();
 
 		createSymbolicLink();
-
-		System.exit(1);
 
 		directoryStreamFilter();
 
