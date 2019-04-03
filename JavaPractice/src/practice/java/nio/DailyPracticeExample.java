@@ -3,9 +3,8 @@
  */
 package practice.java.nio;
 
-import java.util.Locale;
-import java.util.concurrent.BrokenBarrierException;
-import java.util.concurrent.CyclicBarrier;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author apobits@gmail.com
@@ -15,20 +14,10 @@ public class DailyPracticeExample {
 
 	public static void main(String[] args) {
 
-		System.out.println(Locale.CANADA);
+		List<Integer> numbers = new ArrayList<Integer>();
 
-		CyclicBarrier cbBarrier = new CyclicBarrier(2, () -> System.out.println("A"));
+		System.out.println(10>>1);
 
-		Runnable runnable = () -> {
-			try {
-				cbBarrier.await();
-			} catch (InterruptedException | BrokenBarrierException e) {
-				e.printStackTrace();
-			}
-		};
-
-		new Thread(runnable).start();
-		new Thread(runnable).start();
 	}
 
 }
