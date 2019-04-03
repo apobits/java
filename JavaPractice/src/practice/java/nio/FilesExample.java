@@ -174,7 +174,6 @@ public class FilesExample {
 					FileVisitOption.FOLLOW_LINKS);
 			paths.forEach(t -> System.out.println(t.getFileName()));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
