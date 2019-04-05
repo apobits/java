@@ -38,7 +38,6 @@ public class FileVisitorExample {
 		try {
 			Files.walkFileTree(Paths.get("C:\\Users\\Administrador\\Desktop"), new CustomFileVisitor());
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

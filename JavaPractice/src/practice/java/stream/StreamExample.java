@@ -21,6 +21,13 @@ import justdo.it.ocpjp8.Person;
  */
 public class StreamExample {
 
+	static List<Person> persons = Arrays.asList(new Person("Albin", "Perez", 16055133, 37, "Male"),
+			new Person("Danna", "Perez", 1055751348, 14, "Female"),
+			new Person("Lina", "Marcela", 24347671, 38, "Female"), new Person("Nidia", "Ortiz", 24835353, 70, "Female"),
+			new Person("Judith", "Ortiz", 24835550, 65, "Female"), new Person("Silvio", "Perez", 4474978, 63, "Male"),
+			new Person("Bryan", "Perez", 12345675, 18, "Male"), new Person("Hasley", "Perez", 12345676, 40, "Male"),
+			new Person("Winder", "Perez", 12345677, 32, "Male"), new Person("Robinson", "Perez", 12345678, 30, "Male"));
+
 	private static List<Integer> integers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
 	private static List<List<Integer>> integerss = Arrays.asList(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9),
 			Arrays.asList(10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20));
@@ -35,6 +42,10 @@ public class StreamExample {
 
 	public static void flatMap() {
 		integerss.stream().flatMap(t -> t.stream()).forEach(t -> System.out.print(t + " "));
+
+		Stream<Integer> temp = integerss.stream().flatMap(t -> t.stream());
+
+		temp.forEach(t -> System.out.print(t + " "));
 		System.out.println();
 		integerss.stream().forEach(t -> System.out.print(t + " "));
 	}
@@ -63,15 +74,6 @@ public class StreamExample {
 	}
 
 	public static void collect() {
-		List<Person> persons = Arrays.asList(new Person("Albin", "Perez", 16055133, 37, "Male"),
-				new Person("Danna", "Perez", 1055751348, 14, "Female"),
-				new Person("Lina", "Marcela", 24347671, 38, "Female"),
-				new Person("Nidia", "Ortiz", 24835353, 70, "Female"),
-				new Person("Judith", "Ortiz", 24835550, 65, "Female"),
-				new Person("Silvio", "Perez", 4474978, 63, "Male"), new Person("Bryan", "Perez", 12345675, 18, "Male"),
-				new Person("Hasley", "Perez", 12345676, 40, "Male"),
-				new Person("Winder", "Perez", 12345677, 32, "Male"),
-				new Person("Robinson", "Perez", 12345678, 30, "Male"));
 
 		persons.stream().map(t -> t.getName()).collect(Collectors.toList());
 
@@ -110,6 +112,8 @@ public class StreamExample {
 
 	public static void average() {
 		System.out.println(DoubleStream.of(30.0, 20.0).average().getAsDouble());
+
+		System.out.println(persons.stream().mapToInt(Person::getAge).average().getAsDouble());
 	}
 
 	public static void peek() {
@@ -121,6 +125,13 @@ public class StreamExample {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		flatMap();
+
+		System.exit(1);
+
+		average();
+
+		System.exit(1);
 
 		System.out.println(Arrays.asList("a", "b").stream().collect(Collectors.joining()));
 		System.out.println(Arrays.asList("a", "b").stream().collect(Collectors.joining("-")));

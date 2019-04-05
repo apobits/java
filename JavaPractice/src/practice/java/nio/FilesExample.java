@@ -169,20 +169,32 @@ public class FilesExample {
 	}
 
 	public static void walk() {
-		try {
-			Stream<Path> paths = Files.walk(Paths.get("C:\\Users\\aposo\\Desktop\\parent"), 2,
-					FileVisitOption.FOLLOW_LINKS);
+		try (Stream<Path> paths = Files.walk(Paths.get("C:\\Users\\aposo\\Desktop\\parent"), 2,
+				FileVisitOption.FOLLOW_LINKS)) {
 			paths.forEach(t -> System.out.println(t.getFileName()));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
+	public static void find() {
+		try (Stream<Path> files = Files.find(Paths.get("C:\\Users\\aposo\\Desktop\\parent"), 2, (t, u) -> {
+			return u.isRegularFile();
+		})) {
+			files.forEach(t -> System.out.println(t.getFileName()));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 	public static void main(String[] args) throws IOException {
 
-		walk();
+		find();
 
 		System.exit(1);
+
+		walk();
 
 		// createHardLink();
 
