@@ -38,9 +38,10 @@ public class ThreadExample {
 		Thread threadTree = new Thread();
 		threadTree.start();
 		threadOne.start();
-		threadTwo.run();
+		threadTwo.start();
 		threadOne.join();
 		threadTwo.join();
+		threadTree.join();
 		System.out.println(threadOne.isAlive());
 
 	}

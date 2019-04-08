@@ -10,7 +10,7 @@ import java.time.temporal.ChronoUnit;
  * @author aposo
  *
  */
-public class InstanceExample {
+public class InstantExample {
 
 	/**
 	 * @param args

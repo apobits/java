@@ -17,4 +17,8 @@ public abstract interface ParentInterface {
 		System.out.println("In methodTwo of ParentInterface");
 	}
 
+	static void methodThree() {
+		System.out.println("In methodThree of ParentInterface");
+	}
+
 }

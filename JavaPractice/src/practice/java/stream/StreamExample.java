@@ -117,7 +117,7 @@ public class StreamExample {
 	}
 
 	public static void peek() {
-//		integers.stream().peek(action);
+		integers.stream().peek(t -> System.out.println(t));
 
 	}
 

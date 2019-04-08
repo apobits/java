@@ -21,6 +21,16 @@ public class Implementation implements ChildInterface {
 		// not implemented or inherited
 		ParentInterface.methodTwo();
 		ChildInterface.methodTwo();
+
+		// method undefined in this interface
+		// ChildInterface.methodThree();
+
+		// Method defined in this interface
+		ParentInterface.methodThree();
+
+		// Method undefined, static methods are not implemented, they belong to their
+		// interfaces only
+		// new Implementation().methodTree();
 	}
 
 }

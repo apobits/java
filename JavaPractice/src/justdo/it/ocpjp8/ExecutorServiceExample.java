@@ -5,6 +5,7 @@ package justdo.it.ocpjp8;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -41,15 +42,24 @@ public class ExecutorServiceExample {
 	public static void executorService() throws InterruptedException {
 		ExecutorService es = Executors.newSingleThreadExecutor();
 
-		Future<?> f = es.submit(() -> {
-			while (true) {
-				System.out.println(LocalDateTime.now());
-			}
-		});
+//		Future<?> f = es.submit(() -> {
+//			while (true) {
+//				System.out.println(LocalDateTime.now());
+//			}
+//		});
+//
+//		Thread.sleep(1000);
+//
+//		f.cancel(true);
 
-		Thread.sleep(10000);
+		Future<String> r = es.submit(() -> "Hey");
 
-		f.cancel(true);
+		try {
+			System.out.println(r.get());
+		} catch (ExecutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		es.shutdownNow();
 	}

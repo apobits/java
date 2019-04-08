@@ -183,7 +183,6 @@ public class FilesExample {
 		})) {
 			files.forEach(t -> System.out.println(t.getFileName()));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

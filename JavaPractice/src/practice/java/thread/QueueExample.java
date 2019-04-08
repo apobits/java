@@ -18,8 +18,6 @@ public class QueueExample {
 
 		Producer producer = new Producer(queue);
 
-		Thread.sleep(1000);
-
 		Consumer consumer = new Consumer(queue);
 
 		producer.thread.join();
