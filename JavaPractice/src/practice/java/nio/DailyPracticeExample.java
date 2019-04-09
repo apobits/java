@@ -3,8 +3,8 @@
  */
 package practice.java.nio;
 
-import java.time.Instant;
-import java.time.temporal.ChronoUnit;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author apobits@gmail.com
@@ -13,10 +13,14 @@ import java.time.temporal.ChronoUnit;
 public class DailyPracticeExample {
 	
 	
+	
+	
 
 	public static void main(String args[]) throws InterruptedException {
 
+		Lock lock = new ReentrantLock();
 		
+		lock.tryLock();
 
 	}
 
