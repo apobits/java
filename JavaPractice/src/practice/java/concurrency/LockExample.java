@@ -3,29 +3,35 @@
  */
 package practice.java.concurrency;
 
-import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
-
 /**
  * @author aposo
  *
  */
 public class LockExample {
 
-	private Lock lock = new ReentrantLock();
+	static String message;
 
-	public Lock getLock() {
-		return lock;
+	private static class CorrectorThread extends Thread {
+
+		public void run() {
+			try {
+				sleep(1000);
+			} catch (InterruptedException e) {
+			}
+			// Key statement 1:
+			message = "Mares do eat oats.";
+		}
 	}
 
-	public static void main(String[] args) {
-		LockExample lockExample = new LockExample();
-		System.out.println(lockExample.getLock().tryLock());
-		Executor executor = Executors.newSingleThreadExecutor();
-		executor.execute(() -> System.out.println(lockExample.getLock().tryLock()));
+	public static void main(String args[]) throws InterruptedException {
 
+		Thread t = new CorrectorThread();
+		t.start();
+		t.join();
+		message = "Mares do not eat oats.";
+		Thread.sleep(1000);
+		// Key statement 2:
+		System.out.println(message);
 	}
 
 }
