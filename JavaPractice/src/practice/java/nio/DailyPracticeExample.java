@@ -12,10 +12,6 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class DailyPracticeExample {
 	
-	
-	
-	
-
 	public static void main(String args[]) throws InterruptedException {
 
 		Lock lock = new ReentrantLock();
