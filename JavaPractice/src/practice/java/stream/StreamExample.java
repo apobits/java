@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
 import java.util.stream.Stream;
@@ -125,9 +126,23 @@ public class StreamExample {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		flatMap();
+
+		AtomicInteger ai = new AtomicInteger();
+
+		// intermediate operation
+		Stream.of(1, 21, 3, 4, 5).filter(t -> {
+			ai.incrementAndGet();
+			return t > 20;
+		}).allMatch(t -> {
+			System.out.println(t > 20);
+			return t > 20;
+		});
+
+		System.out.println(ai.get());
 
 		System.exit(1);
+
+		flatMap();
 
 		average();
 
@@ -155,9 +170,6 @@ public class StreamExample {
 		Stream<Integer> distinct = integers.stream().distinct();
 
 		boolean equals = integers.stream().equals(integers.stream());
-
-		// intermediate operation
-		Stream<Integer> filter = integers.stream().filter(t -> t > 20);
 
 		System.exit(1);
 		average();

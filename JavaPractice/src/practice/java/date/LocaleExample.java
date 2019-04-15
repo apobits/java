@@ -5,6 +5,7 @@ package practice.java.date;
 
 import java.util.Locale;
 import java.util.Locale.Builder;
+import java.util.Locale.Category;
 
 /**
  * @author apobits@gmail.com
@@ -35,6 +36,10 @@ public class LocaleExample {
 		System.out.println(locale2);
 
 		System.out.println(locale3);
+
+		System.out.println(Locale.getDefault(Category.DISPLAY));
+
+		Locale.setDefault(Category.FORMAT, new Locale("es"));
 
 	}
 

@@ -14,7 +14,6 @@ public class AtomicIntegerExample {
 	public static void main(String[] args) {
 
 		AtomicInteger ai = new AtomicInteger();
-
 		System.out.println("Incrementing by 1 ai atomically: " + ai.incrementAndGet());
 		System.out.println("Incrementing by 1 ai atomically: " + ai.addAndGet(1));
 		System.out.println("Obtaining the current value and setting the actual value to 1 atomically: "

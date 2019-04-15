@@ -26,7 +26,7 @@ public class RecursiveActionImp extends RecursiveAction {
 	private void computeLogic() {
 
 		for (int i = start; i < start + lenght; i++) {
-			System.out.print(numbers[i]);
+			System.out.print(numbers[i]+ " ");
 		}
 
 	}
@@ -37,7 +37,12 @@ public class RecursiveActionImp extends RecursiveAction {
 			computeLogic();
 			return;
 		}
-		invokeAll(new RecursiveActionImp(start, lenght / 2), new RecursiveActionImp(start + lenght / 2, lenght / 2));
+		RecursiveActionImp r1 = new RecursiveActionImp(start, lenght / 2);
+		RecursiveActionImp r2 = new RecursiveActionImp(start + lenght / 2, lenght / 2);
+		r1.fork();
+		
+		r2.fork();
+		r1.join();
 	}
 
 	public static void main(String[] args) {

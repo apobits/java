@@ -36,7 +36,7 @@ public class ResourceBundleExample {
 		System.out.println(resourceBundle3.getString("architect"));
 
 		System.out.println(resourceBundle4.getString("architect"));
-		
+
 		System.out.println(resourceBundle4.getObject("architect"));
 
 	}
