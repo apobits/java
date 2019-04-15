@@ -282,6 +282,11 @@ public class FilesExample {
 		// from nio path to io file
 		File file2 = file1Path.toFile();
 
+		Stream<String> lines = Files.lines(path1);
+		lines.forEach(System.out::println);
+
+		Files.isSameFile(path1, path);
+
 	}
 
 }

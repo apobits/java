@@ -4,10 +4,11 @@
 package practice.java.nio;
 
 import java.io.IOException;
+import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.stream.Stream;
+import java.nio.file.StandardCopyOption;
 
 /**
  * @author apobits@gmail.com
@@ -16,14 +17,15 @@ import java.util.stream.Stream;
 public class DailyPracticeExample {
 
 	public static void main(String args[]) throws InterruptedException, IOException {
+		Path target = Paths.get("C:\\Users\\Administrador\\Desktop\\practice\\b\\File.txt");
+		Path source = FileSystems.getDefault().getPath("C:\\Users\\Administrador\\Desktop\\practice\\a\\File.txt");
 
-		Stream<Path> paths = Files.find(Paths.get("C:\\Users\\aposo\\Desktop\\parent\\child1"), 3,
-				(t, u) -> u.isRegularFile());
+		Files.move(source, target, StandardCopyOption.ATOMIC_MOVE);
 
-		paths.forEach(t -> System.out.println(t));
+		Files.delete(source);
 
-		paths.close();
-
+		System.out.println("source exists? " + source.toFile().exists());
+		System.out.println("target exists? " + target.toFile().exists());
 	}
 
 }
