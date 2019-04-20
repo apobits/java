@@ -101,6 +101,7 @@ public class StreamExample {
 		System.out.println(sums.get("Male"));
 
 		System.out.println(sums.get("Female"));
+		
 	}
 
 	public static void parallelStream() {
@@ -127,6 +128,12 @@ public class StreamExample {
 	 */
 	public static void main(String[] args) {
 
+		System.out.println(Arrays.asList("a", "b").stream().collect(Collectors.joining()));
+		System.out.println(Arrays.asList("a", "b").stream().collect(Collectors.joining("-")));
+		System.out.println(Arrays.asList("a", "b").stream().collect(Collectors.joining("-", "_", "!")));
+
+		System.exit(1);
+
 		AtomicInteger ai = new AtomicInteger();
 
 		// intermediate operation
@@ -147,10 +154,6 @@ public class StreamExample {
 		average();
 
 		System.exit(1);
-
-		System.out.println(Arrays.asList("a", "b").stream().collect(Collectors.joining()));
-		System.out.println(Arrays.asList("a", "b").stream().collect(Collectors.joining("-")));
-		System.out.println(Arrays.asList("a", "b").stream().collect(Collectors.joining("-", "_", "!")));
 
 		// short circuiting terminal operation
 		Optional<Integer> findFirst = integers.stream().findFirst();

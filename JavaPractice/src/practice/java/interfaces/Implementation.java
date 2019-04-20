@@ -13,8 +13,9 @@ public class Implementation implements ChildInterface {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// As default methodOne() is in both interfaces, the interface that
-		// takes precedence is ChildInterface the one that is implementing directly
+		// Since ChildInterface extends ParentInterface and is redefining default
+		// methodOne, ChildInterface methodOne will
+		// be called
 		new Implementation().methodOne();
 
 		// Interface static methods can only be accessed through its interface they are
@@ -31,6 +32,13 @@ public class Implementation implements ChildInterface {
 		// Method undefined, static methods are not implemented, they belong to their
 		// interfaces only
 		// new Implementation().methodTree();
+
+		ParentInterface pi = new Implementation();
+		pi.methodOne();
+
+		ChildInterface ci = new Implementation();
+		ci.methodOne();
+
 	}
 
 }

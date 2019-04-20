@@ -22,8 +22,11 @@ public class PathMatcherExample {
 		PathMatcher pathMatcherRegex = FileSystems.getDefault().getPathMatcher("regex:^.*\\.java");
 		PathMatcher pathMatcherGlob = FileSystems.getDefault().getPathMatcher("glob:**.java");
 		Path path = Paths.get("C:\\Users\\Administrador\\Desktop\\test\\serialized.java");
-		System.out.println("matching using regex "+pathMatcherRegex.matches(path));
-		System.out.println("matching using glob "+pathMatcherGlob.matches(path));
+		System.out.println("matching using regex " + pathMatcherRegex.matches(path));
+		System.out.println("matching using glob " + pathMatcherGlob.matches(path));
+
+		PathMatcher pathMatcherGlob1 = FileSystems.getDefault().getPathMatcher("glob:*{java,lava}");
+		System.out.println(pathMatcherGlob1.matches(Paths.get("hi.lava")));
 
 	}
 

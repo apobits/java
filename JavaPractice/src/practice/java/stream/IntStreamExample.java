@@ -23,7 +23,6 @@ public class IntStreamExample {
 		int sum = is.sum();
 		DoubleStream ds = is.asDoubleStream();
 		Stream<Integer> integerStream = is.mapToObj(t -> t);
-
 	}
 
 }

@@ -36,7 +36,7 @@ public class HashMapExample {
 		for (String x : names.values()) {
 			System.out.print(x + " ");
 		}
-
+		
 	}
 
 }
