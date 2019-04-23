@@ -3,8 +3,8 @@
  */
 package practice.java.nio;
 
-import java.util.function.Function;
-import java.util.function.Supplier;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * @author apobits@gmail.com
@@ -12,17 +12,11 @@ import java.util.function.Supplier;
  */
 public class DailyPracticeExample {
 
-	public static double compute(double base, Function<Integer, Integer> func) {
-		return func.apply((int) base);
-	}
-	
-	public static double get() {
-		return 0.0;
-	}
-
 	public static void main(String[] args) {
-		Supplier s = DailyPracticeExample::get;
-		
-		System.out.println(s.get());
+		List<String> words = Arrays.asList("A", "BB", "C", "D", "E");
+		System.out.println(words.stream().filter(t -> t.length() == 1).anyMatch(t -> {
+			System.out.println("Printing...");
+			return true;
+		}));
 	}
 }
