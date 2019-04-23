@@ -17,6 +17,7 @@ public class NumberFormatExample {
 	 */
 	public static void main(String[] args) {
 		NumberFormat nf = NumberFormat.getInstance(Locale.getDefault());
+		NumberFormat.getCurrencyInstance();
 
 	}
 

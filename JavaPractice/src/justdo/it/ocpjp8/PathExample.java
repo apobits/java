@@ -3,7 +3,6 @@
  */
 package justdo.it.ocpjp8;
 
-import java.io.File;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
 import java.nio.file.PathMatcher;
@@ -26,9 +25,9 @@ public class PathExample {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		
+
 		pathMatcher();
-		
+
 //		Path path2 = Paths.get("C:\\Users\\aposo\\Desktop/test");
 //
 //		Path path3 = Paths.get("C:\\Users\\aposo\\Desktop/P.pdf");
