@@ -37,6 +37,8 @@ public class PeriodExample {
 		System.out.println("Period of 1 year " + Period.ofYears(1));
 
 		System.out.println(Period.ofMonths(0));
+
+		System.out.println(Period.parse("P1Y"));
 	}
 
 	public static void daylightSavingTimeExample() {
@@ -51,6 +53,7 @@ public class PeriodExample {
 	 */
 	public static void main(String[] args) {
 		daylightSavingTimeExample();
+		commonUses();
 	}
 
 }

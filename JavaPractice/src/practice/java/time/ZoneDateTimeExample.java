@@ -37,6 +37,7 @@ public class ZoneDateTimeExample {
 	 */
 	public static void main(String[] args) {
 		daylightSavingTimeExample();
+		System.out.println(ZonedDateTime.parse("2019-04-23T03:18:59.01Z", DateTimeFormatter.ISO_DATE_TIME));
 	}
 
 }

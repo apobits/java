@@ -21,6 +21,8 @@ public class TemporalAdjustersExample {
 		System.out.println(LocalDate.now().with(TemporalAdjusters.nextOrSame(DayOfWeek.THURSDAY)));
 
 		System.out.println(TemporalAdjusters.next(DayOfWeek.THURSDAY).adjustInto(LocalDate.now()));
+		
+		
 
 	}
 

@@ -27,6 +27,7 @@ public class InstantExample {
 	 */
 	public static void main(String[] args) {
 		parse();
+		truncatedTo();
 	}
 
 }
