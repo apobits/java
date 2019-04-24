@@ -31,7 +31,7 @@ public class WatchServiceExample {
 			WatchKey watchKey = watchService.take();
 			for (WatchEvent<?> watchEvent : watchKey.pollEvents()) {
 				System.out.println("Kind of event: " + watchEvent.kind());
-				System.out.println("Directory: " + (Path)watchEvent.context());
+				System.out.println("Directory: " + (Path) watchEvent.context());
 				// using reset will allow the key to receive events again, when a loop is used
 				watchKey.reset();
 			}
