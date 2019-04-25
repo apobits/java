@@ -32,10 +32,11 @@ public class Q21 {
 
 	public static void main(String[] args) {
 
-		List<Person> prog = Arrays.asList(new Person("Smith", 1500),new Person("John", 2000),new Person("Joe", 1000));
-		
-		double dVal = prog.stream().filter(t->t.getFirstName().startsWith("J")).mapToInt(t->t.getSalary()).average().getAsDouble();
-		
+		List<Person> prog = Arrays.asList(new Person("Smith", 1500), new Person("John", 2000), new Person("Joe", 1000));
+
+		double dVal = prog.stream().filter(t -> t.getFirstName().startsWith("J")).mapToInt(Person::getSalary).average()
+				.getAsDouble();
+
 		System.out.println(dVal);
 
 	}
