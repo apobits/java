@@ -4,6 +4,7 @@
 package practice.java.methodReference;
 
 import java.util.function.BiPredicate;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
@@ -13,12 +14,26 @@ import java.util.function.Supplier;
  */
 public class MethodReferenceExample implements Predicate<String> {
 
+	@Override
+	public boolean test(String t) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public static boolean test1(String s) {
+		return false;
+	}
+
 	public static void doSomething(Predicate<String> p) {
 		System.out.println(p.test(""));
 	}
 
 	public static <T, U> void doSomethingElse(BiPredicate<T, U> bp, T t, U u) {
 		System.out.println(bp.test(t, u));
+	}
+
+	public static void consume(Integer x) {
+		System.out.println(x.intValue());
 	}
 
 	/**
@@ -39,16 +54,9 @@ public class MethodReferenceExample implements Predicate<String> {
 		// instance method reference
 		doSomethingElse(new PredicateImpl()::compare1, new PredicateImpl(), new PredicateImpl());
 
-	}
+		Consumer<Integer> c = MethodReferenceExample::consume;
 
-	@Override
-	public boolean test(String t) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+		c.accept(5);
 
-	public static boolean test1(String s) {
-		return false;
 	}
-
 }
