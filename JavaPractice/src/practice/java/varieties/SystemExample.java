@@ -3,8 +3,6 @@
  */
 package practice.java.varieties;
 
-import com.sun.javafx.runtime.SystemProperties;
-
 /**
  * @author apobits@gmail.com
  *

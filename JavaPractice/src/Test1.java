@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 /**
  * 
  */
@@ -15,7 +13,6 @@ public class Test1 {
 
 	static class Calculator implements AdvancedArithmetic {
 
-		@Override
 		public int divisorSum(int n) {
 			int sum = 1;
 			for (int i = 1; i < n; i++) {
@@ -39,9 +36,7 @@ public class Test1 {
 //		int sum = myCalculator.divisorSum(n);
 //		System.out.println("I implemented: " + myCalculator.getClass().getInterfaces()[0].getName());
 //		System.out.println(sum);
-		
-		
-		
+
 	}
 
 }

@@ -20,6 +20,14 @@ import practice.java.collection.SetExample.Vowel;
  */
 public class MapExample {
 
+	public static Map<Integer, Integer> practiceHashMap = new HashMap<Integer, Integer>();
+
+	static {
+		for (int i = 10; i > -1; i--) {
+			practiceHashMap.put(i, i + 10);
+		}
+	}
+
 	public static void hashMap() {
 		// creates an empty hash map with default initial capacity 16 and default load
 		// factor 0.75
@@ -72,6 +80,9 @@ public class MapExample {
 
 		// attempts to compute a mapping for the specified key and its current value or
 		// null if there is no current mapping
+		// returns the new value associated with the key or null if none
+		// if BiFunction returns null and there was a previous mapping, that mapping is
+		// removed
 		map.compute(1, (t, u) -> {
 			return ++u;
 		});
@@ -108,6 +119,8 @@ public class MapExample {
 		// associates or replaces null with the specified value
 		// if the mapping exists it replaces the old value with the one return by the
 		// bifunction
+		// if the BiFunction returns null and there was a previous mapping, that mapping
+		// is removed
 		map.merge(3, 3, (t, u) -> u);
 
 		// if the specified key is not mapped or its mapping is null then adds the
@@ -140,7 +153,7 @@ public class MapExample {
 
 	public static void treeMap() {
 		// TreeMap extends AbstractMap and implements NavigableMap
-		// Elements are sorted in ascending key order
+		// Keys are sorted by their natural order or by a comparator
 
 		// Empty constructor
 		TreeMap<Integer, String> persons = new TreeMap<>();
