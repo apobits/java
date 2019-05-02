@@ -9,6 +9,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.Scanner;
+import java.util.regex.MatchResult;
+import java.util.regex.Pattern;
+import java.util.stream.Stream;
 
 /**
  * @author apobits@gmail.com
@@ -57,7 +60,25 @@ public class ScannerExample {
 		}
 	}
 
+	public static void tokens() {
+		try (Scanner scanner = new Scanner(System.in)) {
+			Stream<String> stream = scanner.tokens();
+			stream.forEach(t -> System.out.print(t + " "));
+		}
+	}
+
+	public static void findAll() {
+		try (Scanner scanner = new Scanner(System.in)) {
+			Stream<MatchResult> stream = scanner.findAll(Pattern.compile("^*.java"));
+			stream.forEach(t -> System.out.print(t.group() + " "));
+		}
+	}
+
 	public static void main(String[] args) {
+		findAll();
+		System.exit(1);
+		tokens();
+
 		fromString();
 
 		try (Scanner scanner = new Scanner(System.in)) {

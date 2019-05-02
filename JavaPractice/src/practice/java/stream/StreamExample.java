@@ -5,10 +5,10 @@ package practice.java.stream;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.Spliterator;
 import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
 import java.util.stream.Stream;
@@ -30,6 +30,7 @@ public class StreamExample {
 			new Person("Winder", "Perez", 12345677, 32, "Male"), new Person("Robinson", "Perez", 12345678, 30, "Male"));
 
 	private static List<Integer> integers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
+
 	private static List<List<Integer>> integerss = Arrays.asList(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9),
 			Arrays.asList(10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20));
 
@@ -101,7 +102,7 @@ public class StreamExample {
 		System.out.println(sums.get("Male"));
 
 		System.out.println(sums.get("Female"));
-		
+
 	}
 
 	public static void parallelStream() {
@@ -120,71 +121,64 @@ public class StreamExample {
 
 	public static void peek() {
 		integers.stream().peek(t -> System.out.println(t));
+	}
 
+	public static void limit() {
+		System.out.println(persons);
+		System.out.println();
+		persons.stream().limit(5).forEach(t -> System.out.print(t + " "));
+	}
+
+	public static void skip() {
+		System.out.println(persons);
+		System.out.println();
+		persons.stream().skip(5).forEach(t -> System.out.print(t + " "));
+	}
+
+	public static void iterator() {
+		Iterator<Integer> numbers = integers.stream().iterator();
+
+		while (numbers.hasNext()) {
+			System.out.print(numbers.next() + " ");
+		}
+	}
+
+	public static void spliterator() {
+		Spliterator<Integer> numbers = integers.stream().spliterator();
+		numbers.forEachRemaining(t -> System.out.print(t + " "));
+	}
+
+	public static void takeWhile() {
+		System.out.println(integers);
+		System.out.println();
+		integers.stream().sorted((t, u) -> u.compareTo(t)).takeWhile(t -> t > 5)
+				.forEach(t -> System.out.print(t + " "));
+	}
+
+	public static void dropWhile() {
+		System.out.println(integers);
+		System.out.println();
+		integers.stream().dropWhile(t -> t < 5).forEach(t -> System.out.print(t + " "));
+	}
+
+	public static void ofNullable() {
+		System.out.print("Stream of nullable with 1 as parameter: ");
+		Stream.ofNullable(1).forEach(t -> System.out.print(t + " "));
+		System.out.println();
+		System.out.println("Stream of nullable with null as parameter: ");
+		Stream.ofNullable(null).forEach(t -> System.out.print(t + " "));
+	}
+
+	public static void iterate() {
+		Stream.iterate(0, t -> t + 1).forEach(t -> System.out.println(t));
+		Stream.iterate(0, t -> t < 5, t -> t + 1).forEach(t -> System.out.println(t + " "));
 	}
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-
-		System.out.println(Arrays.asList("a", "b").stream().collect(Collectors.joining()));
-		System.out.println(Arrays.asList("a", "b").stream().collect(Collectors.joining("-")));
-		System.out.println(Arrays.asList("a", "b").stream().collect(Collectors.joining("-", "_", "!")));
-
-		System.exit(1);
-
-		AtomicInteger ai = new AtomicInteger();
-
-		// intermediate operation
-		Stream.of(1, 21, 3, 4, 5).filter(t -> {
-			ai.incrementAndGet();
-			return t > 20;
-		}).allMatch(t -> {
-			System.out.println(t > 20);
-			return t > 20;
-		});
-
-		System.out.println(ai.get());
-
-		System.exit(1);
-
-		flatMap();
-
-		average();
-
-		System.exit(1);
-
-		// short circuiting terminal operation
-		Optional<Integer> findFirst = integers.stream().findFirst();
-
-		// short circuiting terminal operation
-		boolean allMatch = integers.stream().allMatch(t -> t > 10);
-
-		// short circuiting terminal operation
-		boolean anyMatch = integers.stream().anyMatch(t -> t < 10);
-
-		integers.stream().close();
-
-		// terminal operation
-		long count = integers.stream().count();
-
-		// Stateful intermediate operation
-		Stream<Integer> distinct = integers.stream().distinct();
-
-		boolean equals = integers.stream().equals(integers.stream());
-
-		System.exit(1);
-		average();
-		parallelStream();
-		collect();
-		modifyingSource();
-		streamBuilder();
-		allMatch();
-		flatMap();
-		reduce();
-		max();
-
+		iterate();
 	}
 
 }
