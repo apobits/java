@@ -3,11 +3,12 @@
  */
 package practice.java.nio;
 
-import static practice.java.collection.MapExample.practiceHashMap;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+import java.util.ServiceLoader;
 
-import java.text.NumberFormat;
-import java.util.Locale;
-import java.util.Map;;
+;
 
 /**
  * @author apobits@gmail.com
@@ -16,24 +17,13 @@ import java.util.Map;;
  */
 public class DailyPracticeExample<T> {
 
-	public static void main(String[] args) {
-
-		System.out.println(practiceHashMap.replace(10, 30));
-
-		practiceHashMap.replaceAll((t, u) -> {
-			System.out.println("Key: " + t + " value: " + u);
-			return u;
-		});
-
-		System.out.println(practiceHashMap.remove(10));
-
-		System.out.println(practiceHashMap.remove(9, 19));
-
-		Locale usLocale = Locale.US;
-
-		System.out.println(NumberFormat.getCurrencyInstance(usLocale).format(15));
+	public static void main(String... args) {
 		
+		List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7);
+		numbers.set(0,9);
+		System.out.println(numbers);
 		
-
-	}
+		Optional<Integer> optInt = 	Optional.of(1);
+	
+	} 
 }
