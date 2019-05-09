@@ -14,7 +14,6 @@ public class DailyPracticeExample {
 
 	public static void main(String args[]) {
 
-		var s = new String();
 	}
 
 }

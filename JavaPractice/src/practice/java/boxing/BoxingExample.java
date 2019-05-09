@@ -19,6 +19,8 @@ public class BoxingExample {
 
 		// manual boxing through constructors
 		Integer d = new Integer(3);
+		
+		Integer e = Integer.valueOf(5);
 
 		// manual unboxing
 		int b = a.intValue();

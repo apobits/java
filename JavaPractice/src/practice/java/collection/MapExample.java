@@ -48,6 +48,8 @@ public class MapExample {
 		// if the key has a mapping already the old value is replaced
 		// returns the previous value associated with the key or null if there was no
 		// mapping
+		//if the map is full the value will be increased to its threshold *2
+		//threshold is (initial capacity * load factor )<< 1
 		map.put(1, 1);
 
 		// returns true if the map contains the specified key

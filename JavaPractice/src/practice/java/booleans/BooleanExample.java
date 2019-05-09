@@ -29,6 +29,8 @@ public class BooleanExample {
 		System.out.println("b2 is " + b2);
 		System.out.println("b3 is " + b3);
 		System.out.println("b4 is " + b4);
+		
+		System.out.println(Boolean.valueOf("true"));
 
 	}
 

@@ -22,8 +22,8 @@ public class Casting {
 
 		d = (int) e;// casting long to int
 		c = (short) d;// casting int to short
-		b = (char) c;// casting short to char
-		a = (byte) b;// casting char to byte
+		b =  (char) c;// casting short to char
+		a = (byte) c;// casting char to byte
 
 		System.out.println("a = " + a);
 		System.out.println("b = " + (int) b);

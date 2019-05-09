@@ -26,7 +26,7 @@ public class DateFormatExample {
 		SimpleDateFormat sdf = new SimpleDateFormat("MM/yy");
 
 		System.out.println(sdf.format(new Date()));
-
+		
 	}
 
 }

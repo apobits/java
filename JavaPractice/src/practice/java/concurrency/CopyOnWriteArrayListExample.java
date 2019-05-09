@@ -36,6 +36,8 @@ public class CopyOnWriteArrayListExample {
 				System.out.println(getSize());
 		});
 		es.execute(() -> list.addAll(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 0)));
+		
+		es.shutdown();
 
 	}
 

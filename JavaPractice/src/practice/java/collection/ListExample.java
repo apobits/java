@@ -79,6 +79,9 @@ public class ListExample {
 		list.sort((t, r) -> r - t);
 		System.out.println(list);
 
+		// gets the object by its position in the list
+		list.get(0);
+
 	}
 
 	public static void linkedList() {
