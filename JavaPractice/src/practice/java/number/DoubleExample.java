@@ -35,6 +35,10 @@ public class DoubleExample {
 		System.out.println(Double.SIZE);
 		System.out.println(d.isInfinite() + " " + d.isNaN());
 
+		System.out.println("Producing a positive infinity " + 1.0 / 0.0);
+		System.out.println("Producing a negative infinity " + -1.0 / 0.0);
+		System.out.println("Producing a NaN " + 0.0 / 0.0);
+
 	}
 
 }

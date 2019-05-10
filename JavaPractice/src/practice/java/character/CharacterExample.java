@@ -9,32 +9,26 @@ package practice.java.character;
  */
 public class CharacterExample {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
+// escape sequence \\u can be used outside single and double quotes
+	public static void main(String\u005b\u005d args) {
 
-		Character character = new Character('M');
-		System.out.println(Character.isUpperCase(character));
-		System.out.println(Character.forDigit(3, 10));
-		System.out.println(Character.isDigit(character));
-		System.out.println(Character.digit('2', 10));
-		System.out.println(Character.codePointAt("abc", 0));
-		System.out.println((char) 97);
-		//unicode value
-		System.out.println('\u05F0');
-		//ascii value
-		System.out.println((char) 64);
-		System.out.println(Character.isLowSurrogate('\uFFFF'));
-		// maximum value of a character stored in 16 bits, values beyond 10FFFF are
-		// supplemental characters and they are stored in 32bits(char array of two
-		// elements)
-		System.out.println(Character.isHighSurrogate('\uFFFF'));
-		// 2 chars containing the supplemental character
-		System.out.println(Character.charCount(200000));
-		// code point representing a supplemental character that is store on a char
-		// array because is passed FFFF
-		System.out.println(Character.toChars((200000)));
+		// Instantiating a character object
+		Character character = Character.valueOf('A');
+		System.out.println("'A' character: " + character);
+
+		System.out.println(character + " is high surrogate: " + Character.isHighSurrogate(character.charValue()));
+		System.out.println(character + " is lower surrogate: " + Character.isLowSurrogate(character.charValue()));
+
+		// using unicode escape sequences
+		char\u005b\u005d x = \u007b 1, 2, 3 \u007d;
+
+		// using normal characters
+		char[] y = { 1, 2, 3 };
+
+		// unicode escape sequences are processed before the code is parsed
+		System.out.println(" \u0022 + "lol" + \u0022 ");
+
+		System.out.println("Unicode \\u0041 is \u0041");
 
 	}
 
