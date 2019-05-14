@@ -30,6 +30,12 @@ public class CharacterExample {
 
 		System.out.println("Unicode \\u0041 is \u0041");
 
+		// code points
+		System.out.println("U+0041");
+
+		System.out.println("1 Is Java identifier part: " + Character.isJavaIdentifierPart('1'));
+
+		System.out.println("_ Is Java identifier start: " + Character.isJavaIdentifierStart('_'));
 	}
 
 }

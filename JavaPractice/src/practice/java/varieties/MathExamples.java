@@ -37,6 +37,13 @@ public class MathExamples {
 		int b = 1 + 7 - 3 + 2;
 
 		System.out.println(b);
+
+		// it guarantees same results on different VMs
+		StrictMath.sqrt(2);
+
+		// exact methods throw an exception if an overflow happens
+		// It throws an exception if an overflow happens
+		Math.addExact(2000000000, 999999999);
 	}
 
 }
