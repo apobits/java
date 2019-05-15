@@ -7,7 +7,7 @@ package practice.java.varieties;
  * @author apobits@gmail.com
  *
  */
-public class BitwiseLogicalOperators {
+public class BitwiseOperators {
 
 	/**
 	 * @param args
