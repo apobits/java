@@ -24,6 +24,12 @@ public class StringExample {
 		IntStream stream1 = test.codePoints();
 		System.out.println();
 		stream1.forEach(t -> System.out.print(t));
+
+		String string1 = new String(new char[] { 'a', 'b' });
+
+		System.out.println(String.join("-", "Hello", "you"));
+		
+		System.out.println(string1.repeat(5));
 	}
 
 }
