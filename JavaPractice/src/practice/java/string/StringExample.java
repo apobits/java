@@ -28,8 +28,14 @@ public class StringExample {
 		String string1 = new String(new char[] { 'a', 'b' });
 
 		System.out.println(String.join("-", "Hello", "you"));
-		
+
 		System.out.println(string1.repeat(5));
+
+		String word = "\u1F37";
+		String word2 = "";
+		int codePoint = 00000041;
+		System.out.println(Character.toChars(codePoint));
+
 	}
 
 }
