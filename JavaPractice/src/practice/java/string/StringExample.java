@@ -36,6 +36,10 @@ public class StringExample {
 		int codePoint = 00000041;
 		System.out.println(Character.toChars(codePoint));
 
+		System.out.println("\u0041");
+
+		System.out.println("H o l a".strip());
+
 	}
 
 }

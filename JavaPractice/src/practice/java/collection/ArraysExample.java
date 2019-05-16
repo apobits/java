@@ -14,6 +14,11 @@ import java.util.Spliterator;
  */
 public class ArraysExample {
 
+	public static void deepToString() {
+		int a[][] = { { 1, 2, 3 }, { 4, 5, 6 } };
+		System.out.println(Arrays.deepToString(a));
+	}
+
 	public static void asList() {
 		// creating a bridge from array to collection
 		// the list return is backed by the specified array
@@ -40,6 +45,9 @@ public class ArraysExample {
 	}
 
 	public static void main(String[] args) {
+		deepToString();
+		System.exit(1);
+		
 		asList();
 
 		int[] array1 = new int[] { 1, 2, 3 };
