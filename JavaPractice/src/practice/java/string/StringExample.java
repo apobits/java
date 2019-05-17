@@ -31,10 +31,9 @@ public class StringExample {
 
 		System.out.println(string1.repeat(5));
 
-		String word = "\u1F37";
-		String word2 = "";
-		int codePoint = 00000041;
-		System.out.println(Character.toChars(codePoint));
+		System.out.println("Code points in H " + "H".codePointCount(0, "H".length()));
+		System.out.println("Code point at H " + "H".codePointAt(0));
+		System.out.println((char) 72);
 
 	}
 

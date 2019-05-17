@@ -3,7 +3,9 @@
  */
 package practice.java.time;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoField;
 
@@ -28,7 +30,37 @@ public class LocalDateExample {
 		System.out.println(localDate);
 	}
 
+	// practice method
+	public static void displayCurrentMonth() {
+		StringBuilder daysOfWeek = new StringBuilder();
+		daysOfWeek.append(DayOfWeek.SUNDAY).append(" ");
+		daysOfWeek.append(DayOfWeek.MONDAY).append(" ");
+		daysOfWeek.append(DayOfWeek.TUESDAY).append(" ");
+		daysOfWeek.append(DayOfWeek.WEDNESDAY).append(" ");
+		daysOfWeek.append(DayOfWeek.THURSDAY).append(" ");
+		daysOfWeek.append(DayOfWeek.FRIDAY);
+		System.out.println(daysOfWeek);
+
+		LocalDate date = LocalDate.now();
+		date = date.minusDays(17 - 1);
+		Month currentMonth = date.getMonth();
+		while (date.getMonth().equals(currentMonth)) {
+			switch (date.getDayOfWeek()) {
+			case SUNDAY:
+				System.out.println(" ".repeat(6));
+				System.out.print(date.getDayOfWeek().getValue());
+				break;
+			case FRIDAY:
+				System.out.println();
+				break;
+			}
+			date = date.plusDays(1);
+		}
+	}
+
 	public static void main(String[] args) {
+		displayCurrentMonth();
+		System.exit(0);
 		parse();
 	}
 
