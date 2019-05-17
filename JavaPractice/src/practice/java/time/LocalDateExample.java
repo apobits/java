@@ -33,24 +33,71 @@ public class LocalDateExample {
 	// practice method
 	public static void displayCurrentMonth() {
 		StringBuilder daysOfWeek = new StringBuilder();
-		daysOfWeek.append(DayOfWeek.SUNDAY).append(" ");
 		daysOfWeek.append(DayOfWeek.MONDAY).append(" ");
 		daysOfWeek.append(DayOfWeek.TUESDAY).append(" ");
 		daysOfWeek.append(DayOfWeek.WEDNESDAY).append(" ");
 		daysOfWeek.append(DayOfWeek.THURSDAY).append(" ");
-		daysOfWeek.append(DayOfWeek.FRIDAY);
+		daysOfWeek.append(DayOfWeek.FRIDAY).append(" ");
+		daysOfWeek.append(DayOfWeek.SATURDAY).append(" ");
+		daysOfWeek.append(DayOfWeek.SUNDAY);
 		System.out.println(daysOfWeek);
 
 		LocalDate date = LocalDate.now();
 		date = date.minusDays(17 - 1);
 		Month currentMonth = date.getMonth();
+		boolean start = true;
 		while (date.getMonth().equals(currentMonth)) {
 			switch (date.getDayOfWeek()) {
-			case SUNDAY:
-				System.out.println(" ".repeat(6));
-				System.out.print(date.getDayOfWeek().getValue());
+			case MONDAY:
+				System.out.print(" ".repeat(5) + date.getDayOfMonth());
+				break;
+			case TUESDAY:
+				if (start) {
+					System.out.printf("%15d", date.getDayOfMonth());
+				} else {
+					System.out.printf("%7d", date.getDayOfMonth());
+				}
+				start = false;
+				break;
+			case WEDNESDAY:
+				if (start) {
+					System.out.printf("%24d", date.getDayOfMonth());
+				} else {
+					System.out.printf("%9d", date.getDayOfMonth());
+				}
+				start = false;
+				break;
+			case THURSDAY:
+				if (start) {
+					System.out.printf("%33d", date.getDayOfMonth());
+				} else {
+					System.out.printf("%9d", date.getDayOfMonth());
+				}
+				start = false;
 				break;
 			case FRIDAY:
+				if (start) {
+					System.out.printf("%40d", date.getDayOfMonth());
+				} else {
+					System.out.printf("%7d", date.getDayOfMonth());
+				}
+				start = false;
+				break;
+			case SATURDAY:
+				if (start) {
+					System.out.printf("%49d", date.getDayOfMonth());
+				} else {
+					System.out.printf("%9d", date.getDayOfMonth());
+				}
+				start = false;
+				break;
+			case SUNDAY:
+				if (start) {
+					System.out.printf("%47d", date.getDayOfMonth());
+				} else {
+					System.out.printf("%7d", date.getDayOfMonth());
+				}
+				start = false;
 				System.out.println();
 				break;
 			}

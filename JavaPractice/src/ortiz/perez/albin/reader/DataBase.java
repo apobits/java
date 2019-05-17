@@ -35,7 +35,8 @@ public class DataBase {
 		try {
 			connection = DriverManager.getConnection("jdbc:oracle:thin:@//localhost:1521/xe", "RESOURCES_MANAGER",
 					"RESOURCES_MANAGER");
-			ResultSet rs = connection.createStatement().executeQuery("select * from RM_MATERIAL order by id asc");
+			ResultSet rs = connection.createStatement()
+					.executeQuery("select * from RM_WAREHOUSE_MATERIAL order by id asc");
 			while (rs.next()) {
 				int id = rs.getInt("id");
 				String name = rs.getString("name");
@@ -45,11 +46,8 @@ public class DataBase {
 				String measure = rs.getString("measure");
 				String status = rs.getString("status");
 				String materialTypeCategory = rs.getString("material_type_category");
+				System.out.println(id);
 
-				preparedStatement = connection.prepareStatement(
-						"delete from rm_material where id != ? and name = ? and code = ? and description = ? and type = ? and measure = ? and status = ? and material_type_category = ?");
-				preparedStatement.setInt(1, id);
-				preparedStatement.setString(2, name);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
