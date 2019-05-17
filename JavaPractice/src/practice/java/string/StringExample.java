@@ -35,6 +35,10 @@ public class StringExample {
 		System.out.println("Code point at H " + "H".codePointAt(0));
 		System.out.println((char) 72);
 
+		System.out.println("\u0041");
+
+		System.out.println("H o l a".strip());
+
 	}
 
 }

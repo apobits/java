@@ -29,6 +29,8 @@ public class DateExample {
 
 		System.out.println(date1 + " is after than " + date2 + " " + date1.after(date2));
 
+		System.out.printf("%TB", new Date());
+
 	}
 
 }
