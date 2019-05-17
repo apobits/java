@@ -42,20 +42,20 @@ public class LocalDateExample {
 		daysOfWeek.append(DayOfWeek.SUNDAY);
 		System.out.println(daysOfWeek);
 
-		LocalDate date = LocalDate.now();
-		date = date.minusDays(17 - 1);
+		LocalDate date = LocalDate.of(2016, 2, 1);
 		Month currentMonth = date.getMonth();
 		boolean start = true;
 		while (date.getMonth().equals(currentMonth)) {
 			switch (date.getDayOfWeek()) {
 			case MONDAY:
-				System.out.print(" ".repeat(5) + date.getDayOfMonth());
+				System.out.printf("%6d", date.getDayOfMonth());
+				start= false;
 				break;
 			case TUESDAY:
 				if (start) {
 					System.out.printf("%15d", date.getDayOfMonth());
 				} else {
-					System.out.printf("%7d", date.getDayOfMonth());
+					System.out.printf("%8d", date.getDayOfMonth());
 				}
 				start = false;
 				break;
@@ -63,7 +63,7 @@ public class LocalDateExample {
 				if (start) {
 					System.out.printf("%24d", date.getDayOfMonth());
 				} else {
-					System.out.printf("%9d", date.getDayOfMonth());
+					System.out.printf("%10d", date.getDayOfMonth());
 				}
 				start = false;
 				break;
