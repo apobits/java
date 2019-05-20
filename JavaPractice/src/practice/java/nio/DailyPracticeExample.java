@@ -10,11 +10,12 @@ package practice.java.nio;
  * 
  *
  */
-public class DailyPracticeExample {
+class DailyPracticeExample {
 
 	public static void main(String args[]) {
-		
-		
+
+		Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+		}));
 
 	}
 

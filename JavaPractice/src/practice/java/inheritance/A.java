@@ -9,4 +9,10 @@ package practice.java.inheritance;
  */
 public class A {
 
+	private int one = 1;
+
+	public int getOne() {
+		return one;
+	}
+
 }

@@ -24,7 +24,12 @@ public class InheritanceExample {
 
 		A a = getB();
 
-		B b = (B) getA();
+		B b = new B();
+		System.out.println(b.getTwoPlusOne());
+		System.out.println(b.getOne());
+
+		// class cast exception error
+//		B b = (B) getA();
 
 	}
 
