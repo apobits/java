@@ -3,10 +3,12 @@
  */
 package practice.java.varieties;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.Arrays;
 
 /**
  * @author aposo
@@ -14,9 +16,102 @@ import java.lang.reflect.InvocationTargetException;
  */
 public class ReflectionExample {
 
+	private int a = 5;
+
+	public static void printMethods() {
+		Method[] methods = ReflectionExample.class.getMethods();
+
+		Arrays.stream(methods).forEach(t -> System.out.println(t));
+	}
+
+	public static void printFields() {
+		Field[] fields = ReflectionExample.class.getFields();
+
+		Arrays.stream(fields).forEach(t -> System.out.println(t));
+	}
+
+	public static void printFieldsValues() {
+		// getDeclaredFields returns all the public and non public fields
+		// getFields returns all public fields
+		Field[] fields = ReflectionExample.class.getDeclaredFields();
+
+		Arrays.stream(fields).forEach(t -> {
+			try {
+				var obj = new ReflectionExample();
+				t.setAccessible(true);
+				System.out.println(t.get(obj));
+				t.set(obj, 10);
+				System.out.println(t.get(obj));
+			} catch (IllegalArgumentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		});
+	}
+
+	public static void getField() {
+		try {
+			Field a = ReflectionExample.class.getField("a");
+		} catch (NoSuchFieldException | SecurityException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void getMethod() {
+		try {
+			Method printMethods = ReflectionExample.class.getMethod("printMethods");
+			printMethods.invoke(null);
+		} catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
+				| InvocationTargetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public static void getConstructor() {
+		try {
+			Constructor<ReflectionExample> constructor = ReflectionExample.class.getConstructor();
+		} catch (NoSuchMethodException | SecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public static void printArrayElements() {
+		int[] numbers = { 1, 2, 3 };
+
+		for (int i = 0; i < numbers.length; i++) {
+			System.out.print(Array.get(numbers, i));
+		}
+
+		int x[] = (int[]) Array.newInstance(int.class, 5);
+
+		x[4] = 4;
+
+		System.out.println(x[4]);
+	}
+
 	public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, SecurityException,
 			InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 
+		getMethod();
+
+		System.exit(0);
+
+		printArrayElements();
+
+		System.exit(0);
+
+		printFieldsValues();
+
+		System.exit(0);
+
+		printMethods();
+
+		System.exit(0);
 		// raw type, first way to get a Class object
 		Class v = Class.forName("java.lang.Thread");
 
@@ -40,15 +135,6 @@ public class ReflectionExample {
 
 		Class<Double[]> doubleArrayClass = Double[].class;
 
-		try (InputStream is = ReflectionExample.class.getResourceAsStream("Text.txt")) {
-			int byt3 = -1;
-			while ((byt3 = is.read()) != -1) {
-				System.out.print((char) byt3);
-			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 
 }
