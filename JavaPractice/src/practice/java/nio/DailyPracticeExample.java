@@ -7,6 +7,10 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
 
+import ortiz.perez.albin.object.CloneExample;
+import practice.java.interfaces.FunctionalIFExample;
+import practice.java.object.CloneExampleOverriding;
+
 ;
 
 /**
@@ -18,13 +22,8 @@ class DailyPracticeExample {
 
 	public static void main(String args[]) {
 
-		NumberFormat nf = NumberFormat.getCurrencyInstance(Locale.US);
-
-		System.out.println(nf.format(15.0));
-
-		NumberFormat nf1 = DecimalFormat.getCurrencyInstance();
-		System.out.println(nf1.format(15.0));
-
+		FunctionalIFExample fie = () -> System.out.println("Hey");
+		fie.doSomething();
 	}
 
 }

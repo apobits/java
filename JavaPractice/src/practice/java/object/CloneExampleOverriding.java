@@ -7,7 +7,7 @@ package practice.java.object;
  * @author apobits@gmail.com
  *
  */
-// Clonable interface must be implemented in order to use Object.clone method
+// Cloneable interface must be implemented in order to use Object.clone method
 public class CloneExampleOverriding implements Cloneable {
 
     int a = 0;
