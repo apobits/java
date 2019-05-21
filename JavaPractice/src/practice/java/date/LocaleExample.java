@@ -40,6 +40,9 @@ public class LocaleExample {
 		System.out.println(Locale.getDefault(Category.DISPLAY));
 
 		Locale.setDefault(Category.FORMAT, new Locale("es"));
+		
+		System.out.println(Locale.forLanguageTag("sp"));
+		
 
 	}
 
