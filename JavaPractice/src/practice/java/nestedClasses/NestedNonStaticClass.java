@@ -18,6 +18,10 @@ public class NestedNonStaticClass {
 	}
 
 	class NestedClass {
+
+		// static fields must be declared final and resolved at compile time
+		static final int c = 1;
+
 		private int b;
 
 		public void doSomething() {
@@ -25,6 +29,11 @@ public class NestedNonStaticClass {
 			// the enclosing class
 			System.out.println(a);
 		}
+
+		// static methods are not allowed in inner classes
+//		public static void notAllowed() {
+//			
+//		}
 	}
 
 	public static void main(String[] args) {
