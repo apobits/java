@@ -174,11 +174,28 @@ public class StreamExample {
 		Stream.iterate(0, t -> t < 5, t -> t + 1).forEach(t -> System.out.println(t + " "));
 	}
 
+	public static void constructors() {
+
+		Stream<Integer> numbers = Stream.of(1, 2, 3);
+		Stream<String> words = Stream.<String>builder().add("Hello").add("there").build();
+		Stream<Double> empty = Stream.ofNullable(null);
+		Stream<Character> letters = Stream.generate(() -> 'A');
+
+		// infinite streams
+		Stream<Integer> infinite = Stream.iterate(10, t -> ++t);
+//		infinite.forEach(t -> System.out.println(t));
+
+		// infinite stream based on predicate condition
+		Stream<Integer> infiniteConditioned = Stream.iterate(10, t -> t <= 20, t -> ++t);
+		infiniteConditioned.forEach(t -> System.out.println(t));
+
+	}
+
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		spliterator();
+		constructors();
 	}
 
 }
