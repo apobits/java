@@ -144,7 +144,7 @@ public class StreamExample {
 	}
 
 	public static void spliterator() {
-		Spliterator<Integer> numbers = integers.stream().spliterator();
+		Spliterator<Integer> numbers = integers.stream().spliterator().trySplit();
 		numbers.forEachRemaining(t -> System.out.print(t + " "));
 	}
 
@@ -178,7 +178,7 @@ public class StreamExample {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		iterate();
+		spliterator();
 	}
 
 }
