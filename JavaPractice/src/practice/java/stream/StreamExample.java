@@ -159,6 +159,8 @@ public class StreamExample {
 		System.out.println(integers);
 		System.out.println();
 		integers.stream().dropWhile(t -> t < 5).forEach(t -> System.out.print(t + " "));
+		System.out.println();
+		Stream.of(7, 3, 2, 6, 1, 4, 8, 5, 9).dropWhile(t -> t < 5).forEach(t -> System.out.print(t + " "));
 	}
 
 	public static void ofNullable() {
@@ -195,7 +197,7 @@ public class StreamExample {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		iterate();
+		dropWhile();
 	}
 
 }
