@@ -19,13 +19,10 @@ public class ChainedExceptionExample {
 			try {
 				throwSomething();
 			} catch (Exception e) {
-				throw new Exception("Exception in try block " + e);
+				throw new Exception("Exception in try block ", e);
 			}
 		} catch (Exception e) {
-			System.out.println(e);
-			for (StackTraceElement x : e.getStackTrace()) {
-				System.out.println(x);
-			}
+			e.printStackTrace();
 		}
 
 	}

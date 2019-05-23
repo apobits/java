@@ -3,9 +3,9 @@
  */
 package practice.java.nio;
 
-import java.util.OptionalDouble;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 
 ;
 
@@ -16,12 +16,21 @@ import java.util.stream.Stream;
  */
 class DailyPracticeExample {
 
-	public static void main(String args[]) {
+	public static int test() {
 
-		Stream<Integer> numbers = Stream.of(1, 2, 3);
-		IntStream numbers1 = numbers.mapToInt(t -> t);
-		OptionalDouble result = numbers1.average();
-		System.out.println(result.orElse(0));
+		try {
+			InputStream is = new FileInputStream("");
+			return 1;
+		} catch (FileNotFoundException e) {
+			System.out.println(e);
+		} finally {
+
+			return 0;
+		}
+	}
+
+	public static void main(String args[]) {
+		System.out.println(test());
 	}
 
 }
