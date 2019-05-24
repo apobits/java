@@ -3,9 +3,7 @@
  */
 package practice.java.nio;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
+import java.util.stream.Stream;
 
 ;
 
@@ -16,21 +14,10 @@ import java.io.InputStream;
  */
 class DailyPracticeExample {
 
-	public static int test() {
-
-		try {
-			InputStream is = new FileInputStream("");
-			return 1;
-		} catch (FileNotFoundException e) {
-			System.out.println(e);
-		} finally {
-
-			return 0;
-		}
-	}
-
 	public static void main(String args[]) {
-		System.out.println(test());
+
+		Stream.of(1, 2, 3, 4, 5).map(t -> String.valueOf(t)).forEach(t -> System.out.println(t));
+
 	}
 
 }
