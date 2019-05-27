@@ -117,7 +117,7 @@ public class ListExample {
 		lit.forEachRemaining(t -> System.out.println(t));
 
 		// if the list is modified after an iterator was created and that iterator is
-		// used a concurrent modification exception is thrown
+		// used, a concurrent modification exception is thrown
 //		list.add(7);
 
 		// overrides the element that was returned after the call to next or previous
