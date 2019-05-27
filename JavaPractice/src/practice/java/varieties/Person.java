@@ -7,7 +7,7 @@ package practice.java.varieties;
  * @author apobits@gmail.com
  *
  */
-public class Person implements Cloneable {
+public class Person implements Cloneable, Comparable<Person>{
 
 	private String name;
 
@@ -56,6 +56,12 @@ public class Person implements Cloneable {
 	public String toString() {
 		// TODO Auto-generated method stub
 		return name + " " + lastName;
+	}
+
+	@Override
+	public int compareTo(Person o) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }
