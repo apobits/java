@@ -21,6 +21,7 @@ class DailyPracticeExample {
 		public T get() {
 			return t;
 		}
+
 	}
 
 	public static void main(String args[]) {
