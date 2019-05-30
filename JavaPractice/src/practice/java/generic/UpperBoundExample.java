@@ -9,8 +9,8 @@ import practice.java.varieties.Person;
  * @author aposo
  *
  */
-//Upper bound 
-public class UpperBoundExample<T extends Person & Comparable<Person>> {
+//Upper bound, if bounding to a class this class must be the first element and interfaces go next separated by &
+public class UpperBoundExample<T extends Person & Comparable<Person> & Cloneable> {
 
 	public void print(T t) {
 		System.out.println(t.getName());

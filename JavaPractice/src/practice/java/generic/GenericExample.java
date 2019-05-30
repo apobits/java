@@ -46,9 +46,15 @@ public class GenericExample<T, S, U> {
 
 		// using parameterized types as type parameter
 		var map = new HashMap<Integer, List<String>>();
-		
-		//raw type
+
+		// raw type
 		ge = new GenericExample();
+
+		// type inference
+		GenericMethodExample.doSomething(ge);
+
+		// defining type arguments explicitly
+		GenericMethodExample.<String, String, Integer>doSomething(ge);
 
 	}
 
