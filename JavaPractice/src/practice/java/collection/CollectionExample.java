@@ -9,6 +9,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.RandomAccess;
 import java.util.Spliterator;
 import java.util.TreeSet;
 import java.util.stream.Stream;
@@ -118,8 +119,21 @@ public class CollectionExample {
 		collection.clear();
 	}
 
+	// random access interface is a marker class that is implemented on collections
+	// that supports efficient random access
+	public static void randomAccess() {
+		Collection<Integer> collection1 = new ArrayList<>();
+		Collection<Integer> collection2 = new LinkedList<>();
+
+		System.out.println(
+				"Does collection1 supports efficient random access? : " + (collection1 instanceof RandomAccess));
+
+		System.out.println(
+				"Does collection2 supports efficient random access? : " + (collection2 instanceof RandomAccess));
+	}
+
 	public static void main(String[] args) {
-		collectionEquality();
+		randomAccess();
 	}
 
 }
