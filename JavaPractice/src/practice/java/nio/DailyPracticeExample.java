@@ -3,9 +3,6 @@
  */
 package practice.java.nio;
 
-import java.util.LinkedList;
-import java.util.List;
-
 /**
  * @author apobits@gmail.com
  * 
@@ -13,19 +10,14 @@ import java.util.List;
  */
 class DailyPracticeExample {
 
-	public static void main(String args[]) {
+	public static void main(String args[]) throws InterruptedException {
 
-		List<Integer> list = new LinkedList<>();
-		list.add(1);
-		list.add(2);
-		list.add(3);
-		list.add(4);
+		var thread = new Thread(() -> System.out.println("Thread executed"), "MyThread");
 
-		var listI = list.listIterator();
+		thread.start();
 
-		listI.next();
-		listI.remove();
-		System.out.println(list);
+		thread.join();
 
+		System.out.println(thread.getState());
 	}
 }
