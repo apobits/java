@@ -3,16 +3,21 @@
  */
 package practice.java.stream;
 
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Spliterator;
+import java.util.Spliterators;
 import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
 import java.util.stream.Stream;
 import java.util.stream.Stream.Builder;
+import java.util.stream.StreamSupport;
 
 import justdo.it.ocpjp8.Person;
 
@@ -181,6 +186,9 @@ public class StreamExample {
 		Stream<Integer> numbers = Stream.of(1, 2, 3);
 		Stream<String> words = Stream.<String>builder().add("Hello").add("there").build();
 		Stream<Double> empty = Stream.ofNullable(null);
+		var empty2 = Stream.<Double>empty();
+
+		// infinite stream
 		Stream<Character> letters = Stream.generate(() -> 'A');
 
 		// infinite streams
@@ -191,13 +199,32 @@ public class StreamExample {
 		Stream<Integer> infiniteConditioned = Stream.iterate(10, t -> t <= 20, t -> ++t);
 		infiniteConditioned.forEach(t -> System.out.println(t));
 
+		// streams from an iterable and iterator
+		Iterable<Path> paths = FileSystems.getDefault().getRootDirectories();
+		StreamSupport.stream(paths.spliterator(), false);
+
+		Iterator<Path> pathss = Paths.get("").iterator();
+		StreamSupport.stream(Spliterators.spliteratorUnknownSize(pathss, Spliterator.ORDERED), false);
+	}
+
+	public static void arraysStream() {
+		var array = new int[] { 1, 2, 3 };
+		var stream = Arrays.stream(array);
+		var stream1 = Arrays.stream(array, 0, 2);
 	}
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		dropWhile();
+
+		var stream = Stream.of(1, 2, 3, 4, 5);
+		var stream1 = stream.filter(t -> t > 3);
+		var stream2 = stream1.filter(t -> t < 5);
+
+		long count = stream2.takeWhile(t -> t > 0).count();
+		System.out.println(count);
+//		stream2.forEach(t -> System.out.print(t + " "));
 	}
 
 }
