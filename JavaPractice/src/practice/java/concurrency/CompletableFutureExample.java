@@ -31,11 +31,7 @@ public class CompletableFutureExample {
 	public static void main(String[] args) {
 		var completableFuture = getGreeting();
 		completableFuture.thenAccept(t -> System.out.println(t));
-		IntStream is = IntStream.iterate(1, t -> {
-			System.out.println(t);
-			return ++t;
-		});
-
+		IntStream is = IntStream.iterate(0, t -> ++t);
 		is.forEach(t -> System.out.println(t));
 
 	}
