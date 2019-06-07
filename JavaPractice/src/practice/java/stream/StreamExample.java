@@ -159,7 +159,7 @@ public class StreamExample {
 		integers.stream().sorted((t, u) -> u.compareTo(t)).takeWhile(t -> t > 5)
 				.forEach(t -> System.out.print(t + " "));
 		System.out.println();
-		Stream.of(9,2,3,7,5,6,8).takeWhile(t->t>5).forEach(t->System.out.print(t+" "));
+		Stream.of(9, 2, 3, 7, 5, 6, 8).takeWhile(t -> t > 5).forEach(t -> System.out.print(t + " "));
 	}
 
 	public static void dropWhile() {
@@ -215,12 +215,18 @@ public class StreamExample {
 		var stream1 = Arrays.stream(array, 0, 2);
 	}
 
+	public static void toArray() {
+		Object[] objectArray = Stream.of(1).toArray();
+
+		Integer[] stringArray = Stream.of(1).toArray(t -> new Integer[t]);
+
+	}
+
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		takeWhile();
-		dropWhile();
+		toArray();
 	}
 
 }

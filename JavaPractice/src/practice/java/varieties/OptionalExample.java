@@ -109,6 +109,20 @@ public class OptionalExample {
 		}
 	}
 
+	public static void construct() {
+		// creates an optional with the specified value or throw a NullPointerException
+		// if the
+		// specified value is null
+		Optional.of(1);
+
+		// creates an optional with the specified value or an empty optional if the
+		// specified value is null
+		Optional.ofNullable(null);
+
+		// creates an empty optional
+		Optional.empty();
+	}
+
 	public static void main(String[] args) {
 		stream();
 		System.out.println();
