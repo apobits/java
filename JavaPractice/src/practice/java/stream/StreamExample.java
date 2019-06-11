@@ -226,7 +226,7 @@ public class StreamExample {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		toArray();
+		takeWhile();
 	}
 
 }
