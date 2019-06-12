@@ -17,14 +17,7 @@ import java.io.OutputStreamWriter;
 class DailyPracticeExample {
 
 	public static void main(String args[]) {
-		var file = new File("C:\\Users\\Administrador\\Desktop\\Data.txt");
-
-		try (var isr = new FileReader(file); var osw = new OutputStreamWriter(System.out)) {
-			isr.transferTo(osw);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		var hex = 0x4D2;
+		System.out.println(hex);
 	}
 }
