@@ -187,38 +187,11 @@ public class FilesExample {
 		}
 	}
 
-	public static void main(String[] args) throws IOException {
+	public static void createFile() throws IOException {
+		Files.createFile(Paths.get("C:\\Users\\aposo\\Desktop", "newFile.txt"));
+	}
 
-		find();
-
-		System.exit(1);
-
-		walk();
-
-		// createHardLink();
-
-		createSymbolicLink();
-
-		directoryStreamFilter();
-
-		listDirectoryContents("*.java");
-
-		listDirectoryContents();
-
-		createTempDirectory();
-
-		createDirectory();
-
-		tempFile();
-
-		readWithBuffer();
-
-		writeWithBuffer();
-
-		readStream();
-
-		writeStream();
-
+	public static void variaties() throws IOException {
 		Path path = Paths.get("C:\\Users\\Administrador\\Desktop\\test\\serialized.java");
 
 		Path path1 = Paths.get("C:\\Users\\Administrador\\Desktop\\marc\\serialized.java");
@@ -287,6 +260,11 @@ public class FilesExample {
 
 		Files.isSameFile(path1, path);
 
+	}
+
+	public static void main(String[] args) throws IOException {
+		File file = new File("C:\\Users\\aposo\\Desktop\\newFile.txt");
+//		createFile();
 	}
 
 }
