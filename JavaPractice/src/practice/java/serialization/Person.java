@@ -9,106 +9,110 @@ import java.io.Serializable;
  * @author apobits@gmail.com
  *
  */
+@SuppressWarnings("serial")
 public class Person implements Serializable {
 
-    private String name;
+//this property should only be used when saving the serialized object, when not persisting use @SuppressWarnings("serial")
+//	private static final long serialVersionUID = 1L;
 
-    private String lastName;
+	private String name;
 
-    private String surName;
+	private String lastName;
 
-    private Integer height;
+	private String surName;
 
-    private Integer weight;
+	private Integer height;
 
-    private Integer age;
+	private Integer weight;
 
-    private String color;
+	private Integer age;
 
-    private String nationality;
+	private String color;
 
-    private Boolean isTeenager;
+	private String nationality;
 
-    public String getName() {
-	return name;
-    }
+	private Boolean isTeenager;
 
-    public void setName(String name) {
-	this.name = name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public String getLastName() {
-	return lastName;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public void setLastName(String lastName) {
-	this.lastName = lastName;
-    }
+	public String getLastName() {
+		return lastName;
+	}
 
-    public String getSurName() {
-	return surName;
-    }
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
 
-    public void setSurName(String surName) {
-	this.surName = surName;
-    }
+	public String getSurName() {
+		return surName;
+	}
 
-    public Integer getHeight() {
-	return height;
-    }
+	public void setSurName(String surName) {
+		this.surName = surName;
+	}
 
-    public void setHeight(Integer height) {
-	this.height = height;
-    }
+	public Integer getHeight() {
+		return height;
+	}
 
-    public Integer getWeight() {
-	return weight;
-    }
+	public void setHeight(Integer height) {
+		this.height = height;
+	}
 
-    public void setWeight(Integer weight) {
-	this.weight = weight;
-    }
+	public Integer getWeight() {
+		return weight;
+	}
 
-    public Integer getAge() {
-	return age;
-    }
+	public void setWeight(Integer weight) {
+		this.weight = weight;
+	}
 
-    public void setAge(Integer age) {
-	this.age = age;
-    }
+	public Integer getAge() {
+		return age;
+	}
 
-    public String getColor() {
-	return color;
-    }
+	public void setAge(Integer age) {
+		this.age = age;
+	}
 
-    public void setColor(String color) {
-	this.color = color;
-    }
+	public String getColor() {
+		return color;
+	}
 
-    public String getNationality() {
-	return nationality;
-    }
+	public void setColor(String color) {
+		this.color = color;
+	}
 
-    public void setNationality(String nationality) {
-	this.nationality = nationality;
-    }
+	public String getNationality() {
+		return nationality;
+	}
 
-    public Boolean getIsTeenager() {
-	return isTeenager;
-    }
+	public void setNationality(String nationality) {
+		this.nationality = nationality;
+	}
 
-    public void setIsTeenager(Boolean isTeenager) {
-	this.isTeenager = isTeenager;
-    }
+	public Boolean getIsTeenager() {
+		return isTeenager;
+	}
 
-    private PhoneWrapper phoneWrapper;
+	public void setIsTeenager(Boolean isTeenager) {
+		this.isTeenager = isTeenager;
+	}
 
-    public PhoneWrapper getPhoneWrapper() {
-        return phoneWrapper;
-    }
+	private PhoneWrapper phoneWrapper;
 
-    public void setPhoneWrapper(PhoneWrapper phoneWrapper) {
-        this.phoneWrapper = phoneWrapper;
-    }
+	public PhoneWrapper getPhoneWrapper() {
+		return phoneWrapper;
+	}
+
+	public void setPhoneWrapper(PhoneWrapper phoneWrapper) {
+		this.phoneWrapper = phoneWrapper;
+	}
 
 }
