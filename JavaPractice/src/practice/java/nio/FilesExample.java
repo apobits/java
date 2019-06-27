@@ -188,7 +188,7 @@ public class FilesExample {
 	}
 
 	public static void createFile() throws IOException {
-		Files.createFile(Paths.get("C:\\Users\\aposo\\Desktop", "newFile.txt"));
+		Files.createFile(Paths.get("C:\\Users\\Administrador\\Desktop", "newFile.txt"));
 	}
 
 	public static void variaties() throws IOException {
@@ -263,8 +263,8 @@ public class FilesExample {
 	}
 
 	public static void main(String[] args) throws IOException {
-		File file = new File("C:\\Users\\aposo\\Desktop\\newFile.txt");
-//		createFile();
+//		File file = new File("C:\\Users\\aposo\\Desktop\\newFile.txt");
+		createFile();
 	}
 
 }
