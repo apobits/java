@@ -331,7 +331,7 @@ public class FilesExample {
 	}
 
 	public static void delete() {
-		Path path = Paths.get("C:\\Users\\aposo\\Desktop\\temp\\Test.txt");
+		Path path = Paths.get("C:\\Users\\aposo\\Desktop\\temp");
 		// Deletes the file if it exists, if the file does not exists throws
 		// NoSuchFileException, if it is a directory and otherwise could not be deleted
 		// because it is not empty throws a DirectoryNoEmptyException
@@ -353,7 +353,7 @@ public class FilesExample {
 
 	public static void main(String[] args) throws IOException {
 //		File file = new File("C:\\Users\\aposo\\Desktop\\newFile.txt");
-		createFile();
+		delete();
 	}
 
 }
