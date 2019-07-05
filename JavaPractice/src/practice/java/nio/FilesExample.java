@@ -330,6 +330,27 @@ public class FilesExample {
 
 	}
 
+	public static void delete() {
+		Path path = Paths.get("C:\\Users\\aposo\\Desktop\\temp\\Test.txt");
+		// Deletes the file if it exists, if the file does not exists throws
+		// NoSuchFileException, if it is a directory and otherwise could not be deleted
+		// because it is not empty throws a DirectoryNoEmptyException
+		try {
+			Files.delete(path);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		// if it is a directory and otherwise could not be deleted
+		// because it is not empty throws a DirectoryNoEmptyException
+		try {
+			Files.deleteIfExists(path);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 	public static void main(String[] args) throws IOException {
 //		File file = new File("C:\\Users\\aposo\\Desktop\\newFile.txt");
 		createFile();
