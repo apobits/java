@@ -5,12 +5,14 @@ package practice.java.nio;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.file.DirectoryStream;
 import java.nio.file.FileStore;
+import java.nio.file.FileSystems;
 import java.nio.file.FileVisitOption;
 import java.nio.file.Files;
 import java.nio.file.LinkOption;
@@ -259,6 +261,72 @@ public class FilesExample {
 		lines.forEach(System.out::println);
 
 		Files.isSameFile(path1, path);
+
+	}
+
+	public static void tempFiles() {
+
+		try {
+			Path tempFile = Files.createTempFile("Albin", "Perez");
+			System.out.println("temporal file created: " + tempFile);
+			System.out.println(tempFile + " exist: " + Files.exists(tempFile));
+			Files.delete(tempFile);
+			System.out.println(tempFile + " deleted");
+			System.out.println(tempFile + " exist: " + Files.exists(tempFile));
+
+			// If the path argument does not exist an IOException is thrown
+			Path tempFile1 = Files.createTempFile(
+					FileSystems.getDefault().getPath("C:\\Users\\aposo\\Desktop\\tempFiles"), "Albin", "Perez");
+			System.out.println("temporal file created: " + tempFile1);
+			System.out.println(tempFile1 + " exist: " + Files.exists(tempFile1));
+
+			try (BufferedWriter fw = Files.newBufferedWriter(tempFile1, StandardOpenOption.DELETE_ON_CLOSE)) {
+				fw.write("Hello there");
+			}
+
+			System.out.println(tempFile1 + " exist: " + Files.exists(tempFile1));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void tempDirectories() {
+		try {
+			Path tempDirectory = Files.createTempDirectory("Albin");
+			System.out.println("temporal directory created: " + tempDirectory);
+			System.out.println(tempDirectory + " exist: " + Files.exists(tempDirectory));
+			Files.delete(tempDirectory);
+			System.out.println(tempDirectory + " deleted");
+			System.out.println(tempDirectory + " exist: " + Files.exists(tempDirectory));
+
+			// If the path argument does not exist an IOException is thrown
+			Path tempDirectory1 = Files.createTempDirectory(Paths.get("C:\\Users\\aposo\\Desktop\\tempFiles"), "Albin");
+			System.out.println("temporal directory created: " + tempDirectory1);
+			System.out.println(tempDirectory1 + " exist: " + Files.exists(tempDirectory1));
+			Files.delete(tempDirectory1);
+			System.out.println(tempDirectory1 + " deleted");
+			System.out.println(tempDirectory1 + " exist: " + Files.exists(tempDirectory1));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	public static void copy() {
+		try {
+			Files.move(Paths.get("C:\\Users\\aposo\\Desktop\\tempFiles"),
+					Paths.get("C:\\Users\\aposo\\Desktop\\temp\\temp"), StandardCopyOption.REPLACE_EXISTING);
+
+			Files.copy(FileSystems.getDefault().getPath("C:\\Users\\aposo\\Desktop\\Test.txt"),
+					Paths.get("C:\\Users\\aposo\\Desktop\\temp\\Test.txt"), StandardCopyOption.REPLACE_EXISTING);
+
+			Files.copy(new ByteArrayInputStream("Hello".getBytes()),
+					Paths.get("C:\\Users\\aposo\\Desktop\\temp\\Test.txt"), StandardCopyOption.REPLACE_EXISTING);
+
+			Files.copy(Paths.get("C:\\Users\\aposo\\Desktop\\temp\\Test.txt"), System.out);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 	}
 
