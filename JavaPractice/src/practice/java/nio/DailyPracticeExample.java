@@ -3,7 +3,8 @@
  */
 package practice.java.nio;
 
-import java.nio.file.Path;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Paths;
 
 /**
@@ -13,17 +14,8 @@ import java.nio.file.Paths;
  */
 class DailyPracticeExample {
 
-	public static void main(String args[]) {
+	public static void main(String args[]) throws IOException {
 
-		Path path = Paths.get("c:\\one\\two.txt");
-		Path path1 = Paths.get("c:\\one\\three");
-
-		System.out.println(path.resolve(path1));
-
-		System.out.println(path.relativize(path1));
-		Path path3 = path.relativize(path1);
-
-		System.out.println(path.resolve(path3));
-
+		Files.list(Paths.get("C:\\Users\\Administrador\\Desktop")).forEach(System.out::println);
 	}
 }

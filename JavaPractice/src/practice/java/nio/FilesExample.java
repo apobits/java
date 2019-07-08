@@ -382,6 +382,10 @@ public class FilesExample {
 		Files.lines(path, Charset.defaultCharset()).forEach(System.out::println);
 	}
 
+	public static void list() throws IOException {
+		Files.list(Paths.get("C:\\Users\\Administrador\\Desktop")).forEach(System.out::println);
+	}
+
 	public static void main(String[] args) throws IOException {
 		basicFileAttributes();
 	}
