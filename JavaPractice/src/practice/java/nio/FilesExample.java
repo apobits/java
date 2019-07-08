@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.nio.charset.Charset;
 import java.nio.file.DirectoryStream;
 import java.nio.file.FileStore;
 import java.nio.file.FileSystems;
@@ -20,7 +21,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.nio.file.StandardOpenOption;
+import java.nio.file.attribute.BasicFileAttributes;
 import java.nio.file.attribute.FileTime;
+import java.nio.file.attribute.PosixFileAttributes;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
@@ -30,7 +33,7 @@ import java.util.stream.Stream;
  */
 public class FilesExample {
 
-	private static Path path = Paths.get("C:\\Users\\Administrador\\Desktop\\test\\serialized.java");
+	private static Path path = Paths.get("C:\\Users\\aposo\\Desktop\\test\\Serialized.java");
 
 	public static void readWithBuffer() {
 		try (BufferedReader br = Files.newBufferedReader(path)) {
@@ -351,9 +354,36 @@ public class FilesExample {
 		}
 	}
 
+	public static void basicFileAttributes() throws IOException {
+		System.out.println(path + " size: " + Files.size(path) + " Bytes");
+		System.out.println(path + " owner: " + Files.getOwner(path));
+		System.out.println(path + " last modified time: " + Files.getLastModifiedTime(path));
+		System.out.println(path + " is regular file: " + Files.isRegularFile(path));
+		System.out.println(path + " is directory: " + Files.isDirectory(path));
+		System.out.println(path + " is symbolic link: " + Files.isSymbolicLink(path));
+
+		BasicFileAttributes basicFileAttributes = Files.readAttributes(path, BasicFileAttributes.class);
+		System.out.println(path + " creation time: " + basicFileAttributes.creationTime());
+		System.out.println(path + " last access time: " + basicFileAttributes.lastAccessTime());
+		System.out.println(path + " file key: " + basicFileAttributes.fileKey());
+
+		PosixFileAttributes posixFileAttributes = Files.readAttributes(path, PosixFileAttributes.class);
+		System.out.println(path + " owner: " + posixFileAttributes.owner());
+		System.out.println(path + " group: " + posixFileAttributes.group());
+		System.out.println(path + " creation time: " + posixFileAttributes.creationTime());
+
+	}
+
+	public static void readLines() throws IOException {
+		Files.readAllLines(path).forEach(System.out::println);
+		Files.readAllLines(path, Charset.defaultCharset()).forEach(System.out::println);
+
+		Files.lines(path).forEach(System.out::println);
+		Files.lines(path, Charset.defaultCharset()).forEach(System.out::println);
+	}
+
 	public static void main(String[] args) throws IOException {
-//		File file = new File("C:\\Users\\aposo\\Desktop\\newFile.txt");
-		delete();
+		basicFileAttributes();
 	}
 
 }
