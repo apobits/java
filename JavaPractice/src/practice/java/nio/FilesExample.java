@@ -133,17 +133,36 @@ public class FilesExample {
 
 	}
 
-	public static void directoryStreamFilter() {
+	// DirectoryStream does not traverse the children files
+	public static void directoryStream() {
 		DirectoryStream.Filter<Path> filter = (t) -> Files.isDirectory(t);
 
-		try (DirectoryStream<Path> paths = Files
-				.newDirectoryStream(Paths.get("C:\\Users\\Administrador\\Desktop\\test"), filter)) {
+		// with filter
+		try (DirectoryStream<Path> paths = Files.newDirectoryStream(Paths.get("C:\\Users\\Administrador\\Desktop"),
+				filter)) {
 			for (Path path : paths) {
 				System.out.println(path);
 			}
 
 		} catch (IOException e) {
 			System.out.println(e);
+		}
+		System.out.println("\n\n\n");
+		// with glob
+		try (DirectoryStream<Path> paths = Files.newDirectoryStream(Paths.get("C:\\Users\\Administrador\\Desktop"),
+				"**.java")) {
+			paths.forEach(t -> System.out.println(t));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		System.out.println("\n\n\n");
+
+		// with no filters
+		try (DirectoryStream<Path> paths = Files
+				.newDirectoryStream(FileSystems.getDefault().getPath("C:\\Users\\Administrador\\Desktop"))) {
+			paths.forEach(t -> System.out.println(t));
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 
 	}
@@ -174,7 +193,7 @@ public class FilesExample {
 	}
 
 	public static void walk() {
-		try (Stream<Path> paths = Files.walk(Paths.get("C:\\Users\\aposo\\Desktop\\parent"), 2,
+		try (Stream<Path> paths = Files.walk(Paths.get("C:\\Users\\Administrador\\Desktop"), 2,
 				FileVisitOption.FOLLOW_LINKS)) {
 			paths.forEach(t -> System.out.println(t.getFileName()));
 		} catch (IOException e) {
@@ -387,7 +406,7 @@ public class FilesExample {
 	}
 
 	public static void main(String[] args) throws IOException {
-		basicFileAttributes();
+		directoryStream();
 	}
 
 }
