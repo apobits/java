@@ -5,10 +5,14 @@ package practice.java.nio;
 
 import java.io.IOException;
 import java.nio.file.FileStore;
+import java.nio.file.FileSystem;
 import java.nio.file.FileSystems;
+import java.nio.file.FileVisitResult;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.SimpleFileVisitor;
+import java.nio.file.attribute.BasicFileAttributes;
 
 /**
  * @author apobits@gmail.com
@@ -32,15 +36,20 @@ public class FileSystemExample {
 		}
 	}
 
-	public static void main(String[] args) {
-		getRootDirectories();
-		getFileStores();
-		System.out.println("System separator: " + FileSystems.getDefault().getSeparator());
-		try {
-			System.out.println("File store of " + path + " is " + Files.getFileStore(path));
-		} catch (IOException e) {
-			System.out.println(e);
-		}
+	public static void zipFileSystem() throws IOException {
+		FileSystem fileSystem = FileSystems.newFileSystem(Paths.get("C:\\Users\\Administrador\\Desktop\\classes.7z"),
+				null);
+		Files.walkFileTree(fileSystem.getPath("/"), new SimpleFileVisitor<Path>() {
+			@Override
+			public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+				System.out.println(file);
+				return FileVisitResult.CONTINUE;
+			}
+		});
+	}
+
+	public static void main(String[] args) throws IOException {
+		zipFileSystem();
 	}
 
 }
