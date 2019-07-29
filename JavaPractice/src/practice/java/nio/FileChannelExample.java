@@ -7,6 +7,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
+import java.nio.channels.FileLock;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -43,6 +44,17 @@ public class FileChannelExample {
 			fc.write(mark);
 		} catch (IOException e) {
 			System.err.println(e);
+		}
+	}
+
+	// it will try to acquire the lock, it gets null if the lock was being used
+	public static void fileLocking() {
+		try (FileChannel fileChannel = FileChannel.open(Paths.get("C:\\\\Users\\\\aposo\\\\Desktop\\\\x.txt"));
+				FileLock lock = fileChannel.tryLock()) {
+			ByteBuffer byteBuffer = ByteBuffer.wrap("Hello".getBytes());
+			fileChannel.write(byteBuffer);
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 

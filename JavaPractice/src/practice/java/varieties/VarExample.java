@@ -9,25 +9,27 @@ package practice.java.varieties;
  */
 public class VarExample {
 
-	//
+	// var can not be used as a class property, it is only local
 	// private var a =100;
 
 	public static void main(String[] args) {
 
-		byte b = 1;
+		var b = 1;
 
-		char c = 2;
+		var c = 2;
 
-		short s = 3;
+		var s = 3;
 
-		int i = 4;
+		var i = 4;
 
-		long l = 5;
+		var l = 5;
 
-		float f = 6;
+		var f = 6;
 
-		double d = 7;
+		var d = 7;
 
 	}
+	
+
 
 }

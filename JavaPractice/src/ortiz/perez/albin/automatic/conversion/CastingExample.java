@@ -25,7 +25,7 @@ public class CastingExample {
 		System.out.println(d);
 		
 		//reduce modulo
-		byte e = (byte) 257;
+		byte e = (byte) 129;
 		System.out.println(e);
 	}
 
