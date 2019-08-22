@@ -8,9 +8,12 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Spliterator;
 import java.util.Spliterators;
 import java.util.stream.Collectors;
@@ -226,7 +229,29 @@ public class StreamExample {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		takeWhile();
+		System.out.println(persons.stream().allMatch(t -> t.getAge() > 8));
+		System.out.println(persons.stream().anyMatch(t -> t.getAge() < 8));
+		System.out.println(persons.stream().count());
+		System.out.println(persons.stream().isParallel());
+		System.out.println(persons.stream().noneMatch(t -> t.getAge() < 8));
+		integers.stream().sorted((t, u) -> u - t).takeWhile(t -> t > 5).forEach(t -> System.out.print(t));
+		integers.stream().filter(t -> {
+			System.out.println("in predicate: " + t);
+			return t > 5;
+		}).forEach(t -> System.out.println("in forEach: " + t));
+
+		Map<String, Integer> map = new HashMap<>();
+		map.put("", 1);
+		Optional<Integer> any = integers.stream().findAny();
+		Optional<Integer> first = integers.stream().findFirst();
+		Iterator<Integer> it = integers.stream().iterator();
+		Stream<Integer> s = integers.stream().limit(100);
+		Comparator<Integer> comparator = (t, u) -> u - t;
+		Optional<Integer> max = integers.stream().max(comparator);
+		Optional<Integer> min = integers.stream().min(comparator);
+		integers.stream().peek(t -> ++t).forEach(t -> System.out.print(t));
+		persons.stream().toArray();
+
 	}
 
 }

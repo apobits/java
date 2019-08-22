@@ -3,10 +3,9 @@
  */
 package practice.java.nio;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.lang.reflect.Field;
-
-import practice.java.varieties.Person;
 
 /**
  * @author apobits@gmail.com
@@ -16,13 +15,12 @@ import practice.java.varieties.Person;
 
 class DailyPracticeExample {
 
-	public static void main(String args[]) throws IOException, NoSuchFieldException, SecurityException,
-			IllegalArgumentException, IllegalAccessException {
-		Person person = new Person("Albin", "Perez");
-		Field[] fields = person.getClass().getDeclaredFields();
-		for (Field field : fields) {
-			field.setAccessible(true);
-			System.out.println(field.get(person));
+	public static void main(String args[]) {
+		try (FileInputStream fis = new FileInputStream(new File(""))) {
+
+		} catch (RuntimeException | IOException e) {
+
 		}
+
 	}
 }

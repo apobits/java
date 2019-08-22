@@ -23,4 +23,5 @@ public interface ChildInterface extends ParentInterface {
 		System.out.println();
 	}
 
+
 }
