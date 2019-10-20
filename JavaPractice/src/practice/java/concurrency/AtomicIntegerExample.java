@@ -1,7 +1,7 @@
 /**
  * 
  */
-package practice.java.varieties;
+package practice.java.concurrency;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -20,7 +20,12 @@ public class AtomicIntegerExample {
 				+ ai.getAndSet(1) + " ai value after update: " + ai.get());
 		System.out.println(
 				"Updating ai value with the specified parameter and IntBinaryOperator function applied atomically: "
-						+ ai.accumulateAndGet(2, (t, u) -> t + u));
+						+ ai.accumulateAndGet(2, (t, u) -> {
+							System.out.println(u);
+							return t + u;
+						}));
+
+		System.out.println(ai.updateAndGet((t) -> t + 5));
 
 	}
 

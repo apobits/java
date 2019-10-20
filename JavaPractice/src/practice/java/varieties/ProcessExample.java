@@ -22,10 +22,10 @@ public class ProcessExample {
 	public static void main(String[] args) {
 		OutputStream os = null;
 		try {
-			Process process = Runtime.getRuntime().exec("C:\\Program Files (x86)\\Notepad++\\notepad++.exe");
+			Process process = Runtime.getRuntime().exec("C:\\Program Files\\Notepad++\\notepad++.exe");
 			os = process.getOutputStream();
 			// at the time of testing this application it did not write anything to
-			// notepad++, investigate more when you have more time
+			// notepad++, investigate further when you have more time
 			os.write("Testing writing into notedpad++ from a process in java".getBytes());
 			os.flush();
 

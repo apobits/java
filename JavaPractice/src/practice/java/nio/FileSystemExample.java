@@ -38,7 +38,7 @@ public class FileSystemExample {
 
 	public static void zipFileSystem() throws IOException {
 		FileSystem fileSystem = FileSystems.newFileSystem(Paths.get("C:\\Users\\Administrador\\Desktop\\classes.7z"),
-				null);
+				ClassLoader.getPlatformClassLoader());
 		Files.walkFileTree(fileSystem.getPath("/"), new SimpleFileVisitor<Path>() {
 			@Override
 			public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
