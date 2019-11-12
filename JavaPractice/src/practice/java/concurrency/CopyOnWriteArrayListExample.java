@@ -1,9 +1,10 @@
 /**
- * 
+ *
  */
 package practice.java.concurrency;
 
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
@@ -15,30 +16,36 @@ import java.util.concurrent.Executors;
  */
 public class CopyOnWriteArrayListExample {
 
-	private static CopyOnWriteArrayList<Integer> list = new CopyOnWriteArrayList<Integer>();
+    private static CopyOnWriteArrayList<Integer> list = new CopyOnWriteArrayList<Integer>();
 
-	public static void addAll(List<Integer> c) {
-		list.addAll(c);
-	}
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
 
-	public static int getSize() {
-		return list.size();
-	}
+	System.out.println("CopyOnWriteArrayList: " + list);
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
+	list.addAll(Arrays.asList(1, 2, 3));
 
-		ExecutorService es = Executors.newFixedThreadPool(2);
-		es.execute(() -> {
-			for (int i = 0; i < 10; i++)
-				System.out.println(getSize());
-		});
-		es.execute(() -> list.addAll(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 0)));
-		
-		es.shutdown();
+	var it1 = list.iterator();
 
-	}
+	System.out.println("CopyOnWriteArrayList: " + list);
+
+	list.addAll(Arrays.asList(4, 5, 6));
+
+	System.out.println("CopyOnWriteArrayList: " + list);
+
+	list.add(7);
+
+	var it2 = list.iterator();
+
+	System.out.println("CopyOnWriteArrayList: " + list);
+
+	System.out.println("Iterator 1: ");
+	it1.forEachRemaining((t) -> System.out.print(t + " "));
+
+	System.out.println("\nIterator 2: ");
+	it2.forEachRemaining(t -> System.out.print(t + " "));
+    }
 
 }

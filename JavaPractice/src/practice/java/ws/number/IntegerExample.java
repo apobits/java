@@ -28,7 +28,7 @@ public class IntegerExample {
 		Integer two1 = Integer.valueOf("2");
 		Integer two2 = Integer.valueOf("2");
 
-		// values won´t be cached
+		// values won;t be cached
 		// The string will be parsed with the specified radix
 		Integer three = Integer.valueOf("3", 10);
 		Integer three1 = Integer.valueOf("3", 8);

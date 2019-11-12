@@ -29,7 +29,7 @@ public class TryExample {
 		} finally {
 			System.out.println("Finally blocked executed before method returns ");
 		}
-		System.out.println("This won´t be printed, unreachable code");
+		System.out.println("This won't be printed, unreachable code");
 	}
 
 	public static void tryWithContinue() {
