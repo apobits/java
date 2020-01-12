@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package practice.java.accessControl;
 
@@ -9,38 +9,39 @@ package practice.java.accessControl;
  */
 public class Animal {
 
-	public String name;
+    //can be accessed anywhere
+    public String name;
+    //can be accessed from the same package or anywhere from a subclass
+    protected boolean canFly;
+    //can be accessed only from the same package
+    int visionRange;
+    //can be accessed only from the same class
+    private String vision;
 
-	private String vision;
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
 
-	protected boolean canFly;
+	Animal animal = new Animal();
 
-	int visionRange;
+	// Accessing public member
+	animal.name = "Eagle";
 
-	public void fly() {
-		System.out.println("Can not fly");
-	}
+	// Accessing private member
+	animal.vision = "ultra";
 
-	protected void run() {
-		System.out.println("Running");
-	}
+	System.out.println("Name   " + animal.name);
+	System.out.println("Vision " + animal.vision);
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
+    }
 
-		Animal animal = new Animal();
+    public void fly() {
+	System.out.println("Can not fly");
+    }
 
-		// Accessing public member
-		animal.name = "Eagle";
-
-		// Accessing private member
-		animal.vision = "ultra";
-
-		System.out.println("Name   " + animal.name);
-		System.out.println("Vision " + animal.vision);
-
-	}
+    protected void run() {
+	System.out.println("Running");
+    }
 
 }

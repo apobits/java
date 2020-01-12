@@ -16,6 +16,7 @@ import java.util.concurrent.Executors;
  */
 public class CopyOnWriteArrayListExample {
 
+    //use CopyOnWriteArrayList when traversing outweighs mutating operations
     private static CopyOnWriteArrayList<Integer> list = new CopyOnWriteArrayList<Integer>();
 
     /**

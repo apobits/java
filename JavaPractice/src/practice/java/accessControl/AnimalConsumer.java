@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package practice.java.accessControl;
 
@@ -9,23 +9,25 @@ package practice.java.accessControl;
  */
 public class AnimalConsumer {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
 
-		Animal animal = new Animal();
+	Animal animal = new Animal();
 
-		// Accessing public member from a different class
-		animal.name = "Eagle";
+	// Accessing public member from a different class
+	animal.name = "Eagle";
 
-		// Cannot access private member outside the owner class
-		// animal.vision="Ultra";
+	// Cannot access private member outside the owner class
+	// animal.vision="Ultra";
 
-		System.out.println(animal.canFly);
+	System.out.println(animal.canFly);
 
-		System.out.println(animal.name);
+	System.out.println(animal.name);
 
-	}
+	System.out.println(animal.visionRange);
+
+    }
 
 }

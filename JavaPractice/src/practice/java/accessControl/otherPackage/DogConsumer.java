@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package practice.java.accessControl.otherPackage;
 
@@ -9,12 +9,13 @@ package practice.java.accessControl.otherPackage;
  */
 public class DogConsumer {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		new Dog().run();
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+	Dog dog = new Dog();
+	//System.out.println(dog.visionRange); visionRange cannot be accessed outside its package
 
-	}
+    }
 
 }

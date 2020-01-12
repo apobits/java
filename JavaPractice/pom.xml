@@ -4,6 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>JavaPractice</groupId>
 	<artifactId>JavaPractice</artifactId>
+	<packaging>pom</packaging>
 	<version>1.0</version>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
@@ -31,6 +32,9 @@
 			</plugin>
 		</plugins>
 	</build>
+	<modules>
+		<module>JavaPracticeModule</module>
+	</modules>
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/oracle/ojdbc6 -->
 		<dependency>
@@ -85,7 +89,29 @@
             <artifactId>jaxb-api</artifactId>
             <version>2.3.1</version>
         </dependency>
-    </dependencies>
+		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>5.5.2</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>5.5.2</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>5.5.2</version>
+			<scope>compile</scope>
+		</dependency>
+
+
+	</dependencies>
 	<repositories>
 		<repository>
 			<id>datanucleus</id>
