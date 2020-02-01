@@ -14,7 +14,7 @@ public class QueueExample {
 
 	public static void linkedList() {
 
-		// LinkedList implements Deque interface
+		// LinkedListExample implements Deque interface
 		LinkedList<Integer> linkedListQueue = new LinkedList<>();
 
 		linkedListQueue.add(1);

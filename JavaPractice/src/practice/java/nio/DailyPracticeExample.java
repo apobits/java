@@ -3,10 +3,16 @@
  */
 package practice.java.nio;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
+import java.nio.file.attribute.BasicFileAttributes;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author apobits@gmail.com
@@ -16,52 +22,84 @@ import java.nio.file.StandardCopyOption;
 
 public class DailyPracticeExample {
 
-    public static void main(String[] args) {
-	copyFile3();
+    public static void main(String[] args) throws IOException {
+	var a = new int[] { 3, 2, 1, 5 };
+	var b = new int[] { 7, 9, 8, 6 };
+	var number = 15;
+
+	assertEquals("5,9", closestSumPairV2(a, b, number));
+
     }
 
-    public static void copyFile3() {
-	try (var fileReader = new FileReader("C:\\Users\\aposo\\Desktop\\FileOne.txt");
-			var fileWriter = new FileWriter("C:\\Users\\aposo\\Desktop\\FileOneCopy.txt")) {
-	    var bytes = new char[1024];
-	    var bytesRead = -1;
-	    while ((bytesRead = fileReader.read(bytes)) != -1) {
-		fileWriter.write(bytes, 0, bytesRead);
+    public static String closestSumPairV2(int[] a, int[] b, int number) {
+	Arrays.sort(a);
+	Arrays.sort(b);
+
+	var left = 0;
+	var right = a.length - 1;
+	String resultString = null;
+	Integer resultNumber = null;
+
+	while (left < a.length && right >= 0) {
+	    var sum = a[left] + b[right];
+	    var string = a[left] + "," + b[right];
+	    if (sum == number) {
+		return string;
+	    } else if (sum < number) {
+		left++;
+	    } else {
+		right--;
 	    }
-	} catch (IOException e) {
-	    e.printStackTrace();
-	}
-    }
-
-    public static void copyFile2() {
-	try {
-	    Files.copy(Paths.get("C:\\Users\\aposo\\Desktop\\FileOne.txt"),
-			    Paths.get("C:\\Users\\aposo\\Desktop\\FileOneCopy.txt"),
-			    StandardCopyOption.REPLACE_EXISTING);
-	} catch (IOException e) {
-	    e.printStackTrace();
-	}
-    }
-
-    public static void copyFile1() {
-	try (var fis = new FileInputStream("C:\\Users\\aposo\\Desktop\\FileOne.txt");
-			var fos = new FileOutputStream("C:\\Users\\aposo\\Desktop\\FileOneCopy.txt")) {
-	    var bytes = new byte[1024];
-	    var bytesRead = -1;
-	    while ((bytesRead = fis.read(bytes)) != -1) {
-		fos.write(bytes, 0, bytesRead);
+	    if (resultNumber != null) {
+		if ((sum > resultNumber && resultNumber < number) || (sum < resultNumber && resultNumber > number)) {
+		    resultNumber = sum;
+		    resultString = string;
+		}
+	    } else {
+		resultNumber = sum;
+		resultString = string;
 	    }
-	} catch (IOException e) {
-	    e.printStackTrace();
 	}
+	return resultString;
     }
 
-    static class A implements AutoCloseable {
-
-	@Override
-	public void close() throws Exception {
-	    throw new Exception("E");
+    public static String closestSumPair(int[] a, int[] b, int number) {
+	var map = new HashMap<Integer, String>();
+	for (int i = 0; i < a.length; i++) {
+	    for (int j = 0; j < b.length; j++) {
+		var sum = Math.abs(a[i] + b[j]);
+		var result = a[i] + "," + b[j];
+		if (sum == number) {
+		    return result;
+		} else {
+		    map.merge(a[i] + b[j], result, (t, u) -> u);
+		}
+	    }
 	}
+
+	if (map.get(number) != null) {
+	    return map.get(number);
+	}
+
+	var left = a.length * b.length;
+	var leftIndex = number;
+	while (left-- > 0) {
+	    if (map.get(leftIndex) != null) {
+		left = leftIndex;
+		break;
+	    }
+	    leftIndex--;
+	}
+
+	var right = a.length * b.length;
+	var rightIndex = number;
+	while (right-- > 0) {
+	    if (map.get(rightIndex) != null) {
+		right = rightIndex;
+	    }
+	    rightIndex++;
+	}
+	return Math.abs(number - leftIndex) < Math.abs(number - rightIndex) ? map.get(leftIndex) : map.get(rightIndex);
     }
 
 }

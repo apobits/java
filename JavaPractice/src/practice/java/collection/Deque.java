@@ -14,7 +14,7 @@ import java.util.LinkedList;
 public class Deque {
 
 	public static void linkedList() {
-		// LinkedList implements the Deque interface
+		// LinkedListExample implements the Deque interface
 		LinkedList<Integer> linkedList = new LinkedList<>();
 
 		// adds the element at the beginning of the list
@@ -93,7 +93,7 @@ public class Deque {
 
 	public static void arrayDeque() {
 		// Other implementation of the Deque interface
-		// This implementation is faster than LinkedList when used as a Queue
+		// This implementation is faster than LinkedListExample when used as a Queue
 		// This implementation is faster than Stack when used as a Stack
 
 		// empty constructor

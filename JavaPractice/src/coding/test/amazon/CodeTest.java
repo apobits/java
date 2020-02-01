@@ -4,21 +4,20 @@ import java.util.*;
 
 public class CodeTest {
 
-
     public static void main(String[] args) {
-	System.out.println("123".substring(3));
-	//	topNCompetitors(6, 2, Arrays.asList("newshop", "shopnow", "afshion", "fashionbeats", "mymarket", "tcellular"),
-	//			6, Arrays.asList("newshop is providing good services in the city; everyone should use newshop",
-	//					"best services by newshop", "fashionbeats has great services in the city",
-	//					"i am proud to have fashionbeats", "mymarket has awesome services",
-	//					"thanks newshop for the quick delivery"));
-	//
-	List<List<Integer>> grid = new ArrayList<>();
-	grid.add(Arrays.asList(0, 1, 1, 0, 1));
-	grid.add(Arrays.asList(0, 1, 0, 1, 0));
-	grid.add(Arrays.asList(0, 0, 0, 0, 1));
-	grid.add(Arrays.asList(0, 1, 0, 0, 0));
-	System.out.println(minimumHours(4, 5, grid));
+	System.out.println(topNCompetitorsImproved(6, 2,
+			Arrays.asList("newshop", "shopnow", "afshion", "fashionbeats", "mymarket", "tcellular"), 6,
+			Arrays.asList("newshop is providing good services in the city; everyone should use newshop",
+					"best services by newshop", "fashionbeats has great services in the city",
+					"i am proud to have fashionbeats", "mymarket has awesome services",
+					"thanks newshop for the quick delivery")));
+
+	//	List<List<Integer>> grid = new ArrayList<>();
+	//	grid.add(Arrays.asList(0, 1, 1, 0, 1));
+	//	grid.add(Arrays.asList(0, 1, 0, 1, 0));
+	//	grid.add(Arrays.asList(0, 0, 0, 0, 1));
+	//	grid.add(Arrays.asList(0, 1, 0, 0, 0));
+	//	System.out.println(minimumHours(4, 5, grid));
     }
 
     public static ArrayList<String> topNCompetitors(int numCompetitors, int topNCompetitors, List<String> competitors,
@@ -46,8 +45,33 @@ public class CodeTest {
 	orderNew.addAll(order.keySet());
 	orderNew.forEach(t -> orderCompetitors.addAll(order.get(t)));
 
-	return new ArrayList<>(orderCompetitors.subList(0, topNCompetitors - 1));
+	return new ArrayList<>(orderCompetitors.subList(0, topNCompetitors));
 
+    }
+
+    public static ArrayList<String> topNCompetitorsImproved(int numCompetitors, int topNCompetitors,
+		    List<String> competitors, int numReviews, List<String> reviews) {
+	var competitorsCounter = new HashMap<String, Integer>();
+	for (String review : reviews) {
+	    for (String competitor : competitors) {
+		if (review.contains(competitor)) {
+		    competitorsCounter.merge(competitor, 1, (t, u) -> t + u);
+		    break;
+		}
+	    }
+	}
+	var topNCompetitorsMapping = new TreeMap<Integer, List<String>>(Comparator.reverseOrder());
+	for (Map.Entry<String, Integer> entry : competitorsCounter.entrySet()) {
+	    topNCompetitorsMapping.merge(entry.getValue(), Arrays.asList(entry.getKey()), (t, u) -> {
+		t.addAll(u);
+		return t;
+	    });
+	}
+
+	var result = new ArrayList<String>();
+	topNCompetitorsMapping.keySet().forEach(t -> result.addAll(topNCompetitorsMapping.get(t)));
+
+	return new ArrayList<>(result.subList(0, topNCompetitors));
     }
 
     static int minimumHours(int rows, int columns, List<List<Integer>> grid) {
@@ -105,6 +129,5 @@ public class CodeTest {
 	}
 	return flag;
     }
-
 
 }

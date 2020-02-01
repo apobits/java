@@ -2,52 +2,51 @@ package practice.java.datastructuresandalgorithms;
 
 public class BinarySearch {
 
-    private static int binarySearchV1Counter;
-
-    private static int binarySearchV2Counter;
-
-    public static boolean binarySearchV1(int numberToSearch, int[] numbers) {
-        return binarySearchV1Util(numberToSearch, numbers, 0, numbers.length - 1);
-    }
-
-    public static boolean binarySearchV2(int numberToSearch, int[] numbers) {
-        return binarySearchV2Util(numberToSearch, numbers, 0, numbers.length - 1);
-    }
-
-    private static boolean binarySearchV1Util(int numberToSearch, int[] numbers, int start, int end) {
-        binarySearchV1Counter++;
-        int mid = (start + end) / 2;
-
-        if (numbers[mid] == numberToSearch) {
-            return true;
-        }
-
-        if (numbers[mid] > numberToSearch) {
-            return binarySearchV1Util(numberToSearch, numbers, start, mid - 1);
-        } else {
-            return binarySearchV1Util(numberToSearch, numbers, mid + 1, end);
-        }
-
-    }
-
-    private static boolean binarySearchV2Util(int numberToSearch, int[] numbers, int start, int end) {
-        binarySearchV2Counter++;
-        int mid = (end - start) / 2 + start;
-
-        if (numbers[mid] == numberToSearch) {
-            return true;
-        }
-
-        if (numbers[mid] > numberToSearch) {
-            return binarySearchV2Util(numberToSearch, numbers, start, mid - 1);
-        } else {
-            return binarySearchV2Util(numberToSearch, numbers, mid + 1, end);
-        }
-    }
-
     public static void main(String args[]) {
-        var numbers = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-        System.out.println("binarySearchV1 " + binarySearchV1(5, numbers) + " number of recursive calls: " + binarySearchV1Counter);
-        System.out.println("binarySearchV2 " + binarySearchV2(5, numbers) + " number of recursive calls: " + binarySearchV2Counter);
+	var numbers = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+	System.out.println(binarySearchIterative(numbers, 6));
+	System.out.println(binarySearchRecursive(numbers, 6));
+
+    }
+
+    public static boolean binarySearchRecursive(int[] numbers, int number) {
+	return binarySearchRecursive(numbers, number, 0, numbers.length - 1);
+    }
+
+    private static boolean binarySearchRecursive(int[] numbers, int number, int start, int end) {
+	if (start > end) {
+	    return false;
+	}
+
+	var mid = (end - start) / 2 + start;
+
+	if (numbers[mid] == number) {
+	    return true;
+	}
+
+	if (numbers[mid] < number) {
+	    return binarySearchRecursive(numbers, number, mid + 1, end);
+	} else {
+	    return binarySearchRecursive(numbers, number, start, mid - 1);
+	}
+    }
+
+    public static boolean binarySearchIterative(int[] numbers, int number) {
+	return binarySearchIterative(numbers, number, 0, numbers.length);
+    }
+
+    private static boolean binarySearchIterative(int[] numbers, int number, int start, int end) {
+	while (start < end) {
+	    var mid = start + (end - start) / 2;
+	    if (numbers[mid] == number) {
+		return true;
+	    }
+	    if (numbers[mid] < number) {
+		start = mid + 1;
+	    } else {
+		end = mid - 1;
+	    }
+	}
+	return false;
     }
 }

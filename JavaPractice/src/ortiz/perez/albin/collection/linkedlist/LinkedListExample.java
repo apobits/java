@@ -68,7 +68,7 @@ public class LinkedListExample {
 
 		System.out.println(letters);
 
-		// LinkedList<String> letters1 = new LinkedList<>(letters);
+		// LinkedListExample<String> letters1 = new LinkedListExample<>(letters);
 		// System.out.println(letters1);
 
 		for (String x : letters) {
