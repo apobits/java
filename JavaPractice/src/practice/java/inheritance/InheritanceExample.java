@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package practice.java.inheritance;
 
@@ -9,28 +9,28 @@ package practice.java.inheritance;
  */
 public class InheritanceExample {
 
-	public static B getB() {
-		return new B();
-	}
+    public static B getB() {
+	return new B();
+    }
 
-	public static A getA() {
-		return new A();
-	}
+    public static A getA() {
+	return new A();
+    }
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
 
-		A a = getB();
+	A a = getB();
 
-		B b = new B();
-		System.out.println(b.getTwoPlusOne());
-		System.out.println(b.getOne());
+	B b = new B();
+	System.out.println(b.getTwoPlusOne());
+	System.out.println(b.getOne());
 
-		// class cast exception error
-//		B b = (B) getA();
+	// class cast exception error
+	//		B b = (B) getA();
 
-	}
+    }
 
 }

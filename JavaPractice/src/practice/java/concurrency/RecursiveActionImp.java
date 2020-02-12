@@ -1,8 +1,9 @@
 /**
- * 
+ *
  */
 package practice.java.concurrency;
 
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveAction;
 
@@ -12,43 +13,38 @@ import java.util.concurrent.RecursiveAction;
  */
 public class RecursiveActionImp extends RecursiveAction {
 
-	private int[] numbers = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
+    private static final long serialVersionUID = 1L;
+    private final int[] numbers = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+    private int start, end, threshold = 3;
 
-	private static final long serialVersionUID = 1L;
+    public RecursiveActionImp(int start, int end) {
+	this.start = start;
+	this.end = end;
+    }
 
-	int start, lenght, threshold;
+    public static void main(String[] args) {
+	var fjp = new ForkJoinPool();
+	var obj = new RecursiveActionImp(0, 10);
+	fjp.invoke(obj);
+	obj.join();
+    }
 
-	public RecursiveActionImp(int start, int lenght) {
-		this.start = start;
-		this.lenght = lenght;
+    private void computeLogic() {
+	for (int i = start; i < end; i++) {
+	    System.out.println(Thread.currentThread().getName() + ": " + numbers[i]);
 	}
+    }
 
-	private void computeLogic() {
-
-		for (int i = start; i < start + lenght; i++) {
-			System.out.print(numbers[i]+ " ");
-		}
-
+    @Override
+    protected void compute() {
+	if ((end - start) < threshold) {
+	    computeLogic();
+	    return;
 	}
-
-	@Override
-	protected void compute() {
-		if (lenght <= 10) {
-			computeLogic();
-			return;
-		}
-		RecursiveActionImp r1 = new RecursiveActionImp(start, lenght / 2);
-		RecursiveActionImp r2 = new RecursiveActionImp(start + lenght / 2, lenght / 2);
-		r1.fork();
-		
-		r2.fork();
-		r1.join();
-	}
-
-	public static void main(String[] args) {
-		ForkJoinPool fjp = new ForkJoinPool();
-		RecursiveActionImp obj = new RecursiveActionImp(0, 20);
-		fjp.invoke(obj);
-	}
+	var mid = (start + end) / 2;
+	RecursiveActionImp r1 = new RecursiveActionImp(start, mid);
+	RecursiveActionImp r2 = new RecursiveActionImp(mid, end);
+	invokeAll(r1, r2);
+    }
 
 }
