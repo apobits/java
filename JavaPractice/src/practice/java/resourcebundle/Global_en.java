@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package practice.java.resourcebundle;
 
