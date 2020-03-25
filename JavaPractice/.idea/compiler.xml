@@ -3,7 +3,7 @@
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
       <module name="apo.greeting" target="1.5" />
-      <module name="JavaPractice" target="12" />
+      <module name="JavaPractice" target="13" />
       <module name="JavaPracticeModule" target="12" />
     </bytecodeTargetLevel>
   </component>
