@@ -6,7 +6,7 @@ public class LinkedListExample {
     private Node tail;
 
     public static void main(String[] args) {
-	var linkedList = new LinkedListExample();
+	LinkedListExample linkedList = new LinkedListExample();
 	linkedList.add(1);
 	linkedList.add(2);
 	linkedList.add(3);
@@ -14,7 +14,7 @@ public class LinkedListExample {
     }
 
     public void add(int data) {
-	var node = new Node(data);
+	Node node = new Node(data);
 	if (head == null) {
 	    head = node;
 	    tail = node;
@@ -25,14 +25,14 @@ public class LinkedListExample {
     }
 
     public int removeFirst() {
-	var data = head.data;
+	int data = head.data;
 	head = head.next;
 	return data;
     }
 
     public int removeLast() {
-	var data = tail.data;
-	var newTail = head;
+	int data = tail.data;
+	Node newTail = head;
 	while (newTail.next != tail) {
 	    newTail = newTail.next;
 	}

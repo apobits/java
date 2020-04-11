@@ -18,9 +18,9 @@ public class SumOfNumbersFrom0ToN {
 	    return String.join("=", "0", "0");
 	}
 
-	var numbers = IntStream.range(0, value + 1).mapToObj(t -> String.valueOf(t))
+	String numbers = IntStream.range(0, value + 1).mapToObj(t -> String.valueOf(t))
 			.collect(Collectors.joining("+", "", " = "));
-	var result = IntStream.range(0, value + 1).sum();
+	int result = IntStream.range(0, value + 1).sum();
 
 	return numbers + result;
     }

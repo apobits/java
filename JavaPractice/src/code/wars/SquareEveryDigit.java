@@ -10,7 +10,7 @@ public class SquareEveryDigit {
 
     public static int squareDigits(int n) {
 	return Integer.parseInt(Stream.of(String.valueOf(n).split("")).reduce("", (t, u) -> {
-	    var r = Integer.valueOf(u);
+	    int r = Integer.valueOf(u);
 	    return t + (r * r);
 	}));
     }

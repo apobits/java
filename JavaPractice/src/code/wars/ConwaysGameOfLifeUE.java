@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class ConwaysGameOfLifeUE {
     public static void main(String[] args) {
 	//	var result = getGeneration(new int[][] { { 1, 0, 0 }, { 0, 1, 1 }, { 1, 1, 0 } }, 40);
-	var result = getGeneration(new int[][] { { 1, 1, 1, 0, 0, 0, 1, 0 }, { 1, 0, 0, 0, 0, 0, 0, 1 },
+	int[][] result = getGeneration(new int[][] { { 1, 1, 1, 0, 0, 0, 1, 0 }, { 1, 0, 0, 0, 0, 0, 0, 1 },
 			{ 0, 1, 0, 0, 0, 1, 1, 1 } }, 5);
 	for (int i = 0; i < result.length; i++) {
 	    System.out.println(Arrays.toString(result[i]));
@@ -13,10 +13,10 @@ public class ConwaysGameOfLifeUE {
     }
 
     public static int[][] getGeneration(int[][] cells, int generations) {
-	var newCells = copy(cells);
+	int[][] newCells = copy(cells);
 	for (int k = 0; k < generations; k++) {
 	    newCells = grow(newCells);
-	    var matrixCopy = copy(newCells);
+	    int[][] matrixCopy = copy(newCells);
 	    for (int i = 0; i < matrixCopy.length; i++) {
 		for (int j = 0; j < matrixCopy[i].length; j++) {
 		    int liveNeighbours = 0;
@@ -98,7 +98,7 @@ public class ConwaysGameOfLifeUE {
     }
 
     private static int[][] copy(int[][] matrix) {
-	var copy = new int[matrix.length][];
+	int[][] copy = new int[matrix.length][];
 	for (int i = 0; i < matrix.length; i++) {
 	    copy[i] = Arrays.copyOf(matrix[i], matrix[i].length);
 	}
@@ -106,7 +106,7 @@ public class ConwaysGameOfLifeUE {
     }
 
     private static int[][] grow(int[][] matrix) {
-	var grown = new int[matrix.length + 2][];
+	int [][] grown = new int[matrix.length + 2][];
 	int i = 0;
 	grown[0] = new int[matrix[0].length + 2];
 	for (; i < matrix.length; i++) {
@@ -120,12 +120,12 @@ public class ConwaysGameOfLifeUE {
     }
 
     private static int[][] crop(int[][] matrix) {
-	var startX = -1;
-	var endX = matrix.length;
+	int startX = -1;
+	int endX = matrix.length;
 
 	//find x start
 	for (int i = 0; i < matrix.length; i++) {
-	    var alive = false;
+	    boolean alive = false;
 	    for (int j = 0; j < matrix[i].length; j++) {
 		if (matrix[i][j] == 1) {
 		    alive = true;
@@ -139,7 +139,7 @@ public class ConwaysGameOfLifeUE {
 
 	//find x end
 	for (int i = matrix.length - 1; i > 0; i--) {
-	    var alive = false;
+	    boolean alive = false;
 	    for (int j = 0; j < matrix[i].length; j++) {
 		if (matrix[i][j] == 1) {
 		    alive = true;
@@ -150,11 +150,11 @@ public class ConwaysGameOfLifeUE {
 		break;
 	    }
 	}
-	var startY = -1;
-	var endY = matrix.length;
+	int startY = -1;
+	int endY = matrix.length;
 	//find y start
 	for (int i = 0; i < matrix[0].length; i++) {
-	    var alive = false;
+	    boolean alive = false;
 	    for (int j = 0; j < matrix.length; j++) {
 		if (matrix[j][i] == 1) {
 		    alive = true;
@@ -168,7 +168,7 @@ public class ConwaysGameOfLifeUE {
 
 	//find y end
 	for (int i = matrix[0].length - 1; i > 0; i--) {
-	    var alive = false;
+	    boolean alive = false;
 	    for (int j = 0; j < matrix.length; j++) {
 		if (matrix[j][i] == 1) {
 		    alive = true;
@@ -180,12 +180,12 @@ public class ConwaysGameOfLifeUE {
 	    }
 	}
 
-	var result = new int[endX - (startX + 1)][];
+	int[][] result = new int[endX - (startX + 1)][];
 	for (int i = 0; i < result.length; i++) {
-	    var sizeY = (endY - startY) - 1;
+	    int sizeY = (endY - startY) - 1;
 	    result[i] = new int[sizeY];
 	    startX++;
-	    var itY = startY + 1;
+	    int itY = startY + 1;
 	    for (int j = 0; j < sizeY; j++) {
 		result[i][j] = matrix[startX][itY++];
 	    }

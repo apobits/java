@@ -11,9 +11,9 @@ public class StrongNumber {
     //Strong number is the number that the sum of the factorial of its digits is equal to number itself.
     public static String isStrongNumber(int num) {
 	int sum = 0;
-	var copy = num;
+	int copy = num;
 	while (copy > 0) {
-	    var digit = copy % 10;
+	    int digit = copy % 10;
 	    if (digit > 0) {
 		sum += factorial(digit);
 	    }

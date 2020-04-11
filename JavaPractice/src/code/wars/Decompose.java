@@ -7,7 +7,7 @@ import java.util.TreeMap;
 
 public class Decompose {
     private static Map<Long, Long> mapNumVal(long number) {
-	var map = new TreeMap<Long, Long>(Comparator.reverseOrder());
+	TreeMap<Long, Long> map = new TreeMap<Long, Long>(Comparator.reverseOrder());
 	for (long i = 1; i < number; i++) {
 	    map.put(i * i, i);
 	}
@@ -15,12 +15,12 @@ public class Decompose {
     }
 
     public static String decompose(long n) {
-	var map = mapNumVal(n);
+	Map<Long, Long> map = mapNumVal(n);
 
 	for (Long number : map.keySet()) {
-	    var sb = new StringBuilder();
+	    StringBuilder sb = new StringBuilder();
 	    sb.append(map.get(number)).append(" ");
-	    var left = findLeft(map, (n * n) - number);
+	    String left = findLeft(map, (n * n) - number);
 	    if (left != null) {
 		return sb.append(left).toString();
 	    }

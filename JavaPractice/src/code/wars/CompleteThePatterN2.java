@@ -9,8 +9,8 @@ public class CompleteThePatterN2 {
     }
 
     public static String pattern(int n) {
-	var resultSB = new StringBuilder();
-	var accumulateSB = new StringBuilder();
+	StringBuilder resultSB = new StringBuilder();
+	StringBuilder accumulateSB = new StringBuilder();
 
 	for (int i = n; i > 0; i--) {
 	    accumulateSB.append(i);

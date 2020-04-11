@@ -11,7 +11,7 @@ public class MinimizeSumOfArray {
 
     public static int minSum(int[] passed) {
 	Arrays.sort(passed);
-	var sum = 0;
+	int sum = 0;
 	for (int i = 0; i < passed.length / 2; i++) {
 	    sum += (passed[i] * passed[passed.length - (i + 1)]);
 	}

@@ -13,7 +13,7 @@ public class ExtractPerfectNumbers {
     }
 
     public static int[] extraPerfect(int number) {
-	var perfectNumbers = new TreeSet<Integer>();
+	TreeSet<Integer> perfectNumbers = new TreeSet<Integer>();
 
 	for (int i = 1; i <= number; i++) {
 	    if (Integer.toBinaryString(i).matches("^1[10]*1$||^1$")) {

@@ -4,6 +4,7 @@
 package practice.java.collection.factorymethods;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class ListFactoryMethodExample {
 	}
 
 	public static void newUnmodifiableList() {
-		List<Integer> numbers = List.of(1, 2);
+		List<Integer> numbers = Arrays.asList(1, 2);
 		System.out.println(numbers);
 	}
 

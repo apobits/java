@@ -7,7 +7,7 @@ public class BSTInOrderSuccessor {
     private static Set<Integer> set = new TreeSet<>();
 
     public static void main(String[] args) {
-	var root = new Node(4);
+	Node root = new Node(4);
 	root.left = new Node(2);
 	root.left.parent = root;
 	root.left.left = new Node(1);

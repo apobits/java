@@ -4,7 +4,6 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>JavaPractice</groupId>
     <artifactId>JavaPractice</artifactId>
-    <packaging>pom</packaging>
     <version>1.0</version>
     <build>
         <sourceDirectory>src</sourceDirectory>
@@ -13,28 +12,29 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.5.1</version>
                 <configuration>
-                    <source>13</source>
-                    <target>13</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
                 <configuration>
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>practice.java.io.FileInputStreamExample</mainClass>
+                            <mainClass>practice.java.practice.DailyPracticeExample</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-<!--    <modules>-->
-<!--        <module>JavaPracticeModule</module>-->
-<!--    </modules>-->
+    <!--    <modules>-->
+    <!--        <module>JavaPracticeModule</module>-->
+    <!--    </modules>-->
     <dependencies>
         <!-- https://mvnrepository.com/artifact/oracle/ojdbc6 -->
         <dependency>
@@ -56,11 +56,6 @@
             <groupId>javax.activation</groupId>
             <artifactId>activation</artifactId>
             <version>1.1.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.pdfbox</groupId>
-            <artifactId>pdfbox</artifactId>
-            <version>2.0.4</version>
         </dependency>
         <dependency>
             <groupId>org.apache.pdfbox</groupId>
@@ -91,13 +86,6 @@
             <version>5.5.2</version>
             <scope>test</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.5.2</version>
-            <scope>test</scope>
-        </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -105,16 +93,6 @@
             <scope>compile</scope>
         </dependency>
 
-		<dependency>
-			<groupId>hn.com.tigo.tbo</groupId>
-			<artifactId>TigoBusinessOnline-Common</artifactId>
-			<version>2.1</version>
-		</dependency>
-		<dependency>
-			<groupId>hn.com.tigo.tbo</groupId>
-			<artifactId>TigoBusinessOnline-EJB</artifactId>
-			<version>2.1</version>
-		</dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
         <dependency>
             <groupId>org.apache.poi</groupId>
@@ -133,7 +111,5 @@
             <id>datanucleus</id>
             <url>http://www.datanucleus.org/downloads/maven2/</url>
         </repository>
-
-
     </repositories>
 </project>

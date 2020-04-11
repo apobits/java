@@ -13,7 +13,7 @@ public class QueueByArrayImproved {
     }
 
     public static void main(String[] args) {
-	var queue = new QueueByArrayImproved(2);
+	QueueByArrayImproved queue = new QueueByArrayImproved(2);
 	queue.offer(1);
 	queue.offer(2);
 	System.out.println(queue.poll());
@@ -61,7 +61,7 @@ public class QueueByArrayImproved {
     }
 
     private void resize() {
-	var newArray = new int[array.length * 2];
+	int[] newArray = new int[array.length * 2];
 	if (pollIndex < array.length) {
 	    System.arraycopy(array, pollIndex, newArray, 0, array.length - pollIndex);
 	}

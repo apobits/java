@@ -3,7 +3,7 @@ package practice.java.datastructuresandalgorithms;
 public class BinarySearch {
 
     public static void main(String args[]) {
-	var numbers = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+	int[] numbers = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 	System.out.println(binarySearchIterative(numbers, 6));
 	System.out.println(binarySearchRecursive(numbers, 6));
 
@@ -18,7 +18,7 @@ public class BinarySearch {
 	    return false;
 	}
 
-	var mid = (end - start) / 2 + start;
+	int mid = (end - start) / 2 + start;
 
 	if (numbers[mid] == number) {
 	    return true;
@@ -37,7 +37,7 @@ public class BinarySearch {
 
     private static boolean binarySearchIterative(int[] numbers, int number, int start, int end) {
 	while (start < end) {
-	    var mid = start + (end - start) / 2;
+	    int mid = start + (end - start) / 2;
 	    if (numbers[mid] == number) {
 		return true;
 	    }

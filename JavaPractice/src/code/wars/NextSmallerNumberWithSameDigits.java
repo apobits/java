@@ -20,12 +20,12 @@ public class NextSmallerNumberWithSameDigits {
 	    return -1;
 	}
 
-	var number = String.valueOf(n);
-	var original = number;
-	var set = new TreeSet<String>();
+	String number = String.valueOf(n);
+	String original = number;
+	TreeSet<String> set = new TreeSet<String>();
 
 	do {
-	    var temp = number;
+	    String temp = number;
 	    temp = number.substring(0, 1) + number.substring(number.length() - 1) + number
 			    .substring(1, number.length() - 1);
 	    set.add(temp);

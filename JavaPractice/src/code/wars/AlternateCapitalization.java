@@ -8,8 +8,8 @@ public class AlternateCapitalization {
     }
 
     public static String[] capitalize(String s) {
-	var sb1 = new StringBuilder();
-	var sb2 = new StringBuilder();
+	StringBuilder sb1 = new StringBuilder();
+	StringBuilder sb2 = new StringBuilder();
 	for (int i = 0; i < s.length(); i++) {
 	    if (i % 2 == 0) {
 		process(sb1, s.substring(i, i + 1), true);

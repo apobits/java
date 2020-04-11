@@ -11,7 +11,7 @@ public class Persist {
 
     public static int persistence(long n) {
 	int counter = 0;
-	var number = String.valueOf(n);
+	String number = String.valueOf(n);
 
 	while (number.length() > 1) {
 	    int computedNumber = 1;

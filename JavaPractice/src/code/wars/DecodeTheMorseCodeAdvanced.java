@@ -1,6 +1,7 @@
 package code.wars;
 
 import java.util.Arrays;
+import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -17,9 +18,9 @@ public class DecodeTheMorseCodeAdvanced {
 
     public static String decodeBits(String bits) {
 	bits = trimZeros(bits);
-	var stringBuilder = new StringBuilder();
+	StringBuilder stringBuilder = new StringBuilder();
 	int zeroCounter = 0, oneCounter = 0;
-	var timeUnit = getTimeUnit(bits);
+	int timeUnit = getTimeUnit(bits);
 	for (int i = 0; i < bits.length(); i++) {
 	    if (bits.charAt(i) == 48) {
 		zeroCounter++;
@@ -49,8 +50,8 @@ public class DecodeTheMorseCodeAdvanced {
 	if (msg.length() < 2) {
 	    return msg;
 	}
-	var start = 0;
-	var end = msg.length();
+	int start = 0;
+	int end = msg.length();
 	for (int i = 0; i < msg.length(); i++) {
 	    if (msg.charAt(i) == '1') {
 		start = i;
@@ -85,8 +86,8 @@ public class DecodeTheMorseCodeAdvanced {
 
     private static int getTimeUnit(String message) {
 	String[] ones = message.split("0+");
-	var onesSet = new TreeSet<String>(Arrays.asList(ones));
-	var zerosSet = Stream.of(message.split("1+")).filter(t -> t.length() > 0)
+	TreeSet<String> onesSet = new TreeSet<String>(Arrays.asList(ones));
+	TreeSet<String> zerosSet = Stream.of(message.split("1+")).filter(t -> t.length() > 0)
 			.collect(Collectors.toCollection(() -> new TreeSet<String>()));
 	if (onesSet.size() == 2) {
 	    return onesSet.first().length();

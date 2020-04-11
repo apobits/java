@@ -37,7 +37,7 @@ public class HumanReadableDurationFormat {
 	    seconds = secondsParameter;
 	}
 
-	var sb = new StringBuilder();
+	StringBuilder sb = new StringBuilder();
 	if (years != 0) {
 	    counter++;
 	    sb.append(years).append(years == 1 ? " year, " : " years, ");
@@ -65,7 +65,7 @@ public class HumanReadableDurationFormat {
 	sb.setLength(sb.length() - 2);
 
 	if (counter > 1) {
-	    var lastIndex = sb.lastIndexOf(",");
+	    int lastIndex = sb.lastIndexOf(",");
 	    sb.replace(lastIndex, lastIndex + 1, " and");
 	}
 

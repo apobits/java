@@ -5,7 +5,7 @@ public class Stack {
     private Node head;
 
     public static void main(String[] args) {
-	var stack = new Stack();
+	Stack stack = new Stack();
 
 	stack.push(1);
 	stack.push(2);
@@ -29,7 +29,7 @@ public class Stack {
     }
 
     public int pop() {
-	var data = head.data;
+	int data = head.data;
 	head = head.next;
 	return data;
     }

@@ -15,14 +15,14 @@ public class AutomorphicNumber {
     }
 
     public static String autoMorphic(int number) {
-	var square = String.valueOf((int) Math.pow(number, 2));
-	var numberS = String.valueOf(number);
+	String square = String.valueOf((int) Math.pow(number, 2));
+	String numberS = String.valueOf(number);
 	return square.substring(square.length() - numberS.length()).equals(numberS) ? "Automorphic" : "Not!!";
     }
 
     public static String autoMorphicV2(int number) {
-	var square = number * number;
-	var digits = Math.pow(10, String.valueOf(number).length());
+	int square = number * number;
+	double digits = Math.pow(10, String.valueOf(number).length());
 	return square % digits == number ? "Automorphic" : "Not!!";
     }
 }

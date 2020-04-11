@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class QuickSort {
 
     public static void main(String args[]) {
-	var numbers = new int[] { 2, 3, 1, 8, 6, 5 };
+	int[] numbers = new int[] { 2, 3, 1, 8, 6, 5 };
 	quickSort(numbers);
 	System.out.println(Arrays.toString(numbers));
     }
@@ -18,10 +18,10 @@ public class QuickSort {
 	if (start >= end) {
 	    return;
 	}
-	var middleIndex = (start + end) / 2;
-	var pivot = numbers[middleIndex];
-	var left = start;
-	var right = end;
+	int middleIndex = (start + end) / 2;
+	int pivot = numbers[middleIndex];
+	int left = start;
+	int right = end;
 	while (left < right) {
 	    while (numbers[left] < pivot) {
 		left++;

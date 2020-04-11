@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package practice.java.date.format;
 
@@ -13,17 +13,17 @@ import java.util.Locale;
  */
 public class NumberFormatExample {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		var currencyFormat = NumberFormat.getCurrencyInstance();
-		var percentFormat = NumberFormat.getPercentInstance();
-		var currencyFormat1 = NumberFormat.getCurrencyInstance(Locale.US);
-		var percentFormat1 = DecimalFormat.getCurrencyInstance();
-		System.out.println("Currency: " + currencyFormat.format(15));
-		System.out.println("Percent: " + percentFormat.format(0.5));
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+	NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
+	NumberFormat percentFormat = NumberFormat.getPercentInstance();
+	NumberFormat currencyFormat1 = NumberFormat.getCurrencyInstance(Locale.US);
+	NumberFormat percentFormat1 = DecimalFormat.getCurrencyInstance();
+	System.out.println("Currency: " + currencyFormat.format(15));
+	System.out.println("Percent: " + percentFormat.format(0.5));
 
-	}
+    }
 
 }

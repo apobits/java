@@ -41,7 +41,7 @@ public class BubbleSort {
     }
 
     public static void main(String args[]) {
-        var array = new Integer[]{2, 1, 3, 7, 6, 5, 4};
+        Integer[] array = new Integer[]{2, 1, 3, 7, 6, 5, 4};
         sortImprove(array);
         System.out.println(Arrays.deepToString(array));
     }

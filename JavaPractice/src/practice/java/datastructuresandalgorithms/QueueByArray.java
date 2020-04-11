@@ -13,7 +13,7 @@ public class QueueByArray {
     }
 
     public static void main(String[] args) {
-	var queue = new QueueByArray(2);
+	QueueByArray queue = new QueueByArray(2);
 	queue.offer(1);
 	queue.offer(2);
 	queue.offer(3);
@@ -46,7 +46,7 @@ public class QueueByArray {
 	if (pollIndex == numbers.length) {
 	    pollIndex = 0;
 	}
-	var result = numbers[pollIndex];
+	int result = numbers[pollIndex];
 	numbers[pollIndex++] = null;
 	return result;
     }

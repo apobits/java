@@ -39,7 +39,7 @@ public class AlphabeticalAddition {
     }
 
     public static String addLetters(String... letters) {
-	var sum = 0;
+	int sum = 0;
 	for (String letter : letters) {
 	    sum += letterss.get(letter);
 	}
@@ -47,7 +47,7 @@ public class AlphabeticalAddition {
 	    sum = sum % 26;
 	}
 	if (sum > 0) {
-	    var total = sum;
+	    int total = sum;
 	    return letterss.entrySet().stream().filter(t -> t.getValue() == total).map(t -> t.getKey())
 			    .collect(Collectors.joining());
 	}

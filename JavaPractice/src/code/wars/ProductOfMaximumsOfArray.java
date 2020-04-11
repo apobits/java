@@ -12,7 +12,7 @@ public class ProductOfMaximumsOfArray {
     public static long maxProduct(int[] numbers, int sub_size) {
 	System.out.println(Arrays.toString(numbers));
 	Arrays.sort(numbers);
-	var index = numbers.length - 1;
+	int index = numbers.length - 1;
 	long product = 1;
 	for (int i = 0; i < sub_size; i++) {
 	    if (0 <= index && index < numbers.length) {

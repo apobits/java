@@ -1,6 +1,7 @@
 package code.wars;
 
 import java.util.Collections;
+import java.util.List;
 import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -15,7 +16,7 @@ public class MovesInSquaredStrings {
     }
 
     public static String horMirror(String str) {
-	var list = Stream.of(str.split(NEW_LINE)).collect(Collectors.toList());
+	List<String> list = Stream.of(str.split(NEW_LINE)).collect(Collectors.toList());
 	Collections.reverse(list);
 	return list.stream().collect(Collectors.joining(NEW_LINE));
     }

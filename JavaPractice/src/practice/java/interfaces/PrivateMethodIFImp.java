@@ -7,7 +7,7 @@ package practice.java.interfaces;
  * @author aposo
  *
  */
-public class PrivateMethodIFImp implements PrivateMethodIF {
+public class PrivateMethodIFImp {
 
 	/**
 	 * @param args

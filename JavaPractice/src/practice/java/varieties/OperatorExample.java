@@ -25,7 +25,7 @@ public class OperatorExample {
 	}
 
 	public static void typeComparisonOperator() {
-		var x = Integer.valueOf(1);
+		Integer x = Integer.valueOf(1);
 		System.out.println(x instanceof Integer);
 	}
 

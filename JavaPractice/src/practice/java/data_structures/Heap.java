@@ -15,7 +15,7 @@ public class Heap {
     }
 
     public static void main(String[] args) {
-	var heap = new Heap(10);
+	Heap heap = new Heap(10);
 	heap.add(4);
 	heap.add(2);
 	heap.add(3);

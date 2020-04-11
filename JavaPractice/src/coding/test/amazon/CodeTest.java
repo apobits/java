@@ -51,7 +51,7 @@ public class CodeTest {
 
     public static ArrayList<String> topNCompetitorsImproved(int numCompetitors, int topNCompetitors,
 		    List<String> competitors, int numReviews, List<String> reviews) {
-	var competitorsCounter = new HashMap<String, Integer>();
+	HashMap<String, Integer> competitorsCounter = new HashMap<String, Integer>();
 	for (String review : reviews) {
 	    for (String competitor : competitors) {
 		if (review.contains(competitor)) {
@@ -60,7 +60,7 @@ public class CodeTest {
 		}
 	    }
 	}
-	var topNCompetitorsMapping = new TreeMap<Integer, List<String>>(Comparator.reverseOrder());
+	TreeMap<Integer, List<String>> topNCompetitorsMapping = new TreeMap<Integer, List<String>>(Comparator.reverseOrder());
 	for (Map.Entry<String, Integer> entry : competitorsCounter.entrySet()) {
 	    topNCompetitorsMapping.merge(entry.getValue(), Arrays.asList(entry.getKey()), (t, u) -> {
 		t.addAll(u);
@@ -68,7 +68,7 @@ public class CodeTest {
 	    });
 	}
 
-	var result = new ArrayList<String>();
+	ArrayList<String> result = new ArrayList<String>();
 	topNCompetitorsMapping.keySet().forEach(t -> result.addAll(topNCompetitorsMapping.get(t)));
 
 	return new ArrayList<>(result.subList(0, topNCompetitors));

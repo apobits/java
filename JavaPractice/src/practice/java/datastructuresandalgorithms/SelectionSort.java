@@ -43,7 +43,7 @@ public class SelectionSort {
     }
 
     public static void main(String[] args) {
-        var numbers = new Integer[]{3, 2, 1};
+        Integer[] numbers = new Integer[]{3, 2, 1};
 //        var temp = new Integer[numbers.length];
 //        sort(numbers, temp);
 //        System.out.println(Arrays.deepToString(numbers));

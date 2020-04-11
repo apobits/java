@@ -1,6 +1,7 @@
 package practice.java.practice;
 
-import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * @author apobits@gmail.com
@@ -8,7 +9,9 @@ import java.io.IOException;
 
 public class DailyPracticeExample {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
+	SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:MM:ss");
+	System.out.println(simpleDateFormat.format(new Date()));
 
     }
 

@@ -7,7 +7,7 @@ public class Dubstep {
     }
 
     public static String SongDecoderOld(String song) {
-	var words = song.split("WUB");
+	String[] words = song.split("WUB");
 	StringBuilder stringBuilder = new StringBuilder();
 	for (int i = 0; i < words.length; i++) {
 	    if (!words[i].equals("WUB") && !words[i].equals("")) {

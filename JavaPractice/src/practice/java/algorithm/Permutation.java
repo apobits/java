@@ -12,11 +12,11 @@ public class Permutation {
     }
 
     public static List<String> getPermutations(String number) {
-	var set = new ArrayList<String>();
+	ArrayList<String> set = new ArrayList<String>();
 
 	for (String x : prepareInitialNumbers(number)) {
-	    var prefix = x.substring(0, 1);
-	    var temp = x.substring(1);
+	    String prefix = x.substring(0, 1);
+	    String temp = x.substring(1);
 	    if (temp.length() == 1) {
 		set.add(prefix + temp);
 	    } else {
@@ -50,9 +50,9 @@ public class Permutation {
     //    }
 
     private static List<String> prepareInitialNumbers(String number) {
-	var list = new ArrayList<String>();
+	ArrayList<String> list = new ArrayList<String>();
 	for (int i = 0; i < number.length(); i++) {
-	    var temp = number.substring(1) + number.substring(0, 1);
+	    String temp = number.substring(1) + number.substring(0, 1);
 	    list.add(temp);
 	    number = temp;
 	}

@@ -13,16 +13,16 @@ public class TheObservedPIN {
     }
 
     public static List<String> getPINs(String observed) {
-	var list = new ArrayList<String>();
+	ArrayList<String> list = new ArrayList<String>();
 	for (int i = 0; i < observed.length(); i++) {
-	    var value = Integer.valueOf(observed.substring(i, i + 1));
-	    var adjacent = getAdjacent(value);
+	    int value = Integer.valueOf(observed.substring(i, i + 1));
+	    int[] adjacent = getAdjacent(value);
 	    if (list.isEmpty()) {
 		for (Integer number : adjacent) {
 		    list.add(String.valueOf(number));
 		}
 	    } else {
-		var tempSet = new ArrayList<String>();
+		ArrayList<String> tempSet = new ArrayList<String>();
 		for (Integer number : adjacent) {
 		    for (String s : list) {
 			tempSet.add(s + number);

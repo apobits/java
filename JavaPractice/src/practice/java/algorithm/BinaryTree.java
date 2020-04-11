@@ -12,7 +12,7 @@ public class BinaryTree {
     private Map<Integer, TreeSet<Integer>> levels = new HashMap<>();
 
     public static void main(String[] args) {
-	var binaryTree = new BinaryTree();
+	BinaryTree binaryTree = new BinaryTree();
 	binaryTree.insert(4);
 	binaryTree.insert(2);
 	binaryTree.insert(1);
@@ -23,7 +23,7 @@ public class BinaryTree {
 	binaryTree.insert(7);
 	binaryTree.insert(9);
 
-	var binaryTree2 = new BinaryTree();
+	BinaryTree binaryTree2 = new BinaryTree();
 	binaryTree2.insert(4);
 	binaryTree2.insert(2);
 	binaryTree2.insert(1);
@@ -37,8 +37,8 @@ public class BinaryTree {
     }
 
     public static boolean checkInOrder(Node node1, Node node2) {
-	var linkedList1 = new LinkedList<Integer>();
-	var linkedList2 = new LinkedList<Integer>();
+	LinkedList<Integer> linkedList1 = new LinkedList<Integer>();
+	LinkedList<Integer> linkedList2 = new LinkedList<Integer>();
 
 	traverseInOrder(node1, linkedList1);
 	traverseInOrder(node2, linkedList2);

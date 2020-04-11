@@ -1,9 +1,7 @@
 package practice.java.varieties;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -14,8 +12,8 @@ public class BalancedParenthesesInAString {
     }
 
     public static boolean isBalanced(String s) {
-	var linkedList = new LinkedList<String>();
-	var map = new HashMap<String, String>();
+	LinkedList<String> linkedList = new LinkedList<String>();
+	HashMap<String, String> map = new HashMap<String, String>();
 	map.put(")", "(");
 	map.put("}", "{");
 	map.put("]", "[");

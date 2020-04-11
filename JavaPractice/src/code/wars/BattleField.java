@@ -45,8 +45,8 @@ public class BattleField {
     }
 
     private static boolean detectShip(int[][] field, int x, int y) {
-	var down = y < field.length - 1 && field[y + 1][x] == 1;
-	var right = x < field[y].length - 1 && field[y][x + 1] == 1;
+	boolean down = y < field.length - 1 && field[y + 1][x] == 1;
+	boolean right = x < field[y].length - 1 && field[y][x + 1] == 1;
 	if (down && right) {
 	    return false;
 	}

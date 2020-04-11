@@ -46,11 +46,11 @@ public class RomanNumeralsEncoder {
     }
 
     public static String solution(int n) {
-	var number = String.valueOf(n);
-	var counter = 0;
-	var stringBuilder = new StringBuilder();
+	String number = String.valueOf(n);
+	int counter = 0;
+	StringBuilder stringBuilder = new StringBuilder();
 	for (int i = number.length() - 1; i > -1; i--) {
-	    var digit = number.substring(i, i + 1);
+	    String digit = number.substring(i, i + 1);
 	    counter++;
 	    if (digit.equals("0")) {
 		continue;

@@ -11,8 +11,8 @@ public class RowSumOddNumbers {
     }
 
     public static int rowSumOddNumbers(int n) {
-	var lastOddNumber = -1;
-	var sum = 0;
+	int lastOddNumber = -1;
+	int sum = 0;
 	for (int i = 1; i <= n; i++) {
 	    for (int j = 0; j < i; j++) {
 		lastOddNumber += 2;

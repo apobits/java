@@ -16,7 +16,7 @@ public class BalancedNumber {
 	    return "Balanced";
 	}
 	int left = 0, right = 0;
-	var middleIndex = numbers.length % 2 == 0 ? (numbers.length / 2) - 1 : numbers.length / 2;
+	int middleIndex = numbers.length % 2 == 0 ? (numbers.length / 2) - 1 : numbers.length / 2;
 
 	for (int i = 0; i < middleIndex; i++) {
 	    left += numbers[i];

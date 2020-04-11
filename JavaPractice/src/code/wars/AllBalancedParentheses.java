@@ -10,7 +10,7 @@ public class AllBalancedParentheses {
     }
 
     public static List<String> balancedParens(int n) {
-	var data = new String[n];
+	String[] data = new String[n];
 	for (int i = 0; i < n; i++) {
 	    data[i] = i % 2 == 0 ? "(" : ")";
 	}

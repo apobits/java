@@ -12,7 +12,7 @@ public class WillYouSurviveTheZombieOnslaught {
     public static String zombieShootout(int zombies, int range, int ammo) {
 	System.out.printf("zombies %s, range %s, ammo %s\n", zombies, range, ammo);
 
-	var secondsToBeEaten = range * 2;
+	int secondsToBeEaten = range * 2;
 
 	if (zombies <= secondsToBeEaten) {
 	    if (ammo >= zombies) {

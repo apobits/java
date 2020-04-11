@@ -10,7 +10,7 @@ public class ReversedSequence {
     }
 
     public static int[] reverse(int n) {
-	var result = new int[n];
+	int[] result = new int[n];
 	for (int i = n; i > 0; i--) {
 	    result[n - i] = i;
 	}

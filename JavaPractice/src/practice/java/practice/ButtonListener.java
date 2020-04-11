@@ -15,7 +15,7 @@ public class ButtonListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-	var jFileChooser = new JFileChooser();
+	JFileChooser jFileChooser = new JFileChooser();
 	((JTextField)jPanel.getComponent(1)).getText();
 	jFileChooser.addActionListener(new FileListener());
 	jFileChooser.showOpenDialog(null);

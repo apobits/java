@@ -11,7 +11,7 @@ public class CountTheDivisorsOfANumber {
     }
 
     public static long numberOfDivisors(int n) {
-	return Stream.iterate(1, t -> t <= n, t -> ++t).filter(t -> n % t == 0).count();
+	return Stream.iterate(1, t -> ++t).filter(t -> n % t == 0).count();
     }
 
 }

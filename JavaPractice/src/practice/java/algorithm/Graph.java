@@ -10,7 +10,7 @@ public class Graph {
     private static Map<Integer, Node> nodes = new HashMap<>();
 
     public static void main(String[] args) {
-	var graph = new Node(1);
+	Node graph = new Node(1);
 
 	graph.addEdge(1, 2);
 	graph.addEdge(1, 3);
@@ -36,7 +36,7 @@ public class Graph {
 	}
 
 	public Node getNode(int id) {
-	    var node = nodes.get(id);
+	    Node node = nodes.get(id);
 	    if (node == null) {
 		node = new Node(id);
 		nodes.put(id, node);
@@ -45,14 +45,14 @@ public class Graph {
 	}
 
 	public void addEdge(int source, int dest) {
-	    var sourceNode = getNode(source);
-	    var destNode = getNode(dest);
+	    Node sourceNode = getNode(source);
+	    Node destNode = getNode(dest);
 	    sourceNode.adjacent.add(destNode);
 	}
 
 	public boolean hasPathDFS(int source, int dest) {
-	    var sourceNode = getNode(source);
-	    var destNode = getNode(dest);
+	    Node sourceNode = getNode(source);
+	    Node destNode = getNode(dest);
 	    HashSet<Integer> visited = new HashSet<>();
 	    return hasPathDFS(sourceNode, destNode, visited);
 	}
@@ -84,7 +84,7 @@ public class Graph {
 	    HashSet<Integer> visited = new HashSet<>();
 	    nodes.add(source);
 	    while (!nodes.isEmpty()) {
-		var node = nodes.remove();
+		Node node = nodes.remove();
 		if (node.id == dest.id) {
 		    return true;
 		}
@@ -100,13 +100,13 @@ public class Graph {
 	}
 
 	public int shortestPathLength(int source, int dest) {
-	    var sourceNode = getNode(source);
-	    var queue = new LinkedList<Node>();
-	    var visited = new HashSet<Integer>();
+	    Node sourceNode = getNode(source);
+	    LinkedList<Node> queue = new LinkedList<Node>();
+	    HashSet<Integer> visited = new HashSet<Integer>();
 	    queue.offer(sourceNode);
 	    NodeHelper starterNode = new NodeHelper(sourceNode.id, null, null);
 	    while (!queue.isEmpty()) {
-		var node = queue.poll();
+		Node node = queue.poll();
 		if (node.id == dest) {
 		    break;
 		}
@@ -118,7 +118,7 @@ public class Graph {
 		queue.addAll(node.adjacent);
 	    }
 
-	    var count = 0;
+	    int count = 0;
 
 	    return count == 0 ? -1 : count;
 	}

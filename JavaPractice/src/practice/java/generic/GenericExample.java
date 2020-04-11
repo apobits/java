@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package practice.java.generic;
 
@@ -12,50 +12,50 @@ import java.util.List;
  */
 public class GenericExample<T, S, U> {
 
-	// non static field can be generic
-	private T t;
+    // non static field can be generic
+    private T t;
 
-	// non static method can use generic parameter
-	public void doSomething(T t) {
+    public static <S> void doSomethingElse(S s) {
 
-	}
+    }
 
-	// Generic static fields are not allowed
-//	public static T t;
+    // Generic static fields are not allowed
+    //	public static T t;
 
-	// static methods can not use generic parameters if the methods itself are not
-	// generic
-//	public static void doSomething(T t) {
-//		
-//	}
+    // static methods can not use generic parameters if the methods itself are not
+    // generic
+    //	public static void doSomething(T t) {
+    //
+    //	}
 
-	public static <S> void doSomethingElse(S s) {
+    public static void main(String[] args) {
 
-	}
+	// type inference
+	// <> diamond
+	GenericExample<String, String, Integer> ge = new GenericExample<>();
 
-	public static void main(String[] args) {
+	// using var
+	GenericExample<String, String, Integer> ge1 = new GenericExample<String, String, Integer>();
 
-		// type inference
-		// <> diamond
-		GenericExample<String, String, Integer> ge = new GenericExample<>();
+	doSomethingElse(Integer.valueOf(1));
 
-		// using var
-		var ge1 = new GenericExample<String, String, Integer>();
+	// using parameterized types as type parameter
+	HashMap<Integer, List<String>> map = new HashMap<Integer, List<String>>();
 
-		doSomethingElse(Integer.valueOf(1));
+	// raw type
+	ge = new GenericExample();
 
-		// using parameterized types as type parameter
-		var map = new HashMap<Integer, List<String>>();
+	// type inference
+	GenericMethodExample.doSomething(ge);
 
-		// raw type
-		ge = new GenericExample();
+	// defining type arguments explicitly
+	GenericMethodExample.<String, String, Integer>doSomething(ge);
 
-		// type inference
-		GenericMethodExample.doSomething(ge);
+    }
 
-		// defining type arguments explicitly
-		GenericMethodExample.<String, String, Integer>doSomething(ge);
+    // non static method can use generic parameter
+    public void doSomething(T t) {
 
-	}
+    }
 
 }
