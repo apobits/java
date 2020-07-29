@@ -24,7 +24,7 @@ public class LocaleExample {
 		// Creating a locale with the specified language, country an variant codes
 		Locale locale2 = new Locale(Locale.ENGLISH.toString(), Locale.US.toString(), "co");
 
-		// Using Builder class to create locale
+		// Using BuilderExample class to create locale
 		Builder localeBuilder = new Builder();
 		localeBuilder.setLanguage(Locale.ENGLISH.toString());
 		Locale locale3 = localeBuilder.build();
