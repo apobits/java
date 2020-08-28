@@ -1,6 +1,7 @@
 package practice.java.algorithm;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CyclesInALinkedList {
 
@@ -24,7 +25,7 @@ public class CyclesInALinkedList {
 	next6.next = next7;
 	next7.next = next4;
 
-	assertEquals(true, hasACycle(head));
+	assertTrue(hasACycle(head));
     }
 
     public static boolean hasACycle(Node node) {
