@@ -11,7 +11,7 @@ public class Graph {
 
     public static void main(String[] args) {
 	Node graph = new Node(1);
-
+	nodes.put(1, graph);
 	graph.addEdge(1, 2);
 	graph.addEdge(1, 3);
 	graph.addEdge(1, 4);
@@ -23,7 +23,7 @@ public class Graph {
 	graph.addEdge(4, 10);
 	graph.addEdge(6, 9);
 
-	System.out.println(graph.shortestPathLength(1, 9));
+	System.out.println(graph.hasPathDFS(1, 9));
 
     }
 
